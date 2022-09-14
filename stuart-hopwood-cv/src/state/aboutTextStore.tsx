@@ -35,7 +35,7 @@ const accessToken = useGlobalStore.getState().accessToken;
 const showSuccessMessage = () => toast.success("✔️ New About Text Content has been saved");
 const showErrorMessage = (errorText: string) => toast.error(`⛔️ ${errorText}`);
 
-export const useAboutTextStore = create<AboutTextState>(devtools((set, get) => ({
+export const useAboutTextStore = create<AboutTextState>((set, get) => ({
     isRecords: false,
     id: 1,
     text: "",
@@ -78,4 +78,4 @@ export const useAboutTextStore = create<AboutTextState>(devtools((set, get) => (
             showErrorMessage("Something went wrong fetching the AboutText.");
         }
     }
-})));
+}));

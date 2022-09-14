@@ -6,7 +6,7 @@ export type GlobalState = {
     setAccessToken: (token: string) => void;
 };
 
-export const useGlobalStore = create<GlobalState>(devtools((set) => ({
+export const useGlobalStore = create<GlobalState>((set) => ({
     accessToken: "",
     setAccessToken: (token: string) => set({ accessToken: token })
-})));
+}));

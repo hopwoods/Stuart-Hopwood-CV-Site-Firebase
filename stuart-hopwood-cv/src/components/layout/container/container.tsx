@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
+import { ReactNode } from "react";
 import { style } from "./container.css";
 
-export const Container: React.FC = ({ children }) => {
+export function Container({ children }: { children?: ReactNode }) {
   return <div css={style}>{children}</div>;
 };

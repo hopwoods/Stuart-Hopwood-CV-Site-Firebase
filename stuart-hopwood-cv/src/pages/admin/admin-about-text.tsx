@@ -17,7 +17,7 @@ const Banner: React.FC = () => {
   );
 };
 
-export const AdminAboutText: React.FC = () => {
+export function AdminAboutText() {
   const { id, text, loading, setText, getAboutText, updateAboutText } = useAboutTextStore();
 
   useEffect(() => {
