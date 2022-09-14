@@ -1,34 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+/** @jsxImportSource @emotion/react */
+import React from 'react'
 import './App.css'
+import { Bubbles, About, Page } from './components/layout'
+import { Button } from '@material-ui/core'
+import { HashLink } from 'react-router-hash-link'
+import ScrollToTopButton from './components/controls/buttons/scrollToTopButton'
+import { toTopButton } from './App.css'
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
-function App() {
-  const [count, setCount] = useState(0)
+//TODO: Change Button colour to white.
+//TODO: Change to Function from FC.
+function Banner() {
+    return (
+        <React.Fragment>
+            <p>
+                Hello I'm <span className="name">Stuart Hopwood.</span>
+                <br />
+                I'm a full stack Developer.
+            </p>
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+            <Button className="about" variant="outlined" color="secondary" size="large" endIcon={<ArrowDownwardIcon />} component={HashLink} to="/#about" smooth>
+                Find Out More
+            </Button>
+            <Bubbles />
+        </React.Fragment>
+    )
+
 }
 
+function App() {
+    return (
+        <React.Fragment>
+            <Page id="Home" fullscreen={true} BannerContent={Banner}>
+                <About />
+                <div css={toTopButton}>
+                    <ScrollToTopButton color="secondary" />
+                </div>
+            </Page>
+        </React.Fragment>
+    )
+}
 export default App
+
