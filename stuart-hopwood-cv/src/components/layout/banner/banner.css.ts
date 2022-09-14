@@ -67,7 +67,8 @@ export const style = css`
   grid-area: banner;
   padding: 1em;
   color: ${themeColors.white};
-  font-size: 2rem;
+  font-size: 3rem;
+  line-height: 1.3;
   justify-self: stretch;
   align-self: stretch;
   height: fit-content;
@@ -77,6 +78,7 @@ export const style = css`
   grid-row-gap: 3em;
   justify-items: center;
   align-items: center;
+  text-align: center;
   font-family: ${FontFamilies.secondary};
   font-weight: 100;
   background: linear-gradient(

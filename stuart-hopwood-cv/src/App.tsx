@@ -5,7 +5,7 @@ import { Bubbles, About, Page } from './components/layout'
 import { Button } from '@material-ui/core'
 import { HashLink } from 'react-router-hash-link'
 import ScrollToTopButton from './components/controls/buttons/scrollToTopButton'
-import { toTopButton } from './App.css'
+import { subTitle, toTopButton } from './App.css'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 //TODO: Change Button colour to white.
@@ -16,7 +16,7 @@ function Banner() {
             <p>
                 Hello I'm <span className="name">Stuart Hopwood.</span>
                 <br />
-                I'm a full stack Developer.
+                <span css={subTitle}>I'm a full stack Developer.</span>
             </p>
 
             <Button className="about" variant="outlined" color="secondary" size="large" endIcon={<ArrowDownwardIcon />} component={HashLink} to="/#about" smooth>
