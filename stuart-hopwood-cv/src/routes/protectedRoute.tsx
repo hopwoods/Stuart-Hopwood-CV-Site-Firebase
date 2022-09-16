@@ -1,14 +1,15 @@
 import React, { ReactNode } from "react";
-import { Routes, Route, Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+import { useGlobalStore } from "../state";
 
 type ProtectedRouteProps = {
-  user?: any;
   redirectPath: string
   children: ReactNode;
 };
 
-export function ProtectedRoute({ user, redirectPath, children }: ProtectedRouteProps) {
-  if (!user) {
+export function ProtectedRoute({ redirectPath, children }: ProtectedRouteProps) {
+  const { isAuthenticated } = useGlobalStore()
+  if (!isAuthenticated) {
     return <Navigate to={redirectPath} replace />;
   }
 

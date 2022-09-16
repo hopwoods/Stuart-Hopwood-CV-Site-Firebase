@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from "@material-ui/core";
-import { SkillExampleProps } from "../../../types";
-import { SkillExampleInput } from "../../controls";
-import { useSkillsStore } from "../../../state";
-import { useAccessToken } from "../../../Hooks";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from "@mui/material"
+import React, { useRef } from "react"
+import { useAccessToken } from "../../../security/useAccessToken"
+import { useSkillsStore } from "../../../state"
+import { SkillExampleProps } from "../../../types"
+import { SkillExampleInput } from "../../controls"
 export function EditSkillDialog() {
 
     const {
@@ -18,10 +18,12 @@ export function EditSkillDialog() {
         setSkillTarget,
         updateSkill,
         setRecordExists
-    } = useSkillsStore();
+    } = useSkillsStore()
 
-    const formRef = useRef<HTMLFormElement>(null);
-    const accessToken = useAccessToken();
+    const formRef = useRef<HTMLFormElement>(null)
+
+    //TODO: Remove Access Token Hook
+    const accessToken = useAccessToken()
 
     const skillExampleTextBoxes = (examples?: SkillExampleProps[]) => {
         if (examples) {
@@ -31,37 +33,37 @@ export function EditSkillDialog() {
                         <SkillExampleInput text={example.text} key={idx} index={idx} />
                     )
                 })
-            );
+            )
         }
     }
 
     const handleClose = () => {
-        setEditDialogState(false);
+        setEditDialogState(false)
     }
 
     const addExample = () => {
         const newExample: SkillExampleProps = {
             text: ""
-        };
-        const tempExamples = selectedSkillExamples?.concat(newExample);
+        }
+        const tempExamples = selectedSkillExamples?.concat(newExample)
         if (tempExamples) {
-            setCurrentSkillExamples(tempExamples);
+            setCurrentSkillExamples(tempExamples)
         }
     }
 
     const handleSave = () => {
-        const examples = [...formRef.current?.skillExamples];
-        const newExamples: SkillExampleProps[] = [];
+        const examples = [...formRef.current?.skillExamples]
+        const newExamples: SkillExampleProps[] = []
         examples.forEach(function (example) {
             const newExample: SkillExampleProps = {
                 text: example.value
             }
-            newExamples.push(newExample);
-        });
+            newExamples.push(newExample)
+        })
         setCurrentSkillExamples(newExamples)
-        setRecordExists(true);
-        updateSkill(accessToken);
-        setEditDialogState(false);
+        setRecordExists(true)
+        updateSkill(accessToken)
+        setEditDialogState(false)
     }
 
     return (
@@ -82,7 +84,7 @@ export function EditSkillDialog() {
                             defaultValue={selectedSkillName}
                             placeholder="Enter a skill name..."
                             fullWidth
-                            onChange={(evt: React.ChangeEvent<HTMLInputElement>) => { setSkillName(evt.target.value); }} />
+                            onChange={(evt: React.ChangeEvent<HTMLInputElement>) => { setSkillName(evt.target.value) }} />
                         <TextField
                             autoFocus
                             margin="dense"
@@ -91,7 +93,7 @@ export function EditSkillDialog() {
                             type="number"
                             defaultValue={selectedSkillTargetProgress}
                             placeholder="Enter a target progress..."
-                            onInput={(evt: React.ChangeEvent<HTMLInputElement>) => { setSkillTarget(evt.target.valueAsNumber); }} />
+                            onInput={(evt: React.ChangeEvent<HTMLInputElement>) => { setSkillTarget(evt.target.valueAsNumber) }} />
                         {skillExampleTextBoxes(selectedSkillExamples)}
                         <Button variant="text" color="primary" onClick={() => { addExample() }}>Add Example</Button>
                     </form>

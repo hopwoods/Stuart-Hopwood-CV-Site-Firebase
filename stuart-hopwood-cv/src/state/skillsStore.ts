@@ -14,6 +14,8 @@ type SkillsState = {
 
     maxId: number;
 
+    //TODO - Refactor Selected Skill into Object
+
     /** Unique ID for the selected skill */
     selectedSkillId: number;
 

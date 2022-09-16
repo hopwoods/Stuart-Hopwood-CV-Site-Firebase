@@ -1,25 +1,23 @@
-/** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
-import { style, progressBar, progressCircle, nameStyle, progressBarWrapper } from "./skillsWithProgress.css";
-import { CircularProgressWithLabel } from "./circularProgressWithLabel";
-import { LinearProgress, Tooltip } from "@material-ui/core";
-import { SkillProps } from "../../../types";
+import { LinearProgress, Tooltip } from "@mui/material";
 import { useProgressAnimation } from "../../../Hooks";
+import { SkillProps } from "../../../types";
+import { CircularProgressWithLabel } from "./circularProgressWithLabel";
 import { SkillExamples } from "./skillExamples";
+import { classes } from "./skillsWithProgress.css";
 
 export function SkillWithProgress({ id, skillName, percentage: targetProgress, skillExamples }: SkillProps) {
 
   const progress = useProgressAnimation(targetProgress);
 
   return (
-    <div className="skill" id={id.toString()} css={style}>
+    <div id={id.toString()} className={`${classes.skillsWithProgress} skill`}>
       <Tooltip title={`${targetProgress}% Career Experience`} arrow>
-        <div css={progressBarWrapper}>
-          <span css={nameStyle}>{skillName}</span>
-          <span css={progressBar}>
+        <div className={classes.progressBarWrapper}>
+          <span className={classes.nameStyle}>{skillName}</span>
+          <span className={classes.progressBar}>
             <LinearProgress variant="determinate" value={progress} />
           </span>
-          <span css={progressCircle}>
+          <span className={classes.progressCircle}>
             <CircularProgressWithLabel value={progress} />
           </span>
         </div>

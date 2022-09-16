@@ -1,11 +1,9 @@
-/** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
-import { style } from "./badges.css";
 import { Flip } from "react-reveal";
+import { classes } from "./badges.css";
 
 export const Badges: React.FC = () => {
   return (
-    <article id="badges" css={style}>
+    <article id="badges" className={classes.badge}>
       <Flip left cascade>
         <div>Badge 1</div>
 

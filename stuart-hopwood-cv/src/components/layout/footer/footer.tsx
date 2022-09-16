@@ -1,6 +1,5 @@
-/** @jsxImportSource @emotion/react */
 import { ReactNode } from "react";
-import { style } from "./footer.css";
+import { classes } from "./footer.css";
 
 export function Footer({ children }: { children?: ReactNode }) {
   const GetYear = () => {
@@ -9,7 +8,7 @@ export function Footer({ children }: { children?: ReactNode }) {
   };
 
   return (
-    <footer css={style}>
+    <footer className={classes.footer}>
       &copy; Stuart Hopwood {GetYear()}
       {children}
     </footer>

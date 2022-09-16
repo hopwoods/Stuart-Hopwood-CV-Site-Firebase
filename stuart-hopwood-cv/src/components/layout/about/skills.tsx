@@ -1,15 +1,12 @@
-/** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
-import { style } from "./skills.css";
-import { Fade } from "react-reveal";
-import { SkillWithProgress } from "../../controls/skills/skillsWithProgress";
-import { useSkillsStore } from "../../../state";
 import { useEffect } from "react";
+import { Fade } from "react-reveal";
 import { Loading } from "..";
+import { useSkillsStore } from "../../../state";
 import { SkillProps } from "../../../types";
+import { SkillWithProgress } from "../../controls/skills/skillsWithProgress";
+import { classes } from "./skills.css";
 
-export const Skills: React.FC = () => {
-
+export function Skills() {
   const { skills, loading, getSkills } = useSkillsStore();
 
   useEffect(() => {
@@ -18,7 +15,7 @@ export const Skills: React.FC = () => {
 
   return (
     <Fade right big>
-      <div css={style}>
+      <div className={classes.skills}>
         {loading
           ? <Loading />
           : skills.map(function (skill: SkillProps) {

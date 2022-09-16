@@ -1,41 +1,44 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
-import { useTheme } from "../../../Hooks";
-import { FontFamilies } from "../../typeography/font-families";
+import { mergeStyleSets } from "@fluentui/merge-styles"
+import { useTheme } from "../../../Hooks"
+import { materialTheme } from "../../../style"
+import { FontFamilies } from "../../typeography/font-families"
 
-const theme = useTheme();
-export const style = css`
-  grid-column: 1 / span 2;
-  margin: 0;
-  padding-top: 7em;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto auto auto;
-  min-height: 100vh;
-  height: fit-content;
-  justify-self: stretch;
-  place-self: start center;
-  justify-items: center;
-  background-color: ${theme.white};
+const theme = useTheme()
 
-  h1 {
-    grid-column: 1 / span 2;
-    grid-row: 1 / span 1;
-    align-self: center;
-    justify-self: center;
+export const classes = mergeStyleSets({
+  about: {
+    gridColumn: '1 / span 2',
+    margin: 0,
+    paddingTop: '7em',
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gridTemplateRows: 'auto auto auto auto',
+    minHeight: '100vh',
+    height: 'fit-content',
+    justifySelf: 'stretch',
+    placeSelf: 'start center',
+    justifyItems: 'center',
+    backgroundColor: theme.white,
+
+    h1: {
+      gridColumn: '1 / span 2',
+      gridRow: '1 / span 1',
+      alignSelf: 'center',
+      justifySelf: 'center'
+    },
+
+    h2: {
+      fontFamily: FontFamilies.primary,
+      color: materialTheme.palette.primary.main
+    },
+
+    'div#profile': {
+      gridColumn: ' 1 / span 1',
+      gridRow: '3 / span 1'
+    },
+    'div#skills': {
+      gridColumn: '2 / span 1',
+      gridRow: '3 / span 1'
+    }
   }
-
-  h2 {
-    font-family: ${FontFamilies.primary}
-  }
-
-  div#profile {
-    grid-column: 1 / span 1;
-    grid-row: 3 / span 1;    
-  }
-
-  div#skills {
-    grid-column: 2 / span 1;
-    grid-row: 3 / span 1;
-  }
-`;
+})

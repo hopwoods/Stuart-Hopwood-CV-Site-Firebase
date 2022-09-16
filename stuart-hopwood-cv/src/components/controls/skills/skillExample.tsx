@@ -1,7 +1,5 @@
-/** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
 import React from "react";
-import { example } from "./skillExample.css";
+import { classes } from "./skillExample.css";
 
 type SkillExample = {
     id: number;
@@ -11,7 +9,7 @@ type SkillExample = {
 export function SkillExample({ id, text }: SkillExample) {
     return (
         <React.Fragment>
-            <p css={example} key={id}>{text}</p>
+            <p className={classes.skillExample} key={id}>{text}</p>
         </React.Fragment>
     );
 };

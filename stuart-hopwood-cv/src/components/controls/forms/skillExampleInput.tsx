@@ -1,24 +1,13 @@
-/** @jsxImportSource @emotion/react */
-import { css, jsx } from "@emotion/react";
-import { TextField } from "@material-ui/core";
+import { TextField } from "@mui/material";
 import React from "react";
 import { useSkillsStore } from "../../../state";
 import { DeleteSkillButton } from "../buttons/deleteSkillButton";
+import { classes } from "./skillExampleInput.css";
 
 type SkillExampleInputProps = {
     text: string;
     index: number;
 }
-
-const textInput = css`
-    width: 85%;
-`;
-
-const deleteButton = css`
-    display: inline-block;
-    position: relative;
-    top: 1.5rem;
-`;
 
 export function SkillExampleInput({ text, index }: SkillExampleInputProps) {
 
@@ -37,7 +26,7 @@ export function SkillExampleInput({ text, index }: SkillExampleInputProps) {
     return (
         <div>
             <TextField
-                css={textInput}
+                className={classes.textInput}
                 name="skillExamples"
                 key={index} margin="dense"
                 id={`skillExample-${index}`}
@@ -46,7 +35,7 @@ export function SkillExampleInput({ text, index }: SkillExampleInputProps) {
                 defaultValue={text}
                 placeholder="Enter an example..."
             />
-            <DeleteSkillButton cssStyle={deleteButton} color="secondary" size="small" onClickHandler={(e: React.MouseEvent<HTMLButtonElement>) => onDeleteExampleClickHandler(e, text)} />
+            <DeleteSkillButton cssStyle={classes.deleteButton} color="secondary" size="small" onClickHandler={(e: React.MouseEvent<HTMLButtonElement>) => onDeleteExampleClickHandler(e, text)} />
         </div>
     )
 }

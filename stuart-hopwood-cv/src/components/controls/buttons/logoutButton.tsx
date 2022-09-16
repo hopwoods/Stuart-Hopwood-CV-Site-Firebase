@@ -1,11 +1,14 @@
-import React from "react";
-import { Button } from "@material-ui/core";
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
+import { Button } from "@mui/material";
+import { useCallback } from 'react';
+import { useLogin } from '../../../security/useLogin';
 
 export function LogoutButton() {
+  const { signOut, auth } = useLogin()
 
-  //TODO Use Firebase Auth
-  //const { logout } = useAuth0();
+  const handleClick = useCallback(async () => {
+    await signOut(auth)
+  }, [signOut, auth])
 
   return (
     <Button
@@ -14,7 +17,7 @@ export function LogoutButton() {
       color="primary"
       size="large"
       endIcon={<MeetingRoomIcon />}
-    //onClick={() => logout({ returnTo: window.location.origin })}
+      onClick={async () => await handleClick()}
     >
       Logout
     </Button>

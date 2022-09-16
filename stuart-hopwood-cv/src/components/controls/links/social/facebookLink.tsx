@@ -1,6 +1,4 @@
-/** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
-import { IconButton } from "@material-ui/core";
+import { IconButton } from "@mui/material";
 import { FaFacebook } from "react-icons/fa";
 import { SocialButtonLinkProps } from "../../../../types";
 

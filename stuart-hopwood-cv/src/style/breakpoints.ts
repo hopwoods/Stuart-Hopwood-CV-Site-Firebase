@@ -49,3 +49,13 @@ export const mediaQueries: MediaQueries = {
   xxlarge: `screen and (max-width: ${breakpoints.xxlarge})`,
   retina: `screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)`,
 };
+
+export const mediaQueriestext: MediaQueries = {
+  // Media Queries
+  small: `screen and (max-width: 768px)`,
+  medium: `screen and (max-width: 1024px)`,
+  large: `screen and (max-width: 1366px)`,
+  xlarge: `screen and (max-width: 1920px)`,
+  xxlarge: `screen and (max-width: 2560px)`,
+  retina: `screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)`,
+};

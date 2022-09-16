@@ -1,17 +1,13 @@
-/** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
-import { Backdrop, CircularProgress } from "@material-ui/core";
-import { useState } from "react";
+import { Backdrop, CircularProgress } from "@mui/material"
+import { useState } from "react"
+import { classes } from "./loading.css"
 
-export const Loading: React.FC = () => {
-  const [open, setOpen] = useState(false);
-  const handleClose = () => {
-    setOpen(false);
-  };
+export function Loading({ loading }: { loading?: boolean }) {
+  const [open, setOpen] = useState(loading ? true : false)
 
   return (
-    <Backdrop className="loading" open={open} onClick={handleClose}>
+    <Backdrop className={classes.loading} open={open}>
       <CircularProgress color="primary" />
     </Backdrop>
-  );
-};
+  )
+}

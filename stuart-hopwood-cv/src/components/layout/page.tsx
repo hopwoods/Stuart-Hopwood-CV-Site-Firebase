@@ -1,7 +1,6 @@
-/** @jsxImportSource @emotion/react */
 import React, { ReactNode } from "react";
-import { jsx } from "@emotion/react";
-import { Navbar, Content, Footer, Banner } from "../../components/layout";
+import { Banner, Content, Footer, Navbar } from "../../components/layout";
+import { RouterListener } from "../../security/routerListener";
 
 export type PageProps = {
     fullscreen: boolean;
@@ -10,9 +9,8 @@ export type PageProps = {
     children: ReactNode
 }
 export function Page({ id, fullscreen, BannerContent, children }: PageProps) {
-
     return (
-        <React.Fragment>
+        <RouterListener>
             <Banner id={id} fullscreen={fullscreen}>
                 <BannerContent />
             </Banner>
@@ -21,6 +19,6 @@ export function Page({ id, fullscreen, BannerContent, children }: PageProps) {
                 {children}
             </Content>
             <Footer />
-        </React.Fragment>
+        </RouterListener>
     );
 }

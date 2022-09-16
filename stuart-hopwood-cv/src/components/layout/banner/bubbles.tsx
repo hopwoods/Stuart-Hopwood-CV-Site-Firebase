@@ -1,16 +1,9 @@
-/** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
-import { style } from "./bubbles.css";
+import { bubblesClasses } from "./bubbles.css";
 
 export function Bubbles() {
   return (
     <div className="bubbles-container">
-      <svg
-        className="bubbles"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 701 1024"
-        css={style}
-      >
+      <svg className={`bubbles ${bubblesClasses.bubbles}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 701 1024">
         <g className="bubbles-large" strokeWidth="7">
           <g>
             <g transform="translate(10 940)">

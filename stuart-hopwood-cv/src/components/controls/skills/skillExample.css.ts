@@ -1,7 +1,8 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
+import { mergeStyleSets } from "@fluentui/merge-styles"
 
-export const example = css`
-  padding-left: 1rem;
-  font-size: 1rem;
-`;
+export const classes = mergeStyleSets({
+  skillExample: {
+    paddingLeft: '1rem',
+    fontSize: '1rem'
+  }
+})

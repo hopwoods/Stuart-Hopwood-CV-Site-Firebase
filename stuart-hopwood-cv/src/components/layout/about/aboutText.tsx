@@ -1,10 +1,8 @@
-/** @jsxImportSource @emotion/react */
-import { useEffect } from "react";
-import { jsx } from "@emotion/react";
-import { Loading } from "..";
-import { style } from "./aboutText.css";
 import parse from "html-react-parser";
+import { useEffect } from "react";
+import { Loading } from "..";
 import { useAboutTextStore } from "../../../state";
+import { classes } from "./aboutText.css";
 
 export function AboutText() {
 
@@ -14,5 +12,5 @@ export function AboutText() {
     getAboutText();
   }, [getAboutText]);
 
-  return loading ? <Loading /> : <div css={style}>{parse(text)}</div>;
+  return loading ? <Loading /> : <div className={classes.aboutText}>{parse(text)}</div>;
 };

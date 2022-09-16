@@ -1,9 +1,8 @@
-/** @jsxImportSource @emotion/react */
 import { ReactNode } from "react";
-import { form } from "./administration-form.css";
+import { classes } from "./administration-form.css";
 
 export function AdminForm({ children }: { children: ReactNode }) {
-  return <form noValidate autoComplete="off" css={form}>
+  return <form noValidate autoComplete="off" className={classes.adminForm}>
     {children}
   </form>
 };

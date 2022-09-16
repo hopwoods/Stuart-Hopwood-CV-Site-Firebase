@@ -1,25 +1,25 @@
-/** @jsxImportSource @emotion/react */
-import { css, jsx } from "@emotion/react";
+import { mergeStyleSets } from "@fluentui/merge-styles"
 
 type Triangle = {
-    color: string;
-    backgroundColor: string;
+    color: string
+    backgroundColor: string
 }
-export const TriangleDown: React.FC<Triangle> = ({ color, backgroundColor }) => {
-
-    const style = css`
-    grid-column: 1 / span 2;
-    width: 0; 
-    height: 0; 
-    border-left: 50vw solid ${backgroundColor};
-    border-right: 50vw solid ${backgroundColor};
-    border-top: 30vh solid ${color};
-    padding: 0;
-    margin: 0;
-    margin-top: 3rem;
-    `;
+export function TriangleDown({ color, backgroundColor }: Triangle) {
+    const classes = mergeStyleSets({
+        triangle: {
+            gridColumn: '1 / span 2',
+            width: 0,
+            height: 0,
+            borderLeft: `50vw solid ${backgroundColor}`,
+            borderRight: `50vw solid ${backgroundColor}`,
+            borderTop: `30vh solid ${color}`,
+            padding: 0,
+            margin: 0,
+            marginTop: '3rem'
+        }
+    })
 
     return (
-        <div css={style}></div>
-    );
-};
+        <div className={classes.triangle}></div>
+    )
+}

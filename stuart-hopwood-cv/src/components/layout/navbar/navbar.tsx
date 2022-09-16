@@ -1,39 +1,34 @@
-/** @jsxImportSource @emotion/react */
-import { useCallback } from "react";
-import { jsx } from "@emotion/react";
-import { NavBarLink, NavBarLogoutLink } from "../../controls";
-import { style } from "./navbar.css";
-import { useState, useEffect } from "react";
-import { useWindowSize } from "../../../Hooks/";
-import { useAuth0 } from "@auth0/auth0-react";
+import { useCallback, useEffect, useState } from "react"
+import { useWindowSize } from "../../../Hooks/"
+import { useGlobalStore } from "../../../state"
+import { NavBarLink, NavBarLogoutLink } from "../../controls"
+import { classes } from "./navbar.css"
 
 export const Navbar: React.FC = () => {
-  const { isAuthenticated } = useAuth0();
-  const [scrolled, setScrolled] = useState(false);
-  const size = useWindowSize();
+  const [scrolled, setScrolled] = useState(false)
+  const size = useWindowSize()
+  const { isAuthenticated } = useGlobalStore()
 
   const handleScroll = useCallback(() => {
-    const offset = window.scrollY;
+    const offset = window.scrollY
     if (offset > size.height + 55) {
-      setScrolled(true);
+      setScrolled(true)
     } else {
-      setScrolled(false);
+      setScrolled(false)
     }
-  }, [size.height]);
+  }, [size.height])
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-  }, [handleScroll, scrolled]);
+  useEffect(() => { window.addEventListener("scroll", handleScroll) }, [handleScroll, scrolled])
 
-  let navBarScrolledStateClass;
+  let navBarScrolledStateClass
   if (scrolled) {
-    navBarScrolledStateClass = "scrolled";
+    navBarScrolledStateClass = "scrolled"
   } else {
-    navBarScrolledStateClass = "";
+    navBarScrolledStateClass = ""
   }
 
   return (
-    <nav css={style} id="NavBar" className={navBarScrolledStateClass}>
+    <nav id="NavBar" className={`${navBarScrolledStateClass} ${classes.navbar}`}>
       <ul role="menubar">
         <li>
           <NavBarLink isHashLink={true} to="/#home" value="Home" />
@@ -62,5 +57,5 @@ export const Navbar: React.FC = () => {
         }
       </ul>
     </nav>
-  );
-};
+  )
+}

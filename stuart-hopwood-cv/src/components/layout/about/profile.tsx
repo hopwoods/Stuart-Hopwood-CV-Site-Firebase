@@ -1,19 +1,17 @@
-/** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
-import { style } from "./profile.css";
-import { mediaQueries } from "../../../style";
-import { Email, PhoneNumber, Location, GithubRepo } from "../../controls";
 import { Picture } from "react-responsive-picture";
-import { Fade, Bounce } from "react-reveal";
+import { Bounce, Fade } from "react-reveal";
+import { AboutText, SocialIcons } from "..";
 import ProfilePicture200 from "../../../assets/ProfilePicture-200.png";
 import ProfilePicture300 from "../../../assets/ProfilePicture-300.png";
 import ProfilePicture400 from "../../../assets/ProfilePicture-400.png";
-import { AboutText, SocialIcons } from "..";
+import { mediaQueries } from "../../../style";
+import { Email, GithubRepo, Location, PhoneNumber } from "../../controls";
+import { classes } from "./profile.css";
 
 export function Profile() {
   return (
     <Fade left big>
-      <div css={style}>
+      <div className={classes.profile}>
         <div className="profilePicture">
           <Picture
             sources={[

@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
 import React from "react";
 import { SkillExampleProps } from "../../../types";
 import { SkillExample } from "./skillExample";

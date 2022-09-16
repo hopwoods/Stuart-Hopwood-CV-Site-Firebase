@@ -1,24 +1,21 @@
-/** @jsxImportSource @emotion/react */
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
+import { Button, ThemeProvider } from '@mui/material'
 import React from 'react'
-import './App.css'
-import { Bubbles, About, Page } from './components/layout'
-import { Button } from '@material-ui/core'
 import { HashLink } from 'react-router-hash-link'
+import './App.css'
+import { classes } from './App.css'
 import ScrollToTopButton from './components/controls/buttons/scrollToTopButton'
-import { subTitle, toTopButton } from './App.css'
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import { About, Bubbles, Page } from './components/layout'
+import { materialTheme } from './style'
 
-//TODO: Change Button colour to white.
-//TODO: Change to Function from FC.
 function Banner() {
     return (
         <React.Fragment>
             <p>
                 Hello I'm <span className="name">Stuart Hopwood.</span>
                 <br />
-                <span css={subTitle}>I'm a full stack Developer.</span>
+                <span className={classes.subTitle}>I'm a full stack Developer.</span>
             </p>
-
             <Button className="about" variant="outlined" color="secondary" size="large" endIcon={<ArrowDownwardIcon />} component={HashLink} to="/#about" smooth>
                 Find Out More
             </Button>
@@ -30,14 +27,14 @@ function Banner() {
 
 function App() {
     return (
-        <React.Fragment>
+        <ThemeProvider theme={materialTheme}>
             <Page id="Home" fullscreen={true} BannerContent={Banner}>
                 <About />
-                <div css={toTopButton}>
+                <div className={classes.toTopButton}>
                     <ScrollToTopButton color="secondary" />
                 </div>
             </Page>
-        </React.Fragment>
+        </ThemeProvider>
     )
 }
 export default App

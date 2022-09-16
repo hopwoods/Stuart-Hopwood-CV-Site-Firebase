@@ -1,15 +1,13 @@
-/** @jsxImportSource @emotion/react */
 import { useEffect } from "react";
-import 'react-toastify/dist/ReactToastify.min.css';
-import { jsx } from "@emotion/react";
-import { AdminMenu, EditSkillDialog, Loading, Page } from "../../components/layout";
-import { title, manageSkills } from "./admin-skills.css";
-import { grid } from "./administration.css";
 import { ToastContainer } from 'react-toastify';
-import { useSkillsStore } from "../../state";
+import 'react-toastify/dist/ReactToastify.min.css';
 import { SkillsTable } from "../../components/controls";
-import { AddSkillDialog } from "../../components/layout/about/addSkillDialog";
 import { AddSkillButton } from "../../components/controls/buttons/addSkillButton";
+import { AdminMenu, EditSkillDialog, Loading, Page } from "../../components/layout";
+import { AddSkillDialog } from "../../components/layout/about/addSkillDialog";
+import { useSkillsStore } from "../../state";
+import { classes } from "./admin-skills.css";
+import { gridClasses } from "./administration.css";
 
 //TODO: Add a new Example Button.
 function Banner() {
@@ -28,13 +26,13 @@ export function AdminSkills() {
 
   return (
     <Page id="Manage Skills" fullscreen={false} BannerContent={Banner}>
-      <div css={grid}>
+      <div className={gridClasses.grid}>
         <AdminMenu />
         {
           loading ? <Loading />
             :
-            <div css={manageSkills}>
-              <h3 css={title}>Manage Skills</h3>
+            <div className={classes.manageSkills}>
+              <h3 className={classes.title}>Manage Skills</h3>
               <AddSkillButton color="primary" size="medium" />
               <AddSkillDialog />
               <SkillsTable rows={skills} />

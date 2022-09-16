@@ -1,8 +1,6 @@
-/** @jsxImportSource @emotion/react */
-import { jsx, css } from "@emotion/react";
-import CircularProgress, { CircularProgressProps } from "@material-ui/core/CircularProgress";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
+import Box from "@mui/material/Box";
+import CircularProgress, { CircularProgressProps } from "@mui/material/CircularProgress";
+import Typography from "@mui/material/Typography";
 
 export function CircularProgressWithLabel(props: CircularProgressProps & { value: number }) {
   return (
@@ -17,9 +15,9 @@ export function CircularProgressWithLabel(props: CircularProgressProps & { value
         display="flex"
         alignItems="center"
         justifyContent="center"
-        css={css`
-          width: 40px;
-        `}
+        style={{
+          width: '40px'
+        }}
       >
         <Typography variant="caption" component="div" color="textSecondary">
           {`${Math.round(props.value)}%`}

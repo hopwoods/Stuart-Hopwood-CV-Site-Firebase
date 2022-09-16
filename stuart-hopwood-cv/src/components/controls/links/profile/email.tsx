@@ -1,11 +1,9 @@
-/** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
-import { style } from "./email.css";
 import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlined';
+import { classes } from "./profileLinks.css";
 
 export function Email() {
   return (
-    <div className="email" css={style}>
+    <div className={`${classes.icon} email`}>
       <AlternateEmailOutlinedIcon />
       <span>
         <a href="mailto:stoo.hopwood@gmail.com" target="_blank" rel="noopener noreferrer">stoo.hopwood@gmail.com</a>

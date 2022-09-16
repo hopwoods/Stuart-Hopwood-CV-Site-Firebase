@@ -1,7 +1,5 @@
-/** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
 import { ReactNode } from "react";
-import { style } from "./banner.css";
+import { classes } from "./banner.css";
 
 type BannerProps = {
   id: string;
@@ -11,7 +9,7 @@ type BannerProps = {
 
 export function Banner({ id, fullscreen, children }: BannerProps) {
   return (
-    <article id={id} css={style} className={`${fullscreen ? "fullscreen" : ""}`}>
+    <article id={id} className={`${fullscreen ? classes.fullscreen : undefined} ${classes.banner}`}>
       {children}
     </article>
   );

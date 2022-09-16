@@ -1,3 +1,4 @@
+//TODO: Convert to Mui Theme
 export type ThemeColors = {
   /** #2e2e2e */
   text: string;

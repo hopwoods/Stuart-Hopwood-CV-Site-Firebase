@@ -1,8 +1,6 @@
-/** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
-import { IconButton } from "@material-ui/core";
 import { HashLink } from "react-router-hash-link";
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import { IconButton } from "@mui/material";
 
 type ScrollToTopButtonProps = {
   color: "primary" | "secondary" | "default" | "inherit" | undefined;

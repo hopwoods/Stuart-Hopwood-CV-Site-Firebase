@@ -13,11 +13,11 @@ export type DeleteSkillButtonProps = {
     color: ButtonColors;
     size: ButtonSizes;
     onClickHandler: (e: React.MouseEvent<HTMLButtonElement>) => void;
-    cssStyle?: SerializedStyles;
+    cssStyle?: string;
 }
 
 export type AddSkillButtonProps = {
     color: ButtonColors;
     size: ButtonSizes;
-    cssStyle?: SerializedStyles;
+    cssStyle?: string;
 }

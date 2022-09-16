@@ -1,8 +1,7 @@
-import React from "react";
-import { Button } from "@material-ui/core";
+import { Button } from "@mui/material";
 import { FaPlusCircle } from "react-icons/fa";
-import { AddSkillButtonProps, SkillProps } from "../../../types";
 import { useSkillsStore } from "../../../state";
+import { AddSkillButtonProps, SkillProps } from "../../../types";
 export function AddSkillButton({ color, size }: AddSkillButtonProps) {
 
     const { maxId, setAddDialogState, setCurrentSkill, selectedSkillId } = useSkillsStore();

@@ -1,7 +1,6 @@
-/** @jsxImportSource @emotion/react */
 import { ReactNode } from "react";
-import { style } from "./container.css";
+import { classes } from "./container.css";
 
 export function Container({ children }: { children?: ReactNode }) {
-  return <div css={style}>{children}</div>;
+  return <div className={classes.container}>{children}</div>;
 };

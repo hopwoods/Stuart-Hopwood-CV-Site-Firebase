@@ -1,25 +1,22 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
-import { useTheme } from "../../../Hooks";
-import { FontFamilies } from "../../../style";
+import { mergeStyleSets } from "@fluentui/merge-styles"
+import { useTheme } from "../../../Hooks"
+import { FontFamilies } from "../../../style"
 
-const themeColors = useTheme();
+const themeColors = useTheme()
 
-export const style = css`   
-
-  color: ${themeColors.text};
-  font-family: ${FontFamilies.primary}  
-
-&:hover {
-}
-a {
-  position: relative;
-  top: -0.2rem;
-}
-a.active {
-  color: ${themeColors.hotpink};
-}
-svg {
-  margin-right: 1rem;
-}
-`;
+export const classes = mergeStyleSets({
+  menuLink: {
+    color: themeColors.text,
+    fontFamily: FontFamilies.primary,
+    a: {
+      position: 'relative',
+      top: '-0.2rem',
+      '.active': {
+        color: themeColors.hotpink,
+      },
+      svg: {
+        marginRight: '1rem'
+      }
+    }
+  }
+})

@@ -1,9 +1,8 @@
+import { IconButton } from "@mui/material";
 import React from "react";
-import { IconButton } from "@material-ui/core";
-import { SkillProps } from "../../../types";
-import { useSkillsStore } from "../../../state";
 import { FaPencilAlt } from "react-icons/fa";
-import { EditSkillButtonProps } from "../../../types";
+import { useSkillsStore } from "../../../state";
+import { EditSkillButtonProps, SkillProps } from "../../../types";
 export function EditSkillButton({ id, skillName, skillExamples, percentage, color, size }: EditSkillButtonProps) {
 
     const { setCurrentSkill, setEditDialogState } = useSkillsStore();

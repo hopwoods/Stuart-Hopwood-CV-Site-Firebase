@@ -1,21 +1,22 @@
-/** @jsxImportSource @emotion/react */
-import React from "react";
-import { jsx } from "@emotion/react";
-import { style } from "./navBarLogoutLink.css";
+import React, { useCallback } from "react"
+import { useLogin } from "../../../../security/useLogin"
+import { classes } from "./navBarLogoutLink.css"
 
 type LinkProps = {
-  //Value to displayed on screen
-  value: string;
-};
-export function NavBarLogoutLink({ value }: LinkProps) {
-  //const { logout } = useAuth0();
+  value: string
+}
 
-  //TODO Use Firebase Auth to logout onclick
+export function NavBarLogoutLink({ value }: LinkProps) {
+  const { signOut, auth } = useLogin()
+  const handleClick = useCallback(async () => {
+    await signOut(auth)
+  }, [signOut, auth])
+
   return (
     <React.Fragment>
-      <span css={style}>
+      <span className={classes.logoutLink} onClick={async () => await handleClick()}>
         {value}
       </span>
     </React.Fragment>
-  );
-};
+  )
+}

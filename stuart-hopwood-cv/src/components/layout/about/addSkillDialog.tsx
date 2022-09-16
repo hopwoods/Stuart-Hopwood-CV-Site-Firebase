@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from "@material-ui/core";
-import { SkillExampleProps } from "../../../types";
-import { SkillExampleInput } from "../../controls";
-import { useSkillsStore } from "../../../state";
-import { useAccessToken } from "../../../Hooks";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from "@mui/material"
+import React, { useRef } from "react"
+import { useAccessToken } from "../../../security/useAccessToken"
+import { useSkillsStore } from "../../../state"
+import { SkillExampleProps } from "../../../types"
+import { SkillExampleInput } from "../../controls"
 export function AddSkillDialog() {
 
     const {
@@ -18,10 +18,10 @@ export function AddSkillDialog() {
         setSkillTarget,
         updateSkill,
         checkRecordExists
-    } = useSkillsStore();
+    } = useSkillsStore()
 
-    const formRef = useRef<HTMLFormElement>(null);
-    const accessToken = useAccessToken();
+    const formRef = useRef<HTMLFormElement>(null)
+    const accessToken = useAccessToken()
 
     const skillExampleTextBoxes = (examples?: SkillExampleProps[]) => {
         if (examples) {
@@ -31,25 +31,25 @@ export function AddSkillDialog() {
                         <SkillExampleInput text={example.text} key={idx} index={idx} />
                     )
                 })
-            );
+            )
         }
     }
 
     const handleClose = () => {
-        setAddDialogState(false);
+        setAddDialogState(false)
     }
 
     const addExample = () => {
         const newExample: SkillExampleProps = {
             text: ""
-        };
-        let tempExamples: SkillExampleProps[] = [];
-        if (selectedSkillExamples) {
-            tempExamples = [...selectedSkillExamples];
         }
-        tempExamples.push(newExample);
+        let tempExamples: SkillExampleProps[] = []
+        if (selectedSkillExamples) {
+            tempExamples = [...selectedSkillExamples]
+        }
+        tempExamples.push(newExample)
         if (tempExamples) {
-            setCurrentSkillExamples(tempExamples);
+            setCurrentSkillExamples(tempExamples)
         }
     }
 
@@ -58,21 +58,21 @@ export function AddSkillDialog() {
 
         console.log(``)
         //TODO: Refactor setting of new examples.
-        const examples = [...formRef.current?.skillExamples];
-        const newExamples: SkillExampleProps[] = [];
+        const examples = [...formRef.current?.skillExamples]
+        const newExamples: SkillExampleProps[] = []
         examples.forEach(function (example) {
             const newExample: SkillExampleProps = {
                 text: example.value
             }
-            newExamples.push(newExample);
-        });
+            newExamples.push(newExample)
+        })
 
         setCurrentSkillExamples(newExamples)
 
         checkRecordExists(selectedSkillId).then(() => {
-            updateSkill(accessToken);
-            setAddDialogState(false);
-        });
+            updateSkill(accessToken)
+            setAddDialogState(false)
+        })
 
     }
 
@@ -94,7 +94,7 @@ export function AddSkillDialog() {
                             placeholder="Enter a skill name..."
                             defaultValue={selectedSkillName}
                             fullWidth
-                            onChange={(evt: React.ChangeEvent<HTMLInputElement>) => { setSkillName(evt.target.value); }} />
+                            onChange={(evt: React.ChangeEvent<HTMLInputElement>) => { setSkillName(evt.target.value) }} />
                         <TextField
                             autoFocus
                             margin="dense"
@@ -103,7 +103,7 @@ export function AddSkillDialog() {
                             defaultValue={selectedSkillTargetProgress}
                             type="number"
                             placeholder="Enter a target progress..."
-                            onInput={(evt: React.ChangeEvent<HTMLInputElement>) => { setSkillTarget(evt.target.valueAsNumber); }} />
+                            onInput={(evt: React.ChangeEvent<HTMLInputElement>) => { setSkillTarget(evt.target.valueAsNumber) }} />
                         {skillExampleTextBoxes(selectedSkillExamples)}
                         <div>
                             <Button variant="text" color="primary" onClick={() => { addExample() }}>Add Example</Button>

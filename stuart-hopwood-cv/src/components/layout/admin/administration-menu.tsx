@@ -1,11 +1,10 @@
-/** @jsxImportSource @emotion/react */
-import { style } from "./administration-menu.css";
-import { AdminMenuLink } from "../../controls";
-import { FaBahai, FaBookMedical, FaUserAlt } from "react-icons/fa";
 import { ReactNode } from "react";
+import { FaBahai, FaBookMedical, FaUserAlt } from "react-icons/fa";
+import { AdminMenuLink } from "../../controls";
+import { classes } from "./administration-menu.css";
 
 export function AdminMenu({ children }: { children?: ReactNode }) {
-  return <div css={style}>
+  return <div className={classes.adminMenu}>
     <AdminMenuLink to="/admin/about-text" value="About Text">
       <FaUserAlt />
     </AdminMenuLink>

@@ -1,8 +1,6 @@
-/** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
 import { ReactNode } from "react";
 import { NavLink } from "react-router-dom";
-import { style } from "./adminMenuLink.css";
+import { classes } from "./adminMenuLink.css";
 type LinkProps = {
   to: string
   value: string
@@ -11,7 +9,7 @@ type LinkProps = {
 
 export function AdminMenuLink({ to, value, children }: LinkProps) {
   return (
-    <span css={style}>
+    <span className={classes.menuLink}>
       {children}
       <NavLink to={to}>{value}</NavLink>
     </span>

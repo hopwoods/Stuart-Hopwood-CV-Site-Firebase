@@ -1,11 +1,12 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
+import { mergeStyleSets } from "@fluentui/merge-styles"
 
-export const style = css`
-  grid-column: 1 / span 1;
-  min-height: fit-content;
-  justify-self: center;
-  text-align: justify;
-  margin-bottom: 2rem;
-  line-height: 1.75;
-`;
+export const classes = mergeStyleSets({
+  aboutText: {
+    gridColumn: '1 / span 1',
+    minHeight: 'fit-content',
+    justifySself: 'center',
+    textAlign: 'justify',
+    marginBottom: '2rem',
+    lineHeight: 1.75
+  }
+})
