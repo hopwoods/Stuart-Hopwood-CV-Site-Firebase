@@ -1,1 +1,1 @@
-# Stuart Hopwood CV Site (Firebase)
+# Stuart Hopwood CV Site
