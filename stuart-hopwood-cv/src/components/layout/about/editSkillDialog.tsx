@@ -17,7 +17,6 @@ export function EditSkillDialog() {
         setSkillName,
         setSkillTarget,
         updateSkill,
-        setRecordExists
     } = useSkillsStore()
 
     const formRef = useRef<HTMLFormElement>(null)
@@ -61,7 +60,6 @@ export function EditSkillDialog() {
             newExamples.push(newExample)
         })
         setCurrentSkillExamples(newExamples)
-        setRecordExists(true)
         updateSkill(accessToken)
         setEditDialogState(false)
     }

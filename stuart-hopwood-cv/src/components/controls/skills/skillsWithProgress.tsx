@@ -1,16 +1,16 @@
-import { LinearProgress, Tooltip } from "@mui/material";
-import { useProgressAnimation } from "../../../Hooks";
-import { SkillProps } from "../../../types";
-import { CircularProgressWithLabel } from "./circularProgressWithLabel";
-import { SkillExamples } from "./skillExamples";
-import { classes } from "./skillsWithProgress.css";
+import { LinearProgress, Tooltip } from "@mui/material"
+import { useProgressAnimation } from "../../../Hooks"
+import { SkillProps } from "../../../types"
+import { CircularProgressWithLabel } from "./circularProgressWithLabel"
+import { SkillExamples } from "./skillExamples"
+import { classes } from "./skillsWithProgress.css"
 
 export function SkillWithProgress({ id, skillName, percentage: targetProgress, skillExamples }: SkillProps) {
 
-  const progress = useProgressAnimation(targetProgress);
+  const progress = useProgressAnimation(targetProgress)
 
   return (
-    <div id={id.toString()} className={`${classes.skillsWithProgress} skill`}>
+    <div id={`${id}`} className={`${classes.skillsWithProgress} skill`}>
       <Tooltip title={`${targetProgress}% Career Experience`} arrow>
         <div className={classes.progressBarWrapper}>
           <span className={classes.nameStyle}>{skillName}</span>
@@ -24,5 +24,5 @@ export function SkillWithProgress({ id, skillName, percentage: targetProgress, s
       </Tooltip >
       <SkillExamples examples={skillExamples} />
     </div>
-  );
-};
+  )
+}

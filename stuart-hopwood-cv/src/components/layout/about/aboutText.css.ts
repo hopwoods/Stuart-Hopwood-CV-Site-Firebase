@@ -7,6 +7,6 @@ export const classes = mergeStyleSets({
     justifySself: 'center',
     textAlign: 'justify',
     marginBottom: '2rem',
-    lineHeight: 1.75
+    lineHeight: '1.75'
   }
 })

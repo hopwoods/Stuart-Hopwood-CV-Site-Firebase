@@ -1,24 +1,24 @@
-import { TextField } from "@mui/material";
-import React from "react";
-import { useSkillsStore } from "../../../state";
-import { DeleteSkillButton } from "../buttons/deleteSkillButton";
-import { classes } from "./skillExampleInput.css";
+import { TextField } from "@mui/material"
+import React from "react"
+import { useSkillsStore } from "../../../state"
+import { DeleteSkillButton } from "../buttons/deleteSkillButton"
+import { classes } from "./skillExampleInput.css"
 
 type SkillExampleInputProps = {
-    text: string;
-    index: number;
+    text: string
+    index: number
 }
 
 export function SkillExampleInput({ text, index }: SkillExampleInputProps) {
 
-    const { selectedSkillExamples, setCurrentSkillExamples } = useSkillsStore();
+    const { selectedSkillExamples, setCurrentSkillExamples } = useSkillsStore()
     const onDeleteExampleClickHandler = (e: React.MouseEvent<HTMLButtonElement>, text: string) => {
-        e.preventDefault();
+        e.preventDefault()
         if (selectedSkillExamples) {
-            const examplesCopy = [...selectedSkillExamples];
+            const examplesCopy = [...selectedSkillExamples]
             const found = examplesCopy.findIndex(x => x.text === text)
             if (found !== -1) {
-                setCurrentSkillExamples(examplesCopy.filter(x => x.text !== text));
+                setCurrentSkillExamples(examplesCopy.filter(x => x.text !== text))
             }
         }
     }

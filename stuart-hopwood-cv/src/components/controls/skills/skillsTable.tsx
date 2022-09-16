@@ -74,9 +74,9 @@ export function SkillsTable({ rows }: SkillsTableProps) {
                             skillName={params.row?.skillName}
                             percentage={params.row?.percentage}
                             skillExamples={params.row?.skillExamples}
-                            color="secondary"
+                            color="primary"
                             size="small" />
-                        <DeleteSkillButton onClickHandler={() => onClickHandler(params.row?.id)} color="secondary" size="small" />
+                        <DeleteSkillButton onClickHandler={() => onClickHandler(params.row?.id)} color="primary" size="small" />
                     </React.Fragment>
                 )
             },
