@@ -17,7 +17,6 @@ export function AddSkillDialog() {
         setSkillName,
         setSkillTarget,
         updateSkill,
-        checkRecordExists
     } = useSkillsStore()
 
     const formRef = useRef<HTMLFormElement>(null)
@@ -54,8 +53,6 @@ export function AddSkillDialog() {
     }
 
     const handleSave = () => {
-
-
         console.log(``)
         //TODO: Refactor setting of new examples.
         const examples = [...formRef.current?.skillExamples]
@@ -68,12 +65,8 @@ export function AddSkillDialog() {
         })
 
         setCurrentSkillExamples(newExamples)
-
-        checkRecordExists(selectedSkillId).then(() => {
-            updateSkill(accessToken)
-            setAddDialogState(false)
-        })
-
+        updateSkill(accessToken)
+        setAddDialogState(false)
     }
 
     return (

@@ -67,7 +67,6 @@ const showErrorMessage = (errorText: string) => toast.error(`⛔️ ${errorText}
 export const useSkillsStore = create<SkillsState>((set, get) => ({
     skills: [],
     maxId: 0,
-    recordExists: false,
     selectedSkillId: 1,
     selectedSkillName: "",
     selectedSkillTargetProgress: 0,
@@ -136,9 +135,6 @@ export const useSkillsStore = create<SkillsState>((set, get) => ({
     },
     setMaxId: (value: number) => {
         set({ maxId: value })
-    },
-    checkRecordExists: async (id: number) => {
-        //TODO: check if doc exists
     }
 
 
