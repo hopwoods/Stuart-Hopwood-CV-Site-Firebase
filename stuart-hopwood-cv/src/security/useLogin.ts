@@ -49,8 +49,10 @@ export function useLogin() {
     }, [provider, auth, user, isAuthenticated])
 
     const signIn = useCallback(async () => {
-        await signInWithRedirect(auth, provider)
         setAuthenticating(true)
+        sessionStorage.setItem("authPending", "true")
+        await signInWithRedirect(auth, provider)
+
     }, [])
 
     function unRegisterUser() {

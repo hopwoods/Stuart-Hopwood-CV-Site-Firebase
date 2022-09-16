@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AdminMenu, Page } from "../../components/layout";
 import { gridClasses } from "./administration.css";
 
@@ -11,6 +11,14 @@ function Banner() {
 };
 
 function Admin() {
+
+  useEffect(() => {
+    if (sessionStorage.getItem("authPending") == "true") {
+      sessionStorage.removeItem("authPending")
+    }
+
+  }, [])
+
   return (
     <React.Fragment>
       <Page id="Administration" fullscreen={false} BannerContent={Banner}>

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { LoginButton } from "../components/controls"
 import { Loading, Page } from "../components/layout"
@@ -12,7 +12,15 @@ function Banner() {
 }
 
 function Login() {
-  const { isAuthenticating, isAuthenticated } = useGlobalStore()
+  const { isAuthenticating } = useGlobalStore()
+  const [isAuthPending, setAuthPending] = useState<boolean>(false);
+  const sessionValue = sessionStorage.getItem("authPending")
+  useEffect(() => {
+    if (sessionValue == "true") {
+      setAuthPending(true)
+    }
+
+  }, [isAuthenticating])
 
   function LoginScreen() {
     return <>
@@ -34,7 +42,7 @@ function Login() {
     <React.Fragment>
       <Page id="Login" fullscreen={false} BannerContent={Banner}>
         <div className={classes.login}>
-          {!isAuthenticating && !isAuthenticated ? <LoginScreen /> : <Loading loading />}
+          {!isAuthPending ? <LoginScreen /> : <Loading loading />}
         </div>
       </Page>
     </React.Fragment>
