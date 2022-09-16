@@ -3,6 +3,7 @@ import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
 export function useFirebase() {
 
+//TODO: Add Offline Persistence 
     const firebaseConfig = {
         apiKey: "AIzaSyApd0HU0GxRW_fQEBKyN1YnYfLLljXELDw",
         authDomain: "stuart-hopwood-cv.firebaseapp.com",
