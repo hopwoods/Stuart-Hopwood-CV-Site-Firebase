@@ -8,6 +8,8 @@ import ScrollToTopButton from './components/controls/buttons/scrollToTopButton'
 import { About, Bubbles, Page } from './components/layout'
 import { materialTheme } from './style'
 
+//TODO: Switch to dynamic imports
+
 function Banner() {
     return (
         <React.Fragment>

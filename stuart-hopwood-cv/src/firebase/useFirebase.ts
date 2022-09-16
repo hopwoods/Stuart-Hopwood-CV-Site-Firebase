@@ -5,6 +5,7 @@ import { getFirestore } from "firebase/firestore";
 
 export function useFirebase() {
 
+//TODO: Add Offline Persistence 
     const firebaseConfig = {
         apiKey: "AIzaSyApd0HU0GxRW_fQEBKyN1YnYfLLljXELDw",
         authDomain: "stuart-hopwood-cv.firebaseapp.com",
