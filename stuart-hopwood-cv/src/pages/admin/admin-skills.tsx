@@ -9,7 +9,6 @@ import { useSkillsStore } from "../../state";
 import { classes } from "./admin-skills.css";
 import { gridClasses } from "./administration.css";
 
-//TODO: Add a new Example Button.
 function Banner() {
   return (
     <h1 className="inverse">Manage Skills</h1>
