@@ -1,9 +1,10 @@
 export type SkillExampleProps = {
+    id?: string
     text: string;
 };
 
 export type SkillProps = {
-    id: number;
+    id?: string
     skillName: string;
     percentage: number;
     skillExamples?: SkillExampleProps[];

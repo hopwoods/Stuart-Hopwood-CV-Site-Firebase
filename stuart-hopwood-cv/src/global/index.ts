@@ -1,1 +1,0 @@
-export { Globals } from "./globals";

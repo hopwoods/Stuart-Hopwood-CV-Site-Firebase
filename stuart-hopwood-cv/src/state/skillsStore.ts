@@ -1,141 +1,119 @@
-import { toast } from "react-toastify"
 import create from "zustand"
-import { useFirestore } from "../firebase/usefirestore"
+import { useSkillDatabase } from "../database/skillsDatabase"
+import { useFirebase } from "../firebase/useFirebase"
 import { SkillExampleProps, SkillProps } from "../types"
-
-const { getAll } = useFirestore()
+const { db } = useFirebase()
+const { getAllSkillsFromDb, deleteSkillFromDb, deleteExampleFromDb, saveSkillToDb } = useSkillDatabase()
 
 type SkillsState = {
 
-    /** List of the skills from tthe database. */
+    //Properties
     skills: SkillProps[]
-
-    maxId: number
-
-    //TODO - Refactor Selected Skill into Object
-
-    /** Unique ID for the selected skill */
-    selectedSkillId: number
-
-    /** Text Content for the selected skill */
-    selectedSkillName: string
-
-    /** Max Percentage for the selected skill */
-    selectedSkillTargetProgress: number
-
-    /** List of exampled for the selected skill */
-    selectedSkillExamples?: SkillExampleProps[]
-
-    /** Boolean to show loading icon whilst fetching data */
+    selectedSkill: SkillProps
     loading: boolean
-
     editSkillDialogOpen: boolean
-
     addSkillDialogOpen: boolean
 
-    /** Action to set the selected skill state values */
+    setLoading: (value: boolean) => void
+
+    //skills functions
+    setSkills: (skills: SkillProps[]) => void
     setCurrentSkill: (skill: SkillProps) => void
+    getSkillsFromDb: () => void
+    deleteSkill: (id: string) => void
+    setSkillName: (value: string) => void
+    setSkillTarget: (value: number) => void
+    saveSkillToDb: () => void
 
-    /** Action to create or update the selected skill in the DB */
-    updateSkill: (accessToken: string) => void
-
-    /** Action to get the skill entries from the DB */
-    getSkills: () => void
-
-    /** Action to get the skill entries from the DB */
-    deleteSkill: (id: number, accessToken: string) => void
-
+    //Form functions
     setEditDialogState: (openState: boolean) => void
-
     setAddDialogState: (openState: boolean) => void
 
+    //Examples Functions
     setCurrentSkillExamples: (examples: SkillExampleProps[]) => void
-
-    setSkillName: (value: string) => void
-
-    setSkillId: (value: number) => void
-
-    setSkillTarget: (value: number) => void
-
-    setMaxId: (value: number) => void
+    removeSkillExample: (id: string) => void
 }
-
-const showSavedSuccessMessage = () => toast.success("✔️ Skill has been saved")
-const showDeletedSuccessMessage = () => toast.success("✔️ Skill has been deleted")
-const showErrorMessage = (errorText: string) => toast.error(`⛔️ ${errorText}`)
 
 export const useSkillsStore = create<SkillsState>((set, get) => ({
     skills: [],
-    maxId: 0,
-    selectedSkillId: 1,
-    selectedSkillName: "",
-    selectedSkillTargetProgress: 0,
+    selectedSkill: {
+        skillName: "",
+        percentage: 0
+    },
     loading: false,
     editSkillDialogOpen: false,
     addSkillDialogOpen: false,
-    setCurrentSkill: (skill: SkillProps) => set(
-        {
-            selectedSkillId: skill.id,
-            selectedSkillName: skill.skillName,
-            selectedSkillTargetProgress: skill.percentage,
-            selectedSkillExamples: skill.skillExamples
-        }),
-    updateSkill: async (accessToken: string) => {
 
-        const skill: SkillProps = {
-            id: get().selectedSkillId,
-            skillName: get().selectedSkillName,
-            percentage: get().selectedSkillTargetProgress,
-            skillExamples: get().selectedSkillExamples
-        }
-
-        //TODO AddorUpdate Doc Here
+    setSkills: (skills: SkillProps[]) => {
+        set({ skills: skills })
     },
-    getSkills: async () => {
-        try {
-            set({ loading: true })
 
-            //TODO: Add Custom Object Class
-
-            const data = await getAll("skills")
-
-            if (data) {
-                const skills = data.map((skill) => skill as SkillProps)
-                const ids: number[] = skills.map((skill) => skill.id)
-                const maxId = Math.max(...ids)
-
-                set({ skills: skills, maxId: maxId })
-            }
-            set({ loading: false })
-        }
-        catch (error) {
-            showErrorMessage("Something went wrong fetching the skills.")
-        }
+    setLoading: (value: boolean) => {
+        set({ loading: value })
     },
-    deleteSkill: async (id: number, accessToken: string) => {
-        //TODO: Delete skill from db
+
+    setCurrentSkill: async (skill: SkillProps) => {
+        set({ selectedSkill: skill })
     },
+
+    getSkillsFromDb: async () => {
+        get().setLoading(true)
+
+        const skills = await getAllSkillsFromDb()
+        if (skills)
+            get().setSkills(skills)
+
+        get().setLoading(false)
+    },
+
+    saveSkillToDb: async () => {
+        await saveSkillToDb(get().selectedSkill)
+        get().getSkillsFromDb()
+    },
+
+    deleteSkill: async (id: string) => {
+        await deleteSkillFromDb(id)
+        get().getSkillsFromDb()
+    },
+
     setEditDialogState: (openState: boolean) => {
         set({ editSkillDialogOpen: openState })
     },
     setAddDialogState: (openState: boolean) => {
         set({ addSkillDialogOpen: openState })
     },
-    setCurrentSkillExamples: (examples: SkillExampleProps[]) => {
-        set({ selectedSkillExamples: examples })
+
+    setCurrentSkillExamples: async (examples: SkillExampleProps[]) => {
+        const skill = get().selectedSkill
+        if (skill)
+            skill.skillExamples = examples
+        set({ selectedSkill: skill })
     },
     setSkillName: (value: string) => {
-        set({ selectedSkillName: value })
+        const skill = get().selectedSkill
+        if (skill)
+            skill.skillName = value
+        set({ selectedSkill: skill })
     },
     setSkillTarget: (value: number) => {
-        set({ selectedSkillTargetProgress: value })
+        const skill = get().selectedSkill
+        if (skill)
+            skill.percentage = value
+        set({ selectedSkill: skill })
     },
-    setSkillId: (value: number) => {
-        set({ selectedSkillId: value })
+
+    removeSkillExample: async (exampleId: string,) => {
+        {
+            const selectedSkill = get().selectedSkill
+            if (selectedSkill.skillExamples && selectedSkill.id) {
+                const examplesCopy: SkillExampleProps[] = [...selectedSkill.skillExamples]
+                const index = examplesCopy.findIndex(x => x.id === exampleId)
+                if (index !== -1) {
+                    get().setCurrentSkillExamples(examplesCopy.filter(x => x.id !== exampleId))
+                    await deleteExampleFromDb(selectedSkill.id, exampleId)
+                }
+            }
+        }
     },
-    setMaxId: (value: number) => {
-        set({ maxId: value })
-    }
-
-
 }))
+

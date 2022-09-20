@@ -1,7 +1,7 @@
 import { mergeStyleSets } from "@fluentui/merge-styles"
-import { useTheme } from "../../../Hooks"
-import { materialTheme } from "../../../style"
-import { FontFamilies } from "../../typeography/font-families"
+import { FontFamilies } from "../components/typeography/font-families"
+import { useTheme } from "../Hooks"
+import { materialTheme } from "../style"
 
 const theme = useTheme()
 

@@ -1,50 +1,24 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from "@mui/material"
 import React, { useRef } from "react"
-import { useAccessToken } from "../../../security/useAccessToken"
-import { useSkillsStore } from "../../../state"
-import { SkillExampleProps } from "../../../types"
-import { SkillExampleInput } from "../../controls"
+import { BiCommentAdd } from "react-icons/bi"
+import { useSkillDialog } from "../../../../Hooks"
+import { useSkillsStore } from "../../../../state"
+import { SkillExampleProps } from "../../../../types"
 export function AddSkillDialog() {
 
-    const {
-        selectedSkillId,
-        selectedSkillName,
-        selectedSkillTargetProgress,
-        selectedSkillExamples,
-        setAddDialogState,
-        addSkillDialogOpen,
-        setCurrentSkillExamples,
-        setSkillName,
-        setSkillTarget,
-        updateSkill,
-    } = useSkillsStore()
-
+    const { selectedSkill, setAddDialogState, addSkillDialogOpen, setCurrentSkillExamples, setSkillName, setSkillTarget } = useSkillsStore()
+    const { saveSkill, skillExampleTextBoxes } = useSkillDialog()
     const formRef = useRef<HTMLFormElement>(null)
-    const accessToken = useAccessToken()
-
-    const skillExampleTextBoxes = (examples?: SkillExampleProps[]) => {
-        if (examples) {
-            return (
-                examples.map(function (example, idx) {
-                    return (
-                        <SkillExampleInput text={example.text} key={idx} index={idx} />
-                    )
-                })
-            )
-        }
-    }
 
     const handleClose = () => {
         setAddDialogState(false)
     }
 
     const addExample = () => {
-        const newExample: SkillExampleProps = {
-            text: ""
-        }
+        const newExample: SkillExampleProps = { text: "" }
         let tempExamples: SkillExampleProps[] = []
-        if (selectedSkillExamples) {
-            tempExamples = [...selectedSkillExamples]
+        if (selectedSkill.skillExamples) {
+            tempExamples = [...selectedSkill.skillExamples]
         }
         tempExamples.push(newExample)
         if (tempExamples) {
@@ -53,19 +27,7 @@ export function AddSkillDialog() {
     }
 
     const handleSave = () => {
-        console.log(``)
-        //TODO: Refactor setting of new examples.
-        const examples = [...formRef.current?.skillExamples]
-        const newExamples: SkillExampleProps[] = []
-        examples.forEach(function (example) {
-            const newExample: SkillExampleProps = {
-                text: example.value
-            }
-            newExamples.push(newExample)
-        })
-
-        setCurrentSkillExamples(newExamples)
-        updateSkill(accessToken)
+        saveSkill(selectedSkill, formRef)
         setAddDialogState(false)
     }
 
@@ -85,7 +47,7 @@ export function AddSkillDialog() {
                             label="Skill Name"
                             type="text"
                             placeholder="Enter a skill name..."
-                            defaultValue={selectedSkillName}
+                            defaultValue={selectedSkill.skillName}
                             fullWidth
                             onChange={(evt: React.ChangeEvent<HTMLInputElement>) => { setSkillName(evt.target.value) }} />
                         <TextField
@@ -93,13 +55,13 @@ export function AddSkillDialog() {
                             margin="dense"
                             id="target"
                             label="Target Progress"
-                            defaultValue={selectedSkillTargetProgress}
+                            defaultValue={selectedSkill.percentage}
                             type="number"
                             placeholder="Enter a target progress..."
                             onInput={(evt: React.ChangeEvent<HTMLInputElement>) => { setSkillTarget(evt.target.valueAsNumber) }} />
-                        {skillExampleTextBoxes(selectedSkillExamples)}
+                        {skillExampleTextBoxes(selectedSkill.skillExamples)}
                         <div>
-                            <Button variant="text" color="primary" onClick={() => { addExample() }}>Add Example</Button>
+                            <Button variant="text" color="primary" onClick={() => { addExample() }} startIcon={<BiCommentAdd />}>Add Example</Button>
                         </div>
                     </form>
                 </DialogContent>
@@ -107,7 +69,7 @@ export function AddSkillDialog() {
                     <Button onClick={handleClose} color="secondary">
                         Cancel
                     </Button>
-                    <Button onClick={handleSave} color="primary">
+                    <Button onClick={async () => await handleSave()} color="primary">
                         Save
                     </Button>
                 </DialogActions>

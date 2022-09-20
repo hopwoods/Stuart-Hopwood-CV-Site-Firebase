@@ -19,7 +19,11 @@ export const Navbar: React.FC = () => {
     }
   }, [size.height])
 
-  useEffect(() => { window.addEventListener("scroll", handleScroll) }, [handleScroll, scrolled])
+  useEffect(() => {
+
+    window.addEventListener("scroll", handleScroll)
+
+  }, [])
 
   let navBarScrolledStateClass
   if (scrolled) {

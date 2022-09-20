@@ -1,16 +1,16 @@
 import { Fade } from "react-reveal";
-import { TriangleDown } from "..";
-import { useTheme } from "../../../Hooks";
-import { materialTheme } from "../../../style";
+import { TriangleDown } from "../components/layout";
+import { Badges } from "../components/layout/about/badges";
+import { Profile } from "../components/layout/about/profile";
+import { Skills } from "../components/layout/about/skills";
+import { useTheme } from "../Hooks";
+import { materialTheme } from "../style";
 import { classes } from "./About.css";
-import { Badges } from "./badges";
-import { Profile } from "./profile";
-import { Skills } from "./skills";
 
 const theme = useTheme();
 
 //TODO: Fix Animations
-//TODO: Fix Fonts
+
 export function About() {
   return (
     <div id="about" className={classes.about}>

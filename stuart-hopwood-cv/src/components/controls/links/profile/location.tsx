@@ -4,7 +4,7 @@ import { classes } from "./profileLinks.css"
 
 export function Location() {
   return (
-    <div className={`${classes.icon} ${typography.subCopy} location`}>
+    <div className={`${classes.icon} ${typography.copy3} location`}>
       <LocationOnIcon />
       <span>Exeter, United Kingdom</span>
     </div>

@@ -1,5 +1,4 @@
-import { SerializedStyles } from "@emotion/react";
-import { SkillProps } from ".";
+import { SkillProps } from "./skillProps";
 
 export type ButtonColors = "primary" | "secondary";
 export type ButtonSizes = "small" | "medium";
@@ -9,10 +8,10 @@ export type EditSkillButtonProps = SkillProps & {
     size: ButtonSizes;
 }
 
-export type DeleteSkillButtonProps = {
+export type SkillButtonProps = {
     color: ButtonColors;
     size: ButtonSizes;
-    onClickHandler: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    onClickHandler?: (e: React.MouseEvent<HTMLButtonElement>) => void;
     cssStyle?: string;
 }
 

@@ -1,19 +1,31 @@
-import { addDoc as add, collection, doc, DocumentData, getDoc as get, getDocs, setDoc } from "firebase/firestore"
+import { addDoc as add, collection, deleteDoc as del, doc, DocumentData, getDoc as get, getDocs, orderBy, query, QuerySnapshot, setDoc } from "firebase/firestore"
 import { useFirebase } from "./useFirebase"
 export function useFirestore() {
 
     const { db } = useFirebase()
 
-    async function addDoc(collectionName: string, document: JSON) {
+    const skillsRef = collection(db, "skills")
+
+    async function addDoc(collectionName: string, document: object) {
         try {
             const docRef = await add(collection(db, collectionName), document)
             console.log("Document written with ID: ", docRef.id)
+            return docRef.id
+        } catch (e) {
+            console.error("Error adding document: ", e)
+        }
+    }
+    async function addOrUpdateDoc(collectionName: string, documentId: string | number, document: object) {
+        try {
+            const collectionRef = collection(db, collectionName)
+            await setDoc(doc(collectionRef, documentId.toString()), document)
+            console.log("Document updated with ID: ", documentId)
         } catch (e) {
             console.error("Error adding document: ", e)
         }
     }
 
-    async function getDoc(collectionName: string, documentId: string) {
+    async function getDoc(collectionName: string, documentId: string): Promise<DocumentData | undefined> {
         try {
             const docRef = doc(db, collectionName, documentId);
             const docSnap = await get(docRef)
@@ -28,17 +40,12 @@ export function useFirestore() {
         }
     }
 
-    async function getAll(collectionName: string) {
+    async function getAll(collectionName: string): Promise<QuerySnapshot<DocumentData> | undefined> {
         try {
-            const dataArray: DocumentData[] = []
             const querySnapshot = await getDocs(collection(db, collectionName));
 
             if (!querySnapshot.empty)
-                querySnapshot.forEach((doc) => {
-                    dataArray.push(doc.data())
-                });
-
-            return dataArray
+                return querySnapshot
 
         } catch (e) {
             console.error("Error getting documents: ", e)
@@ -46,16 +53,42 @@ export function useFirestore() {
     }
 
 
-
-    async function addOrUpdateDoc(collectionName: string, documentId: string | number, document: JSON) {
-        try {
-            const collectionRef = collection(db, collectionName)
-            await setDoc(doc(collectionRef, documentId.toString()), document)
-            console.log("Document updated with ID: ", documentId)
-        } catch (e) {
-            console.error("Error adding document: ", e)
-        }
+    type OrderByConstraint = {
+        field: string
+        direction: "asc" | "desc"
     }
 
-    return { addDoc, getDoc, getAll, addOrUpdateDoc }
+    async function getAllAndSort(collectionName: string, orderByConstraint: OrderByConstraint) {
+        const collectionRef = collection(db, collectionName)
+
+        const q = query(collectionRef, orderBy(orderByConstraint.field, orderByConstraint.direction))
+
+        const results = await getDocs(q)
+
+        return results
+    }
+
+    async function deleteDoc(path: string) {
+        const docRef = doc(db, path)
+        const docSnap = await get(docRef)
+
+        if (docSnap.exists())
+            await del(docRef)
+    }
+
+    function makeId(length?: number) {
+        const idLength = length ? length : 20
+        var result = '';
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for (var i = 0; i < idLength; i++) {
+            result += characters.charAt(Math.floor(Math.random() *
+                charactersLength));
+        }
+        return result;
+    }
+
+
+
+    return { addDoc, getDoc, getAll, getAllAndSort, addOrUpdateDoc, deleteDoc, makeId }
 }

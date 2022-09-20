@@ -1,6 +1,6 @@
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import { Button } from '@mui/material';
 import { useLogin } from '../../../security/useLogin';
+import { Button } from './button';
 
 export function LoginButton() {
   const { signIn } = useLogin()

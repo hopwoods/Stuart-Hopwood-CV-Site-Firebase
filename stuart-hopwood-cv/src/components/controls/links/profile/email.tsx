@@ -4,7 +4,7 @@ import { classes } from "./profileLinks.css"
 
 export function Email() {
   return (
-    <div className={`${classes.icon} ${typography.subCopy} email`}>
+    <div className={`${classes.icon} ${typography.copy3} email`}>
       <AlternateEmailOutlinedIcon />
       <span>
         <a href="mailto:stoo.hopwood@gmail.com" target="_blank" rel="noopener noreferrer">stoo.hopwood@gmail.com</a>

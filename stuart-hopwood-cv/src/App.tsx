@@ -1,9 +1,10 @@
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
-import { Button, ThemeProvider } from '@mui/material'
+import { ThemeProvider } from '@mui/material'
 import React from 'react'
 import { HashLink } from 'react-router-hash-link'
 import './App.css'
 import { classes } from './App.css'
+import { Button } from './components/controls/buttons/button'
 import ScrollToTopButton from './components/controls/buttons/scrollToTopButton'
 import { About, Bubbles, Page } from './components/layout'
 import { materialTheme } from './style'
@@ -24,8 +25,8 @@ function Banner() {
             <Bubbles />
         </React.Fragment>
     )
-
 }
+
 
 function App() {
     return (

@@ -3,8 +3,6 @@ import { User } from "firebase/auth";
 import create from "zustand";
 
 export type GlobalState = {
-    accessToken: string
-    setAccessToken: (token: string) => void
     user?: User
     storeUser: (user: User) => void
     deleteUser: () => void
@@ -15,8 +13,6 @@ export type GlobalState = {
 };
 
 export const useGlobalStore = create<GlobalState>((set) => ({
-    accessToken: "",
-    setAccessToken: (token: string) => set({ accessToken: token }),
     storeUser: (user: User) => set({ user: user }),
     deleteUser: () => set({ user: undefined }),
     isAuthenticated: false,

@@ -1,10 +1,10 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { SkillsTable } from "../../components/controls";
 import { AddSkillButton } from "../../components/controls/buttons/addSkillButton";
 import { AdminMenu, EditSkillDialog, Loading, Page } from "../../components/layout";
-import { AddSkillDialog } from "../../components/layout/about/addSkillDialog";
+import { AddSkillDialog } from "../../components/layout/admin/skills/addSkillDialog";
 import { useSkillsStore } from "../../state";
 import { classes } from "./admin-skills.css";
 import { gridClasses } from "./administration.css";
@@ -17,11 +17,11 @@ function Banner() {
 
 export function AdminSkills() {
 
-  const { skills, loading, getSkills } = useSkillsStore();
+  const { selectedSkill, skills, loading, getSkillsFromDb } = useSkillsStore();
 
   useEffect(() => {
-    getSkills();
-  }, [getSkills]);
+    getSkillsFromDb()
+  }, [])
 
   return (
     <Page id="Manage Skills" fullscreen={false} BannerContent={Banner}>

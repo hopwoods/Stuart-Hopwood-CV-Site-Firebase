@@ -1,7 +1,8 @@
 import { TextField } from "@mui/material"
-import React from "react"
+import { useFirestore } from "../../../firebase/usefirestore"
 import { useSkillsStore } from "../../../state"
-import { DeleteSkillButton } from "../buttons/deleteSkillButton"
+import { SkillExampleProps } from "../../../types"
+import { DeleteButton } from "../buttons/deleteButton"
 import { classes } from "./skillExampleInput.css"
 
 type SkillExampleInputProps = {
@@ -9,33 +10,36 @@ type SkillExampleInputProps = {
     index: number
 }
 
-export function SkillExampleInput({ text, index }: SkillExampleInputProps) {
+export function SkillExampleInput({ skillExample: example }: { skillExample: SkillExampleProps }) {
 
-    const { selectedSkillExamples, setCurrentSkillExamples } = useSkillsStore()
-    const onDeleteExampleClickHandler = (e: React.MouseEvent<HTMLButtonElement>, text: string) => {
-        e.preventDefault()
-        if (selectedSkillExamples) {
-            const examplesCopy = [...selectedSkillExamples]
-            const found = examplesCopy.findIndex(x => x.text === text)
-            if (found !== -1) {
-                setCurrentSkillExamples(examplesCopy.filter(x => x.text !== text))
-            }
+    const { makeId } = useFirestore()
+    const { removeSkillExample } = useSkillsStore()
+    const id = example.id ? example.id : makeId(20)
+    const { selectedSkill } = useSkillsStore()
+
+
+    const onDeleteExampleClickHandler = (id: string) => {
+        if (selectedSkill.id && selectedSkill.skillExamples) {
+            removeSkillExample(id)
         }
     }
 
     return (
         <div>
             <TextField
-                className={classes.textInput}
+                className={`${classes.textInput} skillExample`}
                 name="skillExamples"
-                key={index} margin="dense"
-                id={`skillExample-${index}`}
+                key={id} margin="dense"
+                id={id}
                 label="Skill Example"
                 type="text"
-                defaultValue={text}
+                defaultValue={example.text}
                 placeholder="Enter an example..."
             />
-            <DeleteSkillButton cssStyle={classes.deleteButton} color="secondary" size="small" onClickHandler={(e: React.MouseEvent<HTMLButtonElement>) => onDeleteExampleClickHandler(e, text)} />
+            <DeleteButton cssStyle={classes.deleteButton} color="primary" size="small" onClickHandler={() => onDeleteExampleClickHandler(id)} />
         </div>
     )
 }
+
+
+

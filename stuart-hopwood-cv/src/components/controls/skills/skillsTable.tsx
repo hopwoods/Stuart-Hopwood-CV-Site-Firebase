@@ -4,7 +4,7 @@ import React from "react"
 import { EditSkillButton } from ".."
 import { useSkillsStore } from "../../../state"
 import { SkillExampleProps, SkillProps } from "../../../types"
-import { DeleteSkillButton } from "../buttons/deleteSkillButton"
+import { DeleteButton } from "../buttons/deleteButton"
 import { classes } from "./skillsTable.css"
 type SkillsTableProps = {
     rows: SkillProps[]
@@ -12,9 +12,9 @@ type SkillsTableProps = {
 
 export function SkillsTable({ rows }: SkillsTableProps) {
     const { deleteSkill } = useSkillsStore()
-    const onClickHandler = (id: number) => {
-        //deleteSkill(id, accessToken)
-        alert("Trigger Modal")
+
+    const onClickHandler = (id: string) => {
+        deleteSkill(id)
     }
 
     const columns: GridColDef[] = [
@@ -76,7 +76,7 @@ export function SkillsTable({ rows }: SkillsTableProps) {
                             skillExamples={params.row?.skillExamples}
                             color="primary"
                             size="small" />
-                        <DeleteSkillButton onClickHandler={() => onClickHandler(params.row?.id)} color="primary" size="small" />
+                        <DeleteButton onClickHandler={() => onClickHandler(params.row?.id)} color="primary" size="small" />
                     </React.Fragment>
                 )
             },

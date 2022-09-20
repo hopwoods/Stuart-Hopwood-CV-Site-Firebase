@@ -13,5 +13,5 @@ export function AboutText() {
     getAboutText()
   }, [getAboutText])
 
-  return loading ? <Loading /> : <div className={`${classes.aboutText} ${typography.copy}`}>{parse(text)}</div>
+  return loading ? <Loading /> : <div className={`${classes.aboutText} ${typography.copy1}`}>{parse(text)}</div>
 }

@@ -1,4 +1,4 @@
-import { Auth, getAuth, getRedirectResult, GoogleAuthProvider, signInWithRedirect, signOut, User, UserCredential } from "firebase/auth"
+import { Auth, getAuth, getRedirectResult, GoogleAuthProvider, signInWithRedirect, signOut, User } from "firebase/auth"
 import { useCallback, useEffect, useMemo } from "react"
 import { useNavigate } from "react-router"
 import { useFirebase } from "../firebase/useFirebase"
@@ -6,7 +6,7 @@ import { useGlobalStore } from "../state"
 
 export function useLogin() {
     const { firebaseApp } = useFirebase()
-    const { setAccessToken, storeUser, deleteUser, isAuthenticated, setIsAuthenticated, user, setAuthenticating } = useGlobalStore()
+    const { storeUser, deleteUser, isAuthenticated, setIsAuthenticated, user, setAuthenticating } = useGlobalStore()
 
     const provider = useMemo(() => { return new GoogleAuthProvider() }, [])
     const auth = useMemo(() => { return getAuth(firebaseApp) }, [])
@@ -18,16 +18,12 @@ export function useLogin() {
             getRedirectResult(auth) //Check if a user has just logged in
                 .then((result) => {
                     if (result) {
-                        getToken(result)
                         registerUser(result.user)
                         navigate("/admin")
                     }
                 }).catch((error) => {
                     const errorCode = error.code
                     const errorMessage = error.message
-                    const email = error.customData.email
-                    const credential = GoogleAuthProvider.credentialFromError(error)
-
                     console.error(`${errorCode}: ${errorMessage}`)
                 })
         }
@@ -68,23 +64,9 @@ export function useLogin() {
         sessionStorage.setItem("uid", user.uid)
         setAuthenticating(false)
     }
-    function getToken(result: UserCredential) {
-        const credential = GoogleAuthProvider.credentialFromResult(result)
-        if (credential) {
-            const token = credential.accessToken
-            if (token) {
-                setAccessToken(token)
-            }
-        }
-    }
-
     function checkForAuthenticatedUser(user: User | undefined, isAuthenticated: boolean, auth: Auth) {
         if (sessionStorage.getItem("uid") && user && !isAuthenticated) {
             registerUser(user)
-        }
-
-        if (sessionStorage.getItem("uid") && !user && !isAuthenticated && auth.currentUser) {
-            registerUser(auth.currentUser)
         }
     }
 

@@ -1,10 +1,8 @@
 import { toast } from "react-toastify"
 import create from "zustand"
 import { useFirestore } from "../firebase/usefirestore"
-import { Globals } from "../global"
-import { useGlobalStore } from "./globalStore"
 
-const apiUrl = Globals.ApiSettings.Audience
+//const apiUrl = Globals.ApiSettings.Audience
 
 type AboutTextState = {
     /** Unique ID for the About Text entry */
@@ -26,7 +24,6 @@ type AboutTextState = {
     getAboutText: () => void
 }
 
-const accessToken = useGlobalStore.getState().accessToken
 const showSuccessMessage = () => toast.success("✔️ New About Text Content has been saved")
 const showErrorMessage = (errorText: string) => toast.error(`⛔️ ${errorText}`)
 
@@ -38,20 +35,24 @@ export const useAboutTextStore = create<AboutTextState>((set, get) => ({
     text: "",
     loading: false,
     setText: (id: string, text: string) => set({ id: id, text: text }),
-    updateAboutText: async () => {
-        try {
-            const currentId = get().id
-            const currentText = get().text
 
-            showSuccessMessage()
-        }
-        catch (error) {
-            showErrorMessage("Something went wrong setting the AboutText.")
-        }
+    //TODO: Move  this to AboutTextDatabase.ts
+    updateAboutText: async () => {
+
+        //TODO: Save ABout Text to the DB
+
+        const currentId = get().id
+        const currentText = get().text
+
+        showSuccessMessage()
+
     },
+
+    //TODO: Move  this to AboutTextDatabase.ts
     getAboutText: async () => {
         try {
             set({ loading: true })
+
 
             const data = await getDoc("aboutText", "about");
 
