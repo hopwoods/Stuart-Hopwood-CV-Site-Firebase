@@ -3,6 +3,7 @@ import { mergeStyleSets } from "@fluentui/merge-styles"
 export const classes = mergeStyleSets({
   skills: {
     gridColumn: '2 / span 1',
+    gridRow: '2 / span 1',
     padding: '1em',
     display: 'grid',
     gridTemplateColumns: '30vw',

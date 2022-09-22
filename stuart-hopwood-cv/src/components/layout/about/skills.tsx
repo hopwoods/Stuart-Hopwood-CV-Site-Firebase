@@ -1,10 +1,21 @@
+import { domAnimation, LazyMotion, m, Variants } from "framer-motion"
 import { useEffect } from "react"
-import { Fade } from "react-reveal"
 import { Loading } from ".."
 import { useSkillsStore } from "../../../state"
 import { SkillProps } from "../../../types"
 import { SkillWithProgress } from "../../controls/skills/skillsWithProgress"
 import { classes } from "./skills.css"
+
+export const variants: Variants = {
+  offscreen: {
+    opacity: 0,
+    x: 200
+  },
+  onscreen: {
+    opacity: 1,
+    x: 0,
+  }
+};
 
 export function Skills() {
   const { skills, loading, getSkillsFromDb: getSkills } = useSkillsStore()
@@ -17,16 +28,14 @@ export function Skills() {
     getSkillsFromDb()
   }, [])
 
-  return (
-    <Fade right big>
-      <div className={classes.skills}>
-        {loading
-          ? <Loading />
-          : skills.map(function (skill: SkillProps) {
-            return <SkillWithProgress key={skill.skillName} skillName={skill.skillName} percentage={skill.percentage} skillExamples={skill.skillExamples} />
-          })
-        }
-      </div>
-    </Fade>
-  )
+  return <LazyMotion features={domAnimation}>
+    <m.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }} transition={{ duration: 1 }} variants={variants} className={classes.skills}>
+      {loading
+        ? <Loading />
+        : skills.map(function (skill: SkillProps) {
+          return <SkillWithProgress key={skill.skillName} skillName={skill.skillName} percentage={skill.percentage} skillExamples={skill.skillExamples} />
+        })
+      }
+    </m.div>
+  </LazyMotion>
 }

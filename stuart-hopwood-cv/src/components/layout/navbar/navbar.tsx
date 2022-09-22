@@ -12,7 +12,7 @@ export const Navbar: React.FC = () => {
 
   const handleScroll = useCallback(() => {
     const offset = window.scrollY
-    if (offset > size.height + 55) {
+    if (offset > size.height + 50) {
       setScrolled(true)
     } else {
       setScrolled(false)

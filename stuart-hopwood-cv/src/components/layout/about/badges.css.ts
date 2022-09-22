@@ -5,20 +5,19 @@ import { FontFamilies } from "../../../style"
 const themeColors = useTheme()
 
 export const classes = mergeStyleSets({
-  badge: {
+  badges: {
     marginTop: '5rem',
+    marginBottom: '5rem',
     gridColumn: '1 / span 2',
-    gridRow: '2 / span 1',
+    gridRow: '1 / span 1',
     padding: '1em',
     color: themeColors.text,
     fontSize: '2rem',
-    justifySelf: 'stretch',
-    alignSelf: 'stretch',
     height: 'fit-content',
     display: 'grid',
-    gridTemplateColumns: 'repeat(4, 0.25fr)',
-    gridTemplateRows: 'repeat(2, 0.5fr)',
-    gridRowGap: '3em',
+    gridTemplateColumns: 'repeat(4, 10rem)',
+    gridTemplateRows: 'repeat(1, 10rem)',
+    gridGap: '6em',
     justifyItems: 'center',
     alignItems: 'center',
     fontFamily: FontFamilies.secondary,

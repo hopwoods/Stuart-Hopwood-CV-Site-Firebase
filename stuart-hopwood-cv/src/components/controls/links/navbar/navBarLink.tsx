@@ -1,7 +1,7 @@
 
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { NavHashLink } from "react-router-hash-link";
+import { HashLink } from "react-router-hash-link";
 import { classes } from "./navBarLink.css";
 
 export type LinkProps = {
@@ -20,9 +20,9 @@ export function NavBarLink({ to, value, isHashLink }: LinkProps) {
     <React.Fragment>
       <span className={classes.navBar}>
         {isHashLink ? (
-          <NavHashLink smooth to={to}>
+          <HashLink smooth to={to}>
             {value}
-          </NavHashLink>
+          </HashLink >
         ) : (
           <NavLink to={to}>{value}</NavLink>
         )}

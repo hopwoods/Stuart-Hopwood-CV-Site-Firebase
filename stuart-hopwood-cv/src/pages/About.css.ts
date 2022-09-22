@@ -12,7 +12,7 @@ export const classes = mergeStyleSets({
     paddingTop: '7em',
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
-    gridTemplateRows: 'auto auto auto auto',
+    gridTemplateRows: 'auto',
     minHeight: '100vh',
     height: 'fit-content',
     justifySelf: 'stretch',

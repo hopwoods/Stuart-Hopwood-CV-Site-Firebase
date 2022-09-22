@@ -28,10 +28,10 @@ export const classes = mergeStyleSets({
   progressBar: {
     gridColumn: '2 / span 1',
     justifySelf: 'start',
-    paddingRight: '1em',
+    paddingRight: '0',
     width: '100%',
     '.MuiLinearProgress-root': {
-      height: '7px',
+      height: '9px',
       borderRadius: '5px'
     },
     '.MuiLinearProgress-colorPrimary': {
@@ -48,7 +48,7 @@ export const classes = mergeStyleSets({
   },
   progressBarWrapper: {
     display: 'grid',
-    gridTemplateColumns: '5em auto 3em',
+    gridTemplateColumns: '8em auto 3em',
     gridTemplateRows: 'auto',
     gridGap: '0em',
     height: 'fit-content',

@@ -1,9 +1,9 @@
-import { addDoc as add, collection, deleteDoc as del, doc, DocumentData, getDoc as get, getDocs, orderBy, query, QuerySnapshot, setDoc } from "firebase/firestore"
-import { useFirebase } from "./useFirebase"
+import { addDoc as add, collection, deleteDoc as del, doc, DocumentData, getDoc as get, getDocs, orderBy, query, QuerySnapshot, setDoc } from "firebase/firestore";
+
+import { useFirebase } from "./useFirebase";
 export function useFirestore() {
 
     const { db } = useFirebase()
-
     const skillsRef = collection(db, "skills")
 
     async function addDoc(collectionName: string, document: object) {

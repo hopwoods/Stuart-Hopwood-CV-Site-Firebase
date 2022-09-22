@@ -5,15 +5,9 @@ import { FontFamilies } from "../../../style"
 const themeColors = useTheme()
 
 const fadeIn = keyframes({
-  '0%': { opacity: 0 },
+  '0%': { opacity: 0.25 },
   '100%': { opacity: 1 }
 })
-
-// const growDown = keyframes({
-//   '0%': { transform: 'scaleY(0)' },
-//   '80%': { transform: 'scaleY(1.1)' },
-//   '100%': { transform: 'scaleY(1)' }
-// })
 
 export const classes = mergeStyleSets({
   navbar: {
@@ -31,11 +25,11 @@ export const classes = mergeStyleSets({
     alignItems: 'center',
     zIndex: 999,
 
-    '.scrolled': {
+    '&.scrolled': {
       position: 'sticky',
       top: 0,
       left: 0,
-      animation: `${fadeIn} 300ms ease-in-out`,
+      animation: `${fadeIn} 350ms`,
       boxShadow: '0 0 7px rgba(0, 0, 0, 0.65)'
     },
 
