@@ -3,6 +3,9 @@ import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
+/**
+* @type {import('vite').UserConfig}
+*/
 export default defineConfig({
   plugins: [
     react(),
@@ -38,6 +41,9 @@ export default defineConfig({
       }
     })
   ],
+  build: {
+    sourcemap: true
+  }
 
   //esbuild: { jsx: 'automatic' }
 })
