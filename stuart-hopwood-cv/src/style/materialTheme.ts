@@ -22,7 +22,7 @@ export const materialTheme = createTheme({
       900: 'rgb(900,900,900)'
     },
     text: {
-      primary: '#ffffff',
+      primary: '#000000',
       secondary: '#858585'
     }
   },
