@@ -21,7 +21,7 @@ export const variants: Variants = {
 
 export function Profile() {
   return <LazyMotion features={domAnimation}>
-    <m.div initial="offscreen" whileInView="onscreen" viewport={{ once: false }} transition={{ duration: 1 }} variants={variants} className={classes.profile}>
+    <m.div initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: "100px 0px 0px 0px" }} transition={{ duration: 1 }} variants={variants} className={classes.profile}>
       <div className="profilePicture">
         <Picture
           sources={[

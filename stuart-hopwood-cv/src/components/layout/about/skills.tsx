@@ -29,7 +29,7 @@ export function Skills() {
   }, [])
 
   return <LazyMotion features={domAnimation}>
-    <m.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }} transition={{ duration: 1 }} variants={variants} className={classes.skills}>
+    <m.div initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: "100px 0px 0px 0px" }} transition={{ duration: 1 }} variants={variants} className={classes.skills}>
       {loading
         ? <Loading />
         : skills.map(function (skill: SkillProps) {
