@@ -11,11 +11,9 @@ jobs:
       run:
         working-directory: ./stuart-hopwood-cv
     steps:
-      - name: ⚡vite install and build
       - uses: actions/checkout@v2
       - run: yarn
       - run: yarn build
-      - name: 🔥Firebase Deploy
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           entryPoint: ./stuart-hopwood-cv
