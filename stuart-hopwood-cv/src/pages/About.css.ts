@@ -22,9 +22,10 @@ export const classes = mergeStyleSets({
 
     h1: {
       gridColumn: '1 / span 2',
-      gridRow: '1 / span 1',
-      alignSelf: 'center',
-      justifySelf: 'center'
+      alignSelf: 'start',
+      justifySelf: 'center',
+      fontFamily: FontFamilies.primary,
+      color: materialTheme.palette.primary.main
     },
 
     h2: {
@@ -32,11 +33,16 @@ export const classes = mergeStyleSets({
       color: materialTheme.palette.primary.main
     },
 
-    'div#profile': {
+    '#badges': {
+      gridColumn: ' 1 / span 2',
+      gridRow: '2 / span 1'
+    },
+
+    '#profile': {
       gridColumn: ' 1 / span 1',
       gridRow: '3 / span 1'
     },
-    'div#skills': {
+    '#skills': {
       gridColumn: '2 / span 1',
       gridRow: '3 / span 1'
     }

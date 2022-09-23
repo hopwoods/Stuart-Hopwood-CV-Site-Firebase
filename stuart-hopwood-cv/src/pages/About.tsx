@@ -8,6 +8,7 @@ import { classes } from "./About.css";
 export function About() {
   return (
     <div id="about" className={classes.about}>
+      <h1>About</h1>
       <Badges />
       <Profile />
       <Skills />

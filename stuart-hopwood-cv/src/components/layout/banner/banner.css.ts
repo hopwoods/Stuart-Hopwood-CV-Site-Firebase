@@ -18,13 +18,7 @@ export const colorChange = keyframes({
   '100%': { color: '#ff0034' }
 })
 
-export const gradient = keyframes({
-  '0%': { backgroundPosition: '0% 25%' },
-  '25%': { backgroundPosition: '50% 50%' },
-  '50%': { backgroundPosition: '100% 50%' },
-  '75%': { backgroundPosition: '50% 50%' },
-  '100%': { backgroundPosition: '0% 50%' }
-})
+
 
 export const wobble = keyframes({
   '33%': { transform: 'translateX(-50px)' },
@@ -62,21 +56,6 @@ export const classes = mergeStyleSets({
     textAlign: 'center',
     fontFamily: FontFamilies.secondary,
     fontWeight: 100,
-    background: `linear-gradient(
-      45deg, 
-      rgba(37,41,52,1) 0%, 
-      rgba(92,17,73,1) 15%, 
-      rgba(182,5,66,1) 30%, 
-      rgba(221,0,63,1) 50%, 
-      rgba(187,5,66,1) 70%, 
-      rgba(92,17,73,1) 85%, 
-      rgba(37,41,52,1) 100%
-    )`,
-    backgroundSize: '400% 400%',
-    animationName: gradient,
-    animationDuration: '15s',
-    animationIterationCount: 'infinite',
-    animationTimingFunction: 'ease-out',
 
     p: {
       alignSelf: 'end',

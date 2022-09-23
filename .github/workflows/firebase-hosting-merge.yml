@@ -13,10 +13,10 @@ jobs:
       run:
         working-directory: ./stuart-hopwood-cv
     steps:
-      - uses: actions/checkout@v2
-      - run: yarn
-      - run: yarn build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - uses: ✅ actions/checkout@v2
+      - run: ⚡yarn
+      - run: ⚡yarn build
+      - uses: 🔥FirebaseExtended/action-hosting-deploy@v0
         with:
           entryPoint: ./stuart-hopwood-cv
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

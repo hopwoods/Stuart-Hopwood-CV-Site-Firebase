@@ -7,23 +7,24 @@ export type BadgeProps = {
 
 const badgeVariants: Variants = {
     offscreen: {
+        opacity: 0,
         x: -300,
-        rotate: 90
+        filter: 'blur(10px)'
     },
     onscreen: {
-        x: 50,
-        rotate: 0,
+        opacity: 1,
+        x: 0,
+        filter: 'blur(0px)',
         transition: {
             type: "spring",
-            bounce: 0.4,
-            duration: 0.8
+            bounce: 0.2,
         }
     }
 };
 
 export function Badge({ children }: BadgeProps) {
     return <LazyMotion features={domAnimation}>
-        <m.div variants={badgeVariants} transition={{ duration: 1.4 }} className={classes.badge}>
+        <m.div variants={badgeVariants} layout transition={{ duration: 0.8 }} className={classes.badge}>
             {children}
         </m.div>
     </LazyMotion>

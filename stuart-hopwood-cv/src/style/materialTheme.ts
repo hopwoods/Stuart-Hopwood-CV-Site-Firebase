@@ -23,7 +23,7 @@ export const materialTheme = createTheme({
     },
     text: {
       primary: '#000000',
-      secondary: '#858585'
+      secondary: '#959595'
     }
   },
 });

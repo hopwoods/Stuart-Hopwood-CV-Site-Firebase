@@ -29,13 +29,13 @@ export function Skills() {
   }, [])
 
   return <LazyMotion features={domAnimation}>
-    <m.div initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: "100px 0px 0px 0px" }} transition={{ duration: 1 }} variants={variants} className={classes.skills}>
+    <m.section id="skills" layout initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: "100px 0px 0px 0px" }} transition={{ duration: 1 }} variants={variants} className={classes.skills}>
       {loading
         ? <Loading />
         : skills.map(function (skill: SkillProps) {
           return <SkillWithProgress key={skill.skillName} skillName={skill.skillName} percentage={skill.percentage} skillExamples={skill.skillExamples} />
         })
       }
-    </m.div>
+    </m.section>
   </LazyMotion>
 }
