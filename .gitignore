@@ -9,7 +9,7 @@ lerna-debug.log*
 
 node_modules
 dist
-dev-dist
+stuart-hopwood-cv/dev-dist
 dist-ssr
 *.local
 
