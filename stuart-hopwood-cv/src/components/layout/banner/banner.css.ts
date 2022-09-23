@@ -39,7 +39,7 @@ export const classes = mergeStyleSets({
     alignItems: 'start',
     textAlign: 'center',
     fontFamily: FontFamilies.secondary,
-    fontWeight: 100,
+    fontWeight: 300,
 
     p: {
       alignSelf: 'end',
