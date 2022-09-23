@@ -20,10 +20,6 @@ export const materialTheme = createTheme({
       700: 'rgb(700,700,700)',
       800: 'rgb(800,800,800)',
       900: 'rgb(900,900,900)'
-    },
-    text: {
-      primary: '#000000',
-      secondary: '#959595'
     }
   },
 });

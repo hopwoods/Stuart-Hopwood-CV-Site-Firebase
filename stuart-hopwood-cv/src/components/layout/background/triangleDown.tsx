@@ -20,6 +20,6 @@ export function TriangleDown({ color, backgroundColor }: Triangle) {
     })
 
     return (
-        <div className={classes.triangle}></div>
+        <div className={classes.triangle} />
     )
 }

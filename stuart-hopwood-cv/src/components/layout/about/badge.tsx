@@ -1,4 +1,4 @@
-import { domAnimation, LazyMotion, m, Variants } from "framer-motion";
+import { domAnimation, domMax, LazyMotion, m, Variants } from "framer-motion";
 import { classes } from "./badge.css";
 
 export type BadgeProps = {
@@ -23,7 +23,7 @@ const badgeVariants: Variants = {
 };
 
 export function Badge({ children }: BadgeProps) {
-    return <LazyMotion features={domAnimation}>
+    return <LazyMotion features={domMax}>
         <m.div variants={badgeVariants} layout transition={{ duration: 0.8 }} className={classes.badge}>
             {children}
         </m.div>

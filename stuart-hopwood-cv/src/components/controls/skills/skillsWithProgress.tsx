@@ -1,4 +1,4 @@
-import { LinearProgress, Tooltip } from "@mui/material"
+import { LinearProgress } from "@mui/material"
 import { useProgressAnimation } from "../../../Hooks"
 import { SkillProps } from "../../../types"
 import { typography } from "../../typeography/typography.css"
@@ -12,17 +12,15 @@ export function SkillWithProgress({ skillName, percentage: targetProgress, skill
 
   return (
     <div id={`${skillName}`} className={`${classes.skillsWithProgress} skill`}>
-      <Tooltip title={`${targetProgress}% Career Experience`} arrow>
-        <div className={classes.progressBarWrapper}>
-          <span className={`${classes.nameStyle} ${typography.copy1}`}>{skillName}</span>
-          <span className={classes.progressBar}>
-            <LinearProgress variant="determinate" value={progress} />
-          </span>
-          <span className={classes.progressCircle}>
-            <CircularProgressWithLabel value={progress} />
-          </span>
-        </div>
-      </Tooltip >
+      <div className={classes.progressBarWrapper}>
+        <span className={`${classes.nameStyle} ${typography.copy1}`}>{skillName}</span>
+        <span className={classes.progressBar}>
+          <LinearProgress variant="determinate" value={progress} />
+        </span>
+        <span className={classes.progressCircle}>
+          <CircularProgressWithLabel value={progress} />
+        </span>
+      </div>
       <SkillExamples examples={skillExamples} />
     </div>
   )

@@ -10,19 +10,20 @@ export const classes = mergeStyleSets({
     display: 'grid',
     gridTemplateColumns: 'repeat(4, 5em)',
     gridTemplateRows: 'auto',
-    gridGap: '0em',
+    gridGap: '1em',
     height: 'fit-content',
     margin: '2em 0',
     alignItems: 'center',
     justifyItems: 'center',
     gridAutoFlow: 'dense',
+    placeSelf: 'center',
 
     '.MuiIconButton-root': {
-      fontSize: '4rem'
+      fontSize: '4em'
     },
 
     '.MuiIconButton-colorPrimary:hover': {
-      backgroundColor: theme.Grey6
-    }
+      backgroundColor: theme.Grey2
+    },
   }
 })

@@ -1,10 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
 html {
   box-sizing: border-box;
+  font-family: 'Source Sans Pro';
+  font-size: 18px;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  background-color: #222222;
 }
 body {
   margin: 0;
   min-height: 100vh;
-  font-size: 16px;
+  background-color: #222222;
 }
 
 body::-webkit-scrollbar {

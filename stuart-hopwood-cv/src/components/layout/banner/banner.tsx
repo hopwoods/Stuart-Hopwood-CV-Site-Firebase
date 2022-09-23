@@ -1,4 +1,4 @@
-import { domAnimation, LazyMotion, m, Variants } from "framer-motion";
+import { domMax, LazyMotion, m, Variants } from "framer-motion";
 import { ReactNode } from "react";
 import { classes } from "./banner.css";
 
@@ -22,7 +22,7 @@ const variants: Variants = {
 }
 
 export function Banner({ id, fullscreen, children }: BannerProps) {
-  return <LazyMotion features={domAnimation}>
+  return <LazyMotion features={domMax}>
     <m.section
       layout
       initial="start"

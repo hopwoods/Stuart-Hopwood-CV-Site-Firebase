@@ -1,6 +1,6 @@
 import React, { useCallback } from "react"
 import { useLogin } from "../../../../security/useLogin"
-import { classes } from "./navBarLogoutLink.css"
+import { classes } from "./navBarLink.css"
 
 type LinkProps = {
   value: string
@@ -14,7 +14,7 @@ export function NavBarLogoutLink({ value }: LinkProps) {
 
   return (
     <React.Fragment>
-      <span className={classes.logoutLink} onClick={async () => await handleClick()}>
+      <span className={classes.navBarLink} onClick={async () => await handleClick()}>
         {value}
       </span>
     </React.Fragment>

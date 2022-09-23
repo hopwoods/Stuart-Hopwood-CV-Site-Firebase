@@ -4,8 +4,7 @@ import { useGlobalStore } from "../../../state"
 import { NavBarLink, NavBarLogoutLink } from "../../controls"
 import { classes } from "./navbar.css"
 
-//TODO: Fix Sticky NavBar
-export const Navbar: React.FC = () => {
+export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const size = useWindowSize()
   const { isAuthenticated } = useGlobalStore()

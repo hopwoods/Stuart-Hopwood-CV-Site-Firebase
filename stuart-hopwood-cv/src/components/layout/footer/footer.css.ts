@@ -1,14 +1,14 @@
 import { mergeStyleSets } from "@fluentui/merge-styles"
 import { useTheme } from "../../../Hooks"
-import { FontFamilies, materialTheme } from "../../../style"
+import { FontFamilies } from "../../../style"
 
-const themeColors = useTheme()
+const theme = useTheme()
 export const classes = mergeStyleSets({
     footer: {
         gridArea: 'footer',
         justifySelf: 'stretch',
-        backgroundColor: materialTheme.palette.primary.main,
-        color: themeColors.white,
+        backgroundColor: theme.Grey1,
+        color: theme.Grey6,
         padding: '0.4em',
         fontSize: '0.9em',
         fontFamily: FontFamilies.primary,

@@ -9,21 +9,23 @@ import { classes } from "./socialIcons.css";
 
 export const iconVariants: Variants = {
   offscreen: {
-    scale: 0.2
+    scale: 0,
+    opacity: 0
   },
   onscreen: {
-    scale: [2, 1, 1.2, 1],
+    scale: [0, 1.2, 1],
+    opacity: 1,
     transition: {
       type: "spring",
       bounce: 0.6,
-      duration: 0.8
+      duration: 0.8,
     }
   }
 };
 
-export const SocialIcons: React.FC = () => {
+export function SocialIcons() {
   return <LazyMotion features={domAnimation}>
-    <m.div initial="offscreen" whileInView="onscreen" viewport={{ once: false, amount: 0.8 }} className={`socialIcons ${classes.socialIcons}`}>
+    <m.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }} className={`socialIcons ${classes.socialIcons}`}>
       <FacebookLink color="primary" size="medium" />
       <GithubLink color="primary" size="medium" />
       <LinkedInLink color="primary" size="medium" />

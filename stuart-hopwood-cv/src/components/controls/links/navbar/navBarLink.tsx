@@ -18,7 +18,7 @@ export type LinkProps = {
 export function NavBarLink({ to, value, isHashLink }: LinkProps) {
   return (
     <React.Fragment>
-      <span className={classes.navBar}>
+      <span className={classes.navBarLink}>
         {isHashLink ? (
           <HashLink smooth to={to}>
             {value}

@@ -4,22 +4,6 @@ import { FontFamilies } from "../../../style"
 
 const themeColors = useTheme()
 
-export const colorChange = keyframes({
-  '0%': { color: '#ff0034' },
-  '10%': { color: '#3e0010' },
-  '20%': { color: '#000000' },
-  '30%': { color: '#3e0010' },
-  '40%': { color: '#b90030' },
-  '50%': { color: '#ff0034' },
-  '60%': { color: '#b90030' },
-  '70%': { color: '#3e0010' },
-  '80%': { color: ' #000000' },
-  '90%': { color: '#3e0010' },
-  '100%': { color: '#ff0034' }
-})
-
-
-
 export const wobble = keyframes({
   '33%': { transform: 'translateX(-50px)' },
   '66%': { transform: 'translateX(50px)' }
@@ -42,7 +26,7 @@ export const classes = mergeStyleSets({
     gridArea: 'banner',
     padding: '1em',
     color: themeColors.white,
-    fontSize: '3rem',
+    fontSize: '1rem',
     lineHeight: 1.3,
     justifySelf: 'stretch',
     alignSelf: 'stretch',
@@ -52,7 +36,7 @@ export const classes = mergeStyleSets({
     gridTemplateRows: '0.5fr',
     gridRowGap: '3em',
     justifyItems: 'center',
-    alignItems: 'center',
+    alignItems: 'start',
     textAlign: 'center',
     fontFamily: FontFamilies.secondary,
     fontWeight: 100,
@@ -63,9 +47,6 @@ export const classes = mergeStyleSets({
     },
 
     'span.name': {
-      animationName: colorChange,
-      animationDuration: '15s',
-      animationIterationCount: 'infinite',
       fontWeight: 400,
       textShadow: '0px 0px 5px rgba(0, 0, 0, 0.75)'
     },
@@ -73,7 +54,33 @@ export const classes = mergeStyleSets({
     'button.about': {
       alignSelf: 'start',
       display: 'block',
-      margin: '1em'
+      margin: '1em',
+      fontSize: '1.5rem !important'
+    },
+
+    '@media(max-width: 2560px)': {
+      fontSize: '3rem'
+    },
+    '@media(max-width: 1920px)': {
+      fontSize: '3rem'
+
+    },
+    '@media(max-width: 1366px)': {
+      fontSize: '3rem'
+
+    },
+    '@media(max-width: 1024px)': {
+      fontSize: '3rem'
+
+    },
+    '@media(max-width: 768px)': {
+      fontSize: '2rem'
+    },
+    '@media(max-width: 480)': {
+      fontSize: '1.9rem'
+    },
+    '@media(max-width: 425px)': {
+      fontSize: '1.75rem'
     },
 
     '.bubbles-container': {

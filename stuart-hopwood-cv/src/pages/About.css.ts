@@ -1,7 +1,5 @@
 import { mergeStyleSets } from "@fluentui/merge-styles"
-import { FontFamilies } from "../components/typeography/font-families"
 import { useTheme } from "../Hooks"
-import { materialTheme } from "../style"
 
 const theme = useTheme()
 
@@ -18,33 +16,17 @@ export const classes = mergeStyleSets({
     justifySelf: 'stretch',
     placeSelf: 'start center',
     justifyItems: 'center',
-    backgroundColor: theme.white,
+    backgroundColor: theme.bodyBackground,
 
-    h1: {
+    '.header': {
       gridColumn: '1 / span 2',
       alignSelf: 'start',
       justifySelf: 'center',
-      fontFamily: FontFamilies.primary,
-      color: materialTheme.palette.primary.main
-    },
-
-    h2: {
-      fontFamily: FontFamilies.primary,
-      color: materialTheme.palette.primary.main
     },
 
     '#badges': {
       gridColumn: ' 1 / span 2',
       gridRow: '2 / span 1'
     },
-
-    '#profile': {
-      gridColumn: ' 1 / span 1',
-      gridRow: '3 / span 1'
-    },
-    '#skills': {
-      gridColumn: '2 / span 1',
-      gridRow: '3 / span 1'
-    }
   }
 })

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { LoginButton } from "../components/controls"
 import { Loading, Page } from "../components/layout"
+import { Header } from "../components/typeography/header"
+import { theme } from "../Hooks/useTheme"
 import { useGlobalStore } from "../state"
 import { classes } from "./login.css"
 
@@ -19,12 +21,12 @@ function Login() {
     if (sessionValue == "true") {
       setAuthPending(true)
     }
-
   }, [isAuthenticating])
 
   function LoginScreen() {
     return <>
-      <h2>So...You want to login huh?</h2><p>
+      <Header text="So...You want to login huh?" type="h1" color={theme.hotpink}></Header>
+      <p>
         Well that is nice of you, if you are Stuart Hopwood, go ahead and
         click login and start updating that CV.
         <br />

@@ -4,7 +4,6 @@ import { useTheme } from "../../Hooks"
 const themeColors = useTheme()
 export const gridClasses = mergeStyleSets({
   grid: {
-    backgroundColor: themeColors.white,
     gridColumn: '1 / span 1',
     padding: 0,
     display: 'grid',
@@ -17,11 +16,11 @@ export const gridClasses = mergeStyleSets({
     alignItems: 'start',
 
     a: {
-      color: themeColors.darkAccent,
+      color: themeColors.hotpink,
       textDecoration: 'none',
 
       ':hover': {
-        color: themeColors.hotpink
+        color: themeColors.Grey12
       }
     }
   }

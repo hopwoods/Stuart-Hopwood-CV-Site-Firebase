@@ -1,6 +1,5 @@
 import { keyframes, mergeStyleSets } from "@fluentui/merge-styles"
 import { useTheme } from "../../../Hooks"
-import { FontFamilies } from "../../../style"
 
 const themeColors = useTheme()
 
@@ -12,13 +11,14 @@ const fadeIn = keyframes({
 export const classes = mergeStyleSets({
   navbar: {
     gridArea: 'nav',
-    backgroundColor: themeColors.darkShades,
+    backgroundColor: themeColors.navbarBackground,
     color: themeColors.white,
     padding: ' 0.3em',
     height: 'fit-content',
     fontSize: '1.2em',
+    fontWeight: 400,
     textTransform: 'uppercase',
-    borderBottom: `0.3em solid ${themeColors.Grey3}`,
+    borderBottom: `0.3em solid ${themeColors.navbarBorder}`,
     display: 'grid',
     gridTemplateColumns: '1fr',
     justifyItems: 'center',
@@ -29,7 +29,7 @@ export const classes = mergeStyleSets({
       position: 'sticky',
       top: 0,
       left: 0,
-      animation: `${fadeIn} 350ms`,
+      animation: `${fadeIn} 150ms`,
       boxShadow: '0 0 7px rgba(0, 0, 0, 0.65)'
     },
 
@@ -50,8 +50,7 @@ export const classes = mergeStyleSets({
         label: {
           textDecoration: 'none',
           textTransform: 'uppercase',
-          fontFamily: FontFamilies.secondary,
-          fontWeight: 400,
+          fontWeight: 200,
           display: 'inline-block',
           marginRight: '0.4em'
         }
@@ -108,10 +107,32 @@ export const classes = mergeStyleSets({
 
     },
     '@media(max-width: 768px)': {
-      fontSize: '1.2em',
+      fontSize: '0.9em',
       ul: {
         gridTemplateColumns: 'repeat(65px, auto)',
         gridTemplateRows: 'minmax(50px, 1fr)',
+        justifyItems: 'center',
+        li: {
+          gridColumnStart: 'span 1'
+        }
+      }
+    },
+    '@media(max-width: 480px)': {
+      fontSize: '0.8em',
+      ul: {
+        gridTemplateColumns: 'repeat(65px, auto)',
+        gridTemplateRows: 'minmax(40px, 1fr)',
+        justifyItems: 'center',
+        li: {
+          gridColumnStart: 'span 1'
+        }
+      }
+    },
+    '@media(max-width: 425px)': {
+      fontSize: '0.7em',
+      ul: {
+        gridTemplateColumns: 'repeat(35px, auto)',
+        gridTemplateRows: 'minmax(30px, 1fr)',
         justifyItems: 'center',
         li: {
           gridColumnStart: 'span 1'

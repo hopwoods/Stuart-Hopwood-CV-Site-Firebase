@@ -13,6 +13,8 @@ export const classes = mergeStyleSets({
   progressCircle: {
     gridColumn: '3 / span 1',
     justifySelf: 'end',
+    position: 'relative',
+    top: '2px',
 
     '.MuiCircularProgress-colorPrimary': {
       color: themeColors.hotpink
@@ -22,8 +24,14 @@ export const classes = mergeStyleSets({
     },
     '.MuiTypography-colorTextSecondary': {
       color: themeColors.text,
-      fontWeight: 600
+      fontWeight: 200
     },
+    '.MuiTypography-root': {
+      color: themeColors.text,
+      paddingTop: '2px',
+      paddingLeft: '2px',
+      fontSize: '0.7em'
+    }
   },
   progressBar: {
     gridColumn: '2 / span 1',

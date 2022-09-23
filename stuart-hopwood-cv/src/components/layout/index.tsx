@@ -1,5 +1,3 @@
-//TODO: Conver to regular functions where possible.
-
 export { About } from '../../pages/About'
 export { Content } from '../layout/content/content'
 export { AboutText } from './about/aboutText'
@@ -10,23 +8,7 @@ export { EditSkillDialog } from './admin/skills/editSkillDialog'
 export { TriangleDown } from './background/triangleDown'
 export { Banner } from './banner/banner'
 export { Bubbles } from './banner/bubbles'
-export { Container } from './container/container'
 export { Footer } from './footer/footer'
 export { Loading } from './loading/loading'
 export { Navbar } from './navbar/navbar'
 export { Page } from './page'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

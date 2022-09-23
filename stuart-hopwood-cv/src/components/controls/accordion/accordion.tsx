@@ -2,7 +2,7 @@ import { mergeStyleSets } from "@fluentui/merge-styles";
 import { domAnimation, LazyMotion, m, Variants } from "framer-motion";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
-import { materialTheme } from "../../../style";
+import { useTheme } from "../../../Hooks";
 import { AccordionContent } from './accordionContent';
 
 export type AccordionProps = {
@@ -10,34 +10,37 @@ export type AccordionProps = {
     content?: React.ReactNode
 }
 
-const classes = mergeStyleSets({
-    AccordionRoot: {
-        marginTop: '1rem'
-    },
-    AccordionHeaderRoot: {
-        display: 'grid',
-        gridTemplateColumns: 'auto 3rem',
-        gridTemplateRows: 'auto',
-        cursor: 'pointer'
-    },
-    AccordionHeaderContent: {
-        gridColumn: '1 / Span 1',
-        placeSelf: 'start center',
-        userSelect: 'none'
-    },
-    AccordionHeaderTrigger: {
-        gridColumn: '2 / Span 1',
-        placeSelf: 'center center',
-        cursor: 'pointer',
-        fontSize: '1.2em',
-        color: materialTheme.palette.grey[100]
-    }
-})
+
 
 
 
 export function Accordion({ header, content }: AccordionProps): JSX.Element {
     const [isOpen, setIsOpen] = useState(false);
+    const theme = useTheme()
+
+    const classes = mergeStyleSets({
+        AccordionRoot: {
+            marginTop: '1rem'
+        },
+        AccordionHeaderRoot: {
+            display: 'grid',
+            gridTemplateColumns: 'auto 3rem',
+            gridTemplateRows: 'auto',
+            cursor: 'pointer'
+        },
+        AccordionHeaderContent: {
+            gridColumn: '1 / Span 1',
+            placeSelf: 'start center',
+            userSelect: 'none'
+        },
+        AccordionHeaderTrigger: {
+            gridColumn: '2 / Span 1',
+            placeSelf: 'center center',
+            cursor: 'pointer',
+            fontSize: '1.2em',
+            color: theme.Grey12
+        }
+    })
 
     const animationDuration = 0.4;
 
