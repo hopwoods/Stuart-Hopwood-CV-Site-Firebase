@@ -1,69 +1,66 @@
-import { toast } from "react-toastify"
-import create from "zustand"
-import { useFirestore } from "../firebase/usefirestore"
+import { toast } from 'react-toastify'
+import create from 'zustand'
+import { useFirestore } from '../firebase/usefirestore'
 
 //const apiUrl = Globals.ApiSettings.Audience
 
 type AboutTextState = {
-    /** Unique ID for the About Text entry */
-    id: string
+	/** Unique ID for the About Text entry */
+	id: string
 
-    /** Text Content for the About Text entry */
-    text: string
+	/** Text Content for the About Text entry */
+	text: string
 
-    /** Boolean to show loading icon whilst fetching data */
-    loading: boolean
+	/** Boolean to show loading icon whilst fetching data */
+	loading: boolean
 
-    /** Action to set the About Text state values */
-    setText: (id: string, text: string) => void
+	/** Action to set the About Text state values */
+	setText: (id: string, text: string) => void
 
-    /** Action to create or update the About Text in the DB */
-    updateAboutText: () => void
+	/** Action to create or update the About Text in the DB */
+	updateAboutText: () => void
 
-    /** Action to get the About Text entry from the DB */
-    getAboutText: () => void
+	/** Action to get the About Text entry from the DB */
+	getAboutText: () => void
 }
 
-const showSuccessMessage = () => toast.success("✔️ New About Text Content has been saved")
+const showSuccessMessage = () => toast.success('✔️ New About Text Content has been saved')
 const showErrorMessage = (errorText: string) => toast.error(`⛔️ ${errorText}`)
 
 const { getDoc } = useFirestore()
 
 export const useAboutTextStore = create<AboutTextState>((set, get) => ({
-    isRecords: false,
-    id: "about",
-    text: "",
-    loading: false,
-    setText: (id: string, text: string) => set({ id: id, text: text }),
+	isRecords: false,
+	id: 'about',
+	text: '',
+	loading: false,
+	setText: (id: string, text: string) => set({ id: id, text: text }),
 
-    //TODO: Move  this to AboutTextDatabase.ts
-    updateAboutText: async () => {
+	//TODO: Move  this to AboutTextDatabase.ts
+	updateAboutText: async () => {
 
-        //TODO: Save ABout Text to the DB
+		//TODO: Save ABout Text to the DB
 
-        const currentId = get().id
-        const currentText = get().text
+		showSuccessMessage()
 
-        showSuccessMessage()
+	},
 
-    },
-
-    //TODO: Move  this to AboutTextDatabase.ts
-    getAboutText: async () => {
-        try {
-            set({ loading: true })
+	//TODO: Move  this to AboutTextDatabase.ts
+	getAboutText: async () => {
+		try {
+			set({ loading: true })
 
 
-            const data = await getDoc("aboutText", "about");
+			const data = await getDoc('aboutText', 'about')
 
-            if (data) {
-                set({ id: "about", text: data["text"] })
-            }
-            set({ loading: false })
+			if (data) {
+				set({ id: 'about', text: data['text'] })
+			}
+			set({ loading: false })
 
-        }
-        catch (error) {
-            showErrorMessage("Something went wrong fetching the AboutText.")
-        }
-    }
+		}
+		catch (error) {
+			showErrorMessage('Something went wrong fetching the AboutText.')
+		}
+	}
 }))

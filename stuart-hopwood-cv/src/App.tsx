@@ -12,58 +12,58 @@ import { Waves } from './components/layout/banner/waves'
 //TODO: Switch to dynamic imports
 
 const colors: string[] = [
-    //'#8ecae6',
-    //'#219ebc',
-    //'#023047',
-    '#ffb703',
-    '#fb8500',
+	//'#8ecae6',
+	//'#219ebc',
+	//'#023047',
+	'#ffb703',
+	'#fb8500',
 ]
 
 //fb8500
 function Banner() {
-    return (
-        <React.Fragment>
-            <motion.p
-                initial={{
-                    scale: 0.5,
-                    opacity: 0,
-                    filter: 'blur(5px)'
-                }}
-                animate={{
-                    scale: 1,
-                    opacity: 1,
-                    filter: 'blur(0px)'
-                }}
-                transition={{
-                    type: "spring",
-                    bounce: 0.6,
-                    duration: 1,
-                    stiffness: 400,
-                    damping: 10
-                }} layout
-            >
-                Hello I'm <motion.span animate={{ color: colors }} transition={{ repeat: Infinity, repeatType: "mirror", duration: 3 }} className="name">Stuart Hopwood.</motion.span>
-                <br />
-                <span className={classes.subTitle}>I'm a full stack Developer.</span>
-            </motion.p>
-            <Button className="about" variant="outlined" color="secondary" endIcon={<ArrowDownwardIcon />} component={HashLink} to="/#about" smooth>
-                Find Out More
-            </Button>
-            <Waves />
-        </React.Fragment>
-    )
+	return (
+		<React.Fragment>
+			<motion.p
+				initial={{
+					scale: 0.5,
+					opacity: 0,
+					filter: 'blur(5px)'
+				}}
+				animate={{
+					scale: 1,
+					opacity: 1,
+					filter: 'blur(0px)'
+				}}
+				transition={{
+					type: 'spring',
+					bounce: 0.6,
+					duration: 1,
+					stiffness: 400,
+					damping: 10
+				}} layout
+			>
+				Hello I&pos;m <motion.span animate={{ color: colors }} transition={{ repeat: Infinity, repeatType: 'mirror', duration: 3 }} className="name">Stuart Hopwood.</motion.span>
+				<br />
+				<span className={classes.subTitle}>I&apos;m a full stack Developer.</span>
+			</motion.p>
+			<Button className="about" variant="outlined" color="secondary" endIcon={<ArrowDownwardIcon />} component={HashLink} to="/#about" smooth>
+				Find Out More
+			</Button>
+			<Waves />
+		</React.Fragment>
+	)
 }
 
 
 function App() {
-    return (
-        <Page id="Home" fullscreen={true} BannerContent={Banner}>
-            <About />
-            <div className={classes.toTopButton}>
-                <ScrollToTopButton color="secondary" />
-            </div>
-        </Page>
-    )
+	return (
+		<Page id="Home" fullscreen={true} BannerContent={Banner}>
+			<About />
+			<div className={classes.toTopButton}>
+				<ScrollToTopButton color="secondary" />
+			</div>
+		</Page>
+	)
 }
 export default App
 

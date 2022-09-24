@@ -1,29 +1,29 @@
-import { mergeStyleSets } from "@fluentui/merge-styles"
-import { useTheme } from "../../../Hooks"
+import { mergeStyleSets } from '@fluentui/merge-styles'
+import { useTheme } from '../../../Hooks'
 
 const theme = useTheme()
 export const classes = mergeStyleSets({
-  socialIcons: {
-    gridColumn: '1 / span 1',
-    justifySelf: 'stretch',
-    padding: '1em',
-    display: 'grid',
-    gridTemplateColumns: 'repeat(4, 5em)',
-    gridTemplateRows: 'auto',
-    gridGap: '1em',
-    height: 'fit-content',
-    margin: '2em 0',
-    alignItems: 'center',
-    justifyItems: 'center',
-    gridAutoFlow: 'dense',
-    placeSelf: 'center',
+	socialIcons: {
+		gridColumn: '1 / span 1',
+		justifySelf: 'stretch',
+		padding: '1em',
+		display: 'grid',
+		gridTemplateColumns: 'repeat(4, 5em)',
+		gridTemplateRows: 'auto',
+		gridGap: '1em',
+		height: 'fit-content',
+		margin: '2em 0',
+		alignItems: 'center',
+		justifyItems: 'center',
+		gridAutoFlow: 'dense',
+		placeSelf: 'center',
 
-    '.MuiIconButton-root': {
-      fontSize: '4em'
-    },
+		'.MuiIconButton-root': {
+			fontSize: '4em'
+		},
 
-    '.MuiIconButton-colorPrimary:hover': {
-      backgroundColor: theme.Grey2
-    },
-  }
+		'.MuiIconButton-colorPrimary:hover': {
+			backgroundColor: theme.Grey2
+		},
+	}
 })

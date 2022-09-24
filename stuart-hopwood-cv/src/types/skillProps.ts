@@ -1,11 +1,11 @@
 export type SkillExampleProps = {
     id?: string
-    text: string;
-};
+    text: string
+}
 
 export type SkillProps = {
     id?: string
-    skillName: string;
-    percentage: number;
-    skillExamples?: SkillExampleProps[];
-};
+    skillName: string
+    percentage: number
+    skillExamples?: SkillExampleProps[]
+}

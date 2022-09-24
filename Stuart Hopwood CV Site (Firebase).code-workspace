@@ -17,6 +17,12 @@
       "**/node_modules": true,
       "node_modules": true
     },
-    "explorerExclude.backup": {}
+    "explorerExclude.backup": {},
+    "files.eol": "\n",
+    "editor.tabSize": 2,
+    "javascript.format.semicolons": "remove",
+    "prettier.semi": false,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "typescript.format.semicolons": "remove"
   }
 }

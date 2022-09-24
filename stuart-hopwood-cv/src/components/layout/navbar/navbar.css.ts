@@ -1,144 +1,144 @@
-import { keyframes, mergeStyleSets } from "@fluentui/merge-styles"
-import { useTheme } from "../../../Hooks"
+import { keyframes, mergeStyleSets } from '@fluentui/merge-styles'
+import { useTheme } from '../../../Hooks'
 
 const themeColors = useTheme()
 
 const fadeIn = keyframes({
-  '0%': { opacity: 0.25 },
-  '100%': { opacity: 1 }
+	'0%': { opacity: 0.25 },
+	'100%': { opacity: 1 }
 })
 
 export const classes = mergeStyleSets({
-  navbar: {
-    gridArea: 'nav',
-    backgroundColor: themeColors.navbarBackground,
-    color: themeColors.white,
-    padding: ' 0.3em',
-    height: 'fit-content',
-    fontSize: '1.2em',
-    fontWeight: 600,
-    textTransform: 'uppercase',
-    borderBottom: `0.3em solid ${themeColors.navbarBorder}`,
-    display: 'grid',
-    gridTemplateColumns: '1fr',
-    justifyItems: 'center',
-    alignItems: 'center',
-    zIndex: 999,
+	navbar: {
+		gridArea: 'nav',
+		backgroundColor: themeColors.navbarBackground,
+		color: themeColors.white,
+		padding: ' 0.3em',
+		height: 'fit-content',
+		fontSize: '1.2em',
+		fontWeight: 600,
+		textTransform: 'uppercase',
+		borderBottom: `0.3em solid ${themeColors.navbarBorder}`,
+		display: 'grid',
+		gridTemplateColumns: '1fr',
+		justifyItems: 'center',
+		alignItems: 'center',
+		zIndex: 999,
 
-    '&.scrolled': {
-      position: 'sticky',
-      top: 0,
-      left: 0,
-      backgroundColor: themeColors.navbarBackgroundScrolled,
-      animation: `${fadeIn} 150ms`,
-      //boxShadow: '0 0 7px rgba(0, 0, 0, 0.65)'
-    },
+		'&.scrolled': {
+			position: 'sticky',
+			top: 0,
+			left: 0,
+			backgroundColor: themeColors.navbarBackgroundScrolled,
+			animation: `${fadeIn} 150ms`,
+			//boxShadow: '0 0 7px rgba(0, 0, 0, 0.65)'
+		},
 
-    ul: {
-      listStyleType: 'none',
-      margin: 0,
-      padding: 0,
-      display: 'grid',
-      gridGap: '0em',
-      alignItems: 'center',
-      justifySelf: 'center',
+		ul: {
+			listStyleType: 'none',
+			margin: 0,
+			padding: 0,
+			display: 'grid',
+			gridGap: '0em',
+			alignItems: 'center',
+			justifySelf: 'center',
 
-      li: {
-        gridColumnStart: '1 / span 1',
-        margin: '0.3em',
-        display: 'inline-block',
+			li: {
+				gridColumnStart: '1 / span 1',
+				margin: '0.3em',
+				display: 'inline-block',
 
-        label: {
-          textDecoration: 'none',
-          textTransform: 'uppercase',
-          fontWeight: 200,
-          display: 'inline-block',
-          marginRight: '0.4em'
-        }
-      }
-    },
+				label: {
+					textDecoration: 'none',
+					textTransform: 'uppercase',
+					fontWeight: 200,
+					display: 'inline-block',
+					marginRight: '0.4em'
+				}
+			}
+		},
 
-    '@media(max-width: 2560px)': {
-      fontSize: '1.2em',
-      ul: {
-        gridTemplateColumns: 'repeat(7, auto)',
-        gridTemplateRows: 'minmax(50px, 1fr)',
-        justifyItems: 'center',
-        li: {
-          gridColumnStart: 'span 1'
-        }
-      }
-    },
+		'@media(max-width: 2560px)': {
+			fontSize: '1.2em',
+			ul: {
+				gridTemplateColumns: 'repeat(7, auto)',
+				gridTemplateRows: 'minmax(50px, 1fr)',
+				justifyItems: 'center',
+				li: {
+					gridColumnStart: 'span 1'
+				}
+			}
+		},
 
 
-    '@media(max-width: 1920px)': {
-      fontSize: '1.2em',
-      ul: {
-        gridTemplateColumns: 'repeat(7, auto)',
-        gridTemplateRows: 'minmax(50px, 1fr)',
-        justifyItems: 'center',
-        li: {
-          gridColumnStart: 'span 1'
-        }
-      }
-    },
+		'@media(max-width: 1920px)': {
+			fontSize: '1.2em',
+			ul: {
+				gridTemplateColumns: 'repeat(7, auto)',
+				gridTemplateRows: 'minmax(50px, 1fr)',
+				justifyItems: 'center',
+				li: {
+					gridColumnStart: 'span 1'
+				}
+			}
+		},
 
-    '@media(max-width: 1366px)': {
-      fontSize: '1.2em',
-      ul: {
-        gridTemplateColumns: 'repeat(7, auto)',
-        gridTemplateRows: 'minmax(50px, 1fr)',
-        justifyItems: 'center',
-        li: {
-          gridColumnStart: 'span 1'
-        }
-      }
+		'@media(max-width: 1366px)': {
+			fontSize: '1.2em',
+			ul: {
+				gridTemplateColumns: 'repeat(7, auto)',
+				gridTemplateRows: 'minmax(50px, 1fr)',
+				justifyItems: 'center',
+				li: {
+					gridColumnStart: 'span 1'
+				}
+			}
 
-    },
-    '@media(max-width: 1024px)': {
-      fontSize: '1.2em',
-      ul: {
-        gridTemplateColumns: 'repeat(7, auto)',
-        gridTemplateRows: 'minmax(50px, 1fr)',
-        justifyItems: 'center',
-        li: {
-          gridColumnStart: 'span 1'
-        }
-      }
+		},
+		'@media(max-width: 1024px)': {
+			fontSize: '1.2em',
+			ul: {
+				gridTemplateColumns: 'repeat(7, auto)',
+				gridTemplateRows: 'minmax(50px, 1fr)',
+				justifyItems: 'center',
+				li: {
+					gridColumnStart: 'span 1'
+				}
+			}
 
-    },
-    '@media(max-width: 768px)': {
-      fontSize: '0.9em',
-      ul: {
-        gridTemplateColumns: 'repeat(65px, auto)',
-        gridTemplateRows: 'minmax(50px, 1fr)',
-        justifyItems: 'center',
-        li: {
-          gridColumnStart: 'span 1'
-        }
-      }
-    },
-    '@media(max-width: 480px)': {
-      fontSize: '0.8em',
-      ul: {
-        gridTemplateColumns: 'repeat(65px, auto)',
-        gridTemplateRows: 'minmax(40px, 1fr)',
-        justifyItems: 'center',
-        li: {
-          gridColumnStart: 'span 1'
-        }
-      }
-    },
-    '@media(max-width: 425px)': {
-      fontSize: '0.7em',
-      ul: {
-        gridTemplateColumns: 'repeat(35px, auto)',
-        gridTemplateRows: 'minmax(30px, 1fr)',
-        justifyItems: 'center',
-        li: {
-          gridColumnStart: 'span 1'
-        }
-      }
-    }
-  }
+		},
+		'@media(max-width: 768px)': {
+			fontSize: '0.9em',
+			ul: {
+				gridTemplateColumns: 'repeat(65px, auto)',
+				gridTemplateRows: 'minmax(50px, 1fr)',
+				justifyItems: 'center',
+				li: {
+					gridColumnStart: 'span 1'
+				}
+			}
+		},
+		'@media(max-width: 480px)': {
+			fontSize: '0.8em',
+			ul: {
+				gridTemplateColumns: 'repeat(65px, auto)',
+				gridTemplateRows: 'minmax(40px, 1fr)',
+				justifyItems: 'center',
+				li: {
+					gridColumnStart: 'span 1'
+				}
+			}
+		},
+		'@media(max-width: 425px)': {
+			fontSize: '0.7em',
+			ul: {
+				gridTemplateColumns: 'repeat(35px, auto)',
+				gridTemplateRows: 'minmax(30px, 1fr)',
+				justifyItems: 'center',
+				li: {
+					gridColumnStart: 'span 1'
+				}
+			}
+		}
+	}
 })

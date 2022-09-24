@@ -1,0 +1,8 @@
+{
+  "prettier.semi": false,
+  "javascript.format.insertSpaceAfterSemicolonInForStatements": false,
+  "javascript.format.semicolons": "remove",
+  "typescript.format.insertSpaceAfterSemicolonInForStatements": false,
+  "typescript.format.semicolons": "remove",
+  "editor.acceptSuggestionOnCommitCharacter": false
+}

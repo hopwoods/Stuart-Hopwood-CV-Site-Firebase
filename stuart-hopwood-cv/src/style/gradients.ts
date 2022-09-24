@@ -1,10 +1,10 @@
 type Gradients = {
-  Gradient1: string;
-  Gradient2: string;
-};
+	Gradient1: string
+	Gradient2: string
+}
 
 export const gradients: Gradients = {
-  Gradient1: `background: rgb(56,58,61);
+	Gradient1: `background: rgb(56,58,61);
   background: linear-gradient(
     45deg,
     rgba(37, 41, 52, 1) 0%,
@@ -16,6 +16,6 @@ export const gradients: Gradients = {
     rgba(37, 41, 52, 1) 100%
   );`,
 
-  Gradient2: `background: rgb(40,40,44);
+	Gradient2: `background: rgb(40,40,44);
   background: linear-gradient(165deg, rgba(40,40,44,1) 65%, rgba(88,18,0,1) 86%, rgba(156,32,0,1) 100%);`,
-};
+}
