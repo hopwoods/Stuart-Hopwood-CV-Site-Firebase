@@ -42,7 +42,7 @@ function Banner() {
 					damping: 10
 				}} layout
 			>
-				Hello I&pos;m <motion.span animate={{ color: colors }} transition={{ repeat: Infinity, repeatType: 'mirror', duration: 3 }} className="name">Stuart Hopwood.</motion.span>
+				Hello I'm <motion.span animate={{ color: colors }} transition={{ repeat: Infinity, repeatType: 'mirror', duration: 3 }} className="name">Stuart Hopwood.</motion.span>
 				<br />
 				<span className={classes.subTitle}>I&apos;m a full stack Developer.</span>
 			</motion.p>
