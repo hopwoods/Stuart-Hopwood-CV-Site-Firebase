@@ -12,10 +12,11 @@ export const classes = mergeStyleSets({
 		gridGap: '0em',
 		minHeight: '64.6vh',
 		justifySelf: 'stretch',
-		backgroundColor: theme.Grey1,
+		backgroundColor: theme.bodyBackgroundDark,
 		fontSize: '1rem',
 		color: theme.text,
 		overflow: 'hidden',
+		paddingBottom: '3rem',
 
 		a: {
 			color: theme.brandAccentColor,

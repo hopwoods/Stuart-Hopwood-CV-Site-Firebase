@@ -14,7 +14,7 @@ export function About() {
 			<Badges />
 			<Profile />
 			<Skills />
-			<TriangleDown color={theme.bodyBackground} backgroundColor={theme.Grey1} />
+			<TriangleDown color={theme.bodyBackground} backgroundColor={theme.bodyBackgroundDark} />
 		</div>
 	)
 }
