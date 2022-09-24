@@ -9,31 +9,28 @@ export type ThemeColors = {
   /** #1e1e1e */
   textInverse: string;
 
-  /** #B55C53 */
-  primary: string;
+  /** #8ecae6 */
+  brandLight: string
 
-  /** #a74c43 */
-  primaryShades: string;
+  /** #219ebc */
+  brandMedium: string
 
-  /** #F3F7FA */
-  lightShades: string;
+  /** #023047 */
+  brandDark: string
 
-  /** #B40542 */
-  lightAccent: string;
+  /** #fb8500 */
+  brandAccentColor: string
 
-  /** #252934 */
-  darkShades: string;
-
-  /** #910035 */
-  darkAccent: string;
-
-  /** #fefefe */
+  /** #rgba(0,16,32,1) */
   bodyBackground: string;
 
-  /** rgba(50,50,50, 0.85) */
+  /** #023047 */
   navbarBackground: string
 
-  /** rgba(32,32,32, 1) */
+  /** #023047 */
+  navbarBackgroundScrolled: string
+
+  /** #fb8500 */
   navbarBorder: string
 
   /** #222222 */
@@ -78,26 +75,14 @@ export type ThemeColors = {
   /** #f0f0f0 */
   Grey14: string;
 
-  /** #bbbbbb */
-  labelColour: string;
-
   /** #dddddd */
   disabledColour: string;
-
-  /** #2F855A */
-  toggleColour: string;
-
-  /** #ffffff */
-  white: string;
 
   /** #387D4D */
   green: string;
 
   /** #D20008 */
   red: string;
-
-  /** #rgba(255, 255, 255, 0.5) */
-  tableBackground: string;
 
   /** #9c0000 */
   danger: string;
@@ -108,26 +93,26 @@ export type ThemeColors = {
   /** #00acf0 */
   info: string;
 
+  /** #ffffff */
+  white: string;
   /** #000000 */
   black: string;
-
-  /** #FD0151 */
-  hotpink: string;
 };
 
 export const theme: ThemeColors = {
-  text: "#c9c9c9",
+  text: "#c7c7c7",
   subText: '#999999',
   textInverse: "#1e1e1e",
-  primary: "#B55C53",
-  primaryShades: "#FD0151",
-  lightShades: "#F3F7FA",
-  lightAccent: "#B40542",
-  darkShades: "#252934",
-  darkAccent: "#910035",
-  bodyBackground: "rgba(22,22,22,1)",
-  navbarBackground: 'rgba(50,50,50,0.85)',
-  navbarBorder: 'rgba(32,32,32,1)',
+
+  brandLight: '#8ecae6',
+  brandMedium: '#219ebc',
+  brandDark: '#023047',
+  brandAccentColor: "#fb8500",
+
+  bodyBackground: "rgba(0,16,32,1)",
+  navbarBackground: '#023047',
+  navbarBackgroundScrolled: '#023047',
+  navbarBorder: '#fb8500',
   Grey1: "#222222",
   Grey2: "#303030",
   Grey3: "#404040",
@@ -142,18 +127,14 @@ export const theme: ThemeColors = {
   Grey12: "#d5d5d5",
   Grey13: "#efefef",
   Grey14: "#f0f0f0",
-  labelColour: "#bbbbbb",
   disabledColour: "#dddddd",
-  toggleColour: "#2F855A",
   white: "#ffffff",
   green: "#387D4D",
   red: "#D20008",
-  tableBackground: "rgba(255, 255, 255, 0.5)",
   danger: "#9c0000",
   warning: "#f0a800",
   info: "#00acf0",
   black: "#000000",
-  hotpink: "#FD0151",
 };
 
 export function useTheme(): ThemeColors {

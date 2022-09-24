@@ -17,7 +17,7 @@ export const classes = mergeStyleSets({
     top: '2px',
 
     '.MuiCircularProgress-colorPrimary': {
-      color: themeColors.hotpink
+      color: themeColors.brandAccentColor
     },
     '.MuiCircularProgress-circle': {
       strokeLinecap: 'round'
@@ -40,14 +40,29 @@ export const classes = mergeStyleSets({
     width: '100%',
     '.MuiLinearProgress-root': {
       height: '9px',
-      borderRadius: '5px'
+      borderRadius: '5px',
+      marginRight: '0.5em'
+
+      ,
+      '@media(max-width: 768px)': {
+        marginRight: '0.7em'
+      },
+      '@media(max-width: 480px)': {
+        marginRight: '0.7em'
+      },
+      '@media(max-width: 425px)': {
+        marginRight: '1.25em'
+      },
+
+
     },
     '.MuiLinearProgress-colorPrimary': {
-      backgroundColor: themeColors.Grey5
+      backgroundColor: themeColors.brandDark
     },
     '.MuiLinearProgress-bar': {
       borderRadius: 5,
-      backgroundColor: themeColors.hotpink
+      backgroundColor: themeColors.brandAccentColor,
+
     }
   },
   nameStyle: {

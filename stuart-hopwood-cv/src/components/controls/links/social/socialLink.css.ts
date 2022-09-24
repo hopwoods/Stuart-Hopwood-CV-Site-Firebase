@@ -3,6 +3,6 @@ import { theme } from "../../../../Hooks/useTheme";
 
 export const classes = mergeStyleSets({
     socialLink: {
-        color: theme.hotpink,
+        color: theme.brandAccentColor,
     }
 })

@@ -16,7 +16,7 @@ export const classes = mergeStyleSets({
     padding: ' 0.3em',
     height: 'fit-content',
     fontSize: '1.2em',
-    fontWeight: 400,
+    fontWeight: 600,
     textTransform: 'uppercase',
     borderBottom: `0.3em solid ${themeColors.navbarBorder}`,
     display: 'grid',
@@ -29,8 +29,9 @@ export const classes = mergeStyleSets({
       position: 'sticky',
       top: 0,
       left: 0,
+      backgroundColor: themeColors.navbarBackgroundScrolled,
       animation: `${fadeIn} 150ms`,
-      boxShadow: '0 0 7px rgba(0, 0, 0, 0.65)'
+      //boxShadow: '0 0 7px rgba(0, 0, 0, 0.65)'
     },
 
     ul: {
@@ -138,7 +139,6 @@ export const classes = mergeStyleSets({
           gridColumnStart: 'span 1'
         }
       }
-    },
-
+    }
   }
 })

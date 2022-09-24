@@ -24,7 +24,8 @@ export const classes = mergeStyleSets({
   },
   banner: {
     gridArea: 'banner',
-    padding: '1em',
+    padding: 0,
+    paddingTop: '1rem',
     color: themeColors.white,
     fontSize: '1rem',
     lineHeight: 1.3,

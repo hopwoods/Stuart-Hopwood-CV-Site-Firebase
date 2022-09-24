@@ -5,7 +5,7 @@ import { useTheme } from "../../../Hooks"
 import { useSkillsStore } from "../../../state"
 import { SkillProps } from "../../../types"
 import { SkillWithProgress } from "../../controls/skills/skillsWithProgress"
-import { Header } from "../../typeography/header"
+import { Heading } from "../../typeography/heading"
 import { classes } from "./skills.css"
 
 export const variants: Variants = {
@@ -36,7 +36,7 @@ export function Skills() {
       {loading
         ? <Loading />
         : <>
-          <Header color={theme.Grey12} type="h3" text="Career Experience" className="header" />
+          <Heading color={theme.brandMedium} type="h3" text="Career Experience" className="header" />
           <p>
             Much of my career has been spent using a variety of technologies, below are the one I've spent the most time working with
           </p>

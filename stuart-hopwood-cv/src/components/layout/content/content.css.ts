@@ -18,7 +18,7 @@ export const classes = mergeStyleSets({
     overflow: 'hidden',
 
     'h1,h2, h3,h4,h5,h6': {
-      color: theme.hotpink
+      color: theme.brandAccentColor
 
     },
     'h2': {

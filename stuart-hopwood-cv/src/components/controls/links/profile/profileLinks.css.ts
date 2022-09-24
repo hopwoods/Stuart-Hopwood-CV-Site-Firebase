@@ -22,7 +22,7 @@ export const classes = mergeStyleSets({
       display: 'inline-block',
       marginLeft: '0.6rem',
       a: {
-        color: themeColors.hotpink,
+        color: themeColors.brandAccentColor,
         textDecoration: 'none',
         ':hover': {
           //color: themeColors.Grey12

@@ -16,7 +16,7 @@ export const classes = mergeStyleSets({
     alignItems: 'start',
 
     a: {
-      color: themeColors.hotpink,
+      color: themeColors.brandAccentColor,
       textDecoration: 'none',
 
       ':hover': {

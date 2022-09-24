@@ -6,7 +6,7 @@ const themeColors = useTheme();
 
 const colorChange = keyframes({
   '0%': { color: themeColors.white },
-  '100%': { color: themeColors.hotpink }
+  '100%': { color: themeColors.brandAccentColor }
 })
 
 export const classes = mergeStyleSets({
@@ -22,12 +22,12 @@ export const classes = mergeStyleSets({
       textTransform: 'uppercase',
       ':hover': {
         animation: colorChange,
-        animationDuration: '0.1s',
+        animationDuration: '500ms',
         animationFillMode: 'both',
         animationDelay: 0
       },
       '.active': {
-        color: themeColors.hotpink
+        color: themeColors.brandAccentColor
       }
     }
   }

@@ -44,6 +44,4 @@ export default defineConfig({
   build: {
     sourcemap: true
   }
-
-  //esbuild: { jsx: 'automatic' }
 })

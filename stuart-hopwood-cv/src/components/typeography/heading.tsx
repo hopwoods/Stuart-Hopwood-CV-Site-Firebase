@@ -8,7 +8,7 @@ type HeaderProps = {
     text: string,
     className?: string
 }
-export function Header({ type, color, text, className }: HeaderProps) {
+export function Heading({ type, color, text, className }: HeaderProps) {
     const theme = useTheme()
     const classes = mergeStyleSets({
         container: {

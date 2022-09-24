@@ -1,0 +1,22 @@
+{
+  "folders": [
+    {
+      "path": "stuart-hopwood-cv/"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/Thumbs.db": true,
+      "**/dev-dist": true,
+      "dev-dist": true,
+      "**/node_modules": true,
+      "node_modules": true
+    },
+    "explorerExclude.backup": {}
+  }
+}

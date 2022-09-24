@@ -4,8 +4,10 @@ import { AboutText, SocialIcons } from "..";
 import ProfilePicture200 from "../../../assets/ProfilePicture-200.png";
 import ProfilePicture300 from "../../../assets/ProfilePicture-300.png";
 import ProfilePicture400 from "../../../assets/ProfilePicture-400.png";
+import { theme } from "../../../Hooks/useTheme";
 import { mediaQueries } from "../../../style";
 import { Email, GithubRepo, Location, PhoneNumber } from "../../controls";
+import { Heading } from "../../typeography/heading";
 import { classes } from "./profile.css";
 
 export const variants: Variants = {
@@ -58,7 +60,7 @@ export function Profile() {
           ]}
         />
       </div>
-      <h2>Hi, I'm Stuart Hopwood</h2>
+      <Heading type="h2" color={theme.brandMedium} text="Hi, I'm Stuart Hopwood" />
       <AboutText />
       <PhoneNumber />
       <Email />

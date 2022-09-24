@@ -10,9 +10,9 @@ type BannerProps = {
 
 const variants: Variants = {
   start: {
-    background: 'linear-gradient(45deg, #5c1149 0%, #bb0542 31%, #dd003f 43%, #dd003f 55%, #bb0542 72%, #5c1149 100%)',
+    background: 'linear-gradient(45deg, rgba(142,202,230,1) 0%, rgba(33,158,188,1) 31%, rgba(2,48,71,1) 100%)',
     backgroundPosition: '0% 25%',
-    backgroundSize: '400% 400%',
+    backgroundSize: '200% 200%',
     opacity: 1
   },
   end: {
@@ -28,7 +28,7 @@ export function Banner({ id, fullscreen, children }: BannerProps) {
       initial="start"
       animate="end"
       transition={{
-        repeat: Infinity, repeatType: 'reverse', duration: 10
+        repeat: Infinity, repeatType: 'mirror', duration: 5
       }}
       variants={variants}
       id={id}

@@ -24,7 +24,7 @@ export const classes = mergeStyleSets({
     display: 'inline-block',
     marginLeft: '0.3rem',
     fontSize: '0.8rem',
-    color: themeColors.hotpink,
+    color: themeColors.brandAccentColor,
     textDecoration: 'none',
     paddingBottom: '5px',
     width: 'fit-content',

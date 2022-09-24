@@ -18,7 +18,7 @@ export const classes = mergeStyleSets({
       color: themeColors.darkAccent,
       textDecoration: 'none',
       ':hover': {
-        color: themeColors.hotpink
+        color: themeColors.brandAccentColor
       }
     }
   },

@@ -12,7 +12,7 @@ export const classes = mergeStyleSets({
       position: 'relative',
       top: '-0.2rem',
       '.active': {
-        color: themeColors.hotpink,
+        color: themeColors.brandAccentColor,
       },
       svg: {
         marginRight: '1rem'
