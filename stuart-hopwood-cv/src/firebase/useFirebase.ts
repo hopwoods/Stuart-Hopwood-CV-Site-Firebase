@@ -17,10 +17,10 @@ export function useFirebase() {
 	// Initialize Firebase
 	const firebaseApp = initializeApp(firebaseConfig)
 	//const analytics = getAnalytics(firebaseApp);
-	initializeAppCheck(firebaseApp, {
-		provider: new ReCaptchaV3Provider('6LfcdQIiAAAAAGFXyfauaf1CxTmjX014fJzJnQWI'),  // reCAPTCHA v3 site key (public key)
-		isTokenAutoRefreshEnabled: true
-	})
+	//initializeAppCheck(firebaseApp, {
+		//provider: new ReCaptchaV3Provider('6LfcdQIiAAAAAGFXyfauaf1CxTmjX014fJzJnQWI'),  // reCAPTCHA v3 site key (public key)
+		//isTokenAutoRefreshEnabled: true
+	//})
 
 	// Initialize Cloud Firestore and get a reference to the service
 	const db = getFirestore(firebaseApp)
