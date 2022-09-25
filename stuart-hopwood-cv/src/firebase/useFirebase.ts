@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check'
-import { getFirestore } from 'firebase/firestore'
+import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore'
 export function useFirebase() {
 
 	const firebaseConfig = {
@@ -24,6 +24,10 @@ export function useFirebase() {
 
 	// Initialize Cloud Firestore and get a reference to the service
 	const db = getFirestore(firebaseApp)
+
+	if (process.env.NODE_ENV === 'development') {
+		connectFirestoreEmulator(db, 'localhost', 8080)
+	}
 
 	return { firebaseApp, db }
 }

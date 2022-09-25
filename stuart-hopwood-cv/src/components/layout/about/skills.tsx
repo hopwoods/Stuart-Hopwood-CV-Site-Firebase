@@ -32,7 +32,7 @@ export function Skills() {
 	}, [])
 
 	return <LazyMotion features={domMax}>
-		<m.section id="skills" layout initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: '100px 0px 0px 0px' }} transition={{ duration: 1 }} variants={variants} className={classes.skills}>
+		<m.section id="skills" layout initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: '0px 0px 0px 0px' }} transition={{ duration: 0.8 }} variants={variants} className={classes.skills}>
 			{loading
 				? <Loading />
 				: <>

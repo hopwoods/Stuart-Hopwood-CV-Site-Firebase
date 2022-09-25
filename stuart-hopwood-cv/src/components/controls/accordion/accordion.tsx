@@ -55,6 +55,8 @@ export function Accordion({ header, content }: AccordionProps): JSX.Element {
 
 	const contentContainerVariants: Variants = {
 		open: {
+			height: '100%',
+			scaleY: 1,
 			transition: {
 				type: 'spring',
 				bounce: 0,
@@ -64,6 +66,8 @@ export function Accordion({ header, content }: AccordionProps): JSX.Element {
 			}
 		},
 		closed: {
+			height: 0,
+			scaleY: 0,
 			transition: {
 				type: 'spring',
 				bounce: 0,
@@ -82,8 +86,8 @@ export function Accordion({ header, content }: AccordionProps): JSX.Element {
 					<FaChevronDown />
 				</m.div>
 			</m.div>
-			<m.div variants={contentContainerVariants} style={{ pointerEvents: isOpen ? 'auto' : 'none' }}>
-				<AccordionContent variants={itemVariants}>{content}</AccordionContent>
+			<m.div variants={contentContainerVariants} layout style={{ pointerEvents: isOpen ? 'auto' : 'none' }}>
+				{isOpen ? <AccordionContent variants={itemVariants}>{content}</AccordionContent> : <></>}
 			</m.div>
 		</m.nav>
 	</LazyMotion>

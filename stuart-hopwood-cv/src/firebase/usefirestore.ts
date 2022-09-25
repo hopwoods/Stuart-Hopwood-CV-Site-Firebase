@@ -1,4 +1,4 @@
-import { addDoc as add, collection, deleteDoc as del, doc, DocumentData, getDoc as get, getDocs, orderBy, query, QuerySnapshot, setDoc } from 'firebase/firestore'
+import { addDoc as add, collection, deleteDoc as del, doc, DocumentData, FieldPath, getDoc as get, getDocs, orderBy, OrderByDirection, query, QuerySnapshot, setDoc } from 'firebase/firestore'
 
 import { useFirebase } from './useFirebase'
 export function useFirestore() {
@@ -53,8 +53,8 @@ export function useFirestore() {
 
 
 	type OrderByConstraint = {
-		field: string
-		direction: 'asc' | 'desc'
+		field: FieldPath | string
+		direction?: OrderByDirection
 	}
 
 	async function getAllAndSort(collectionName: string, orderByConstraint: OrderByConstraint) {

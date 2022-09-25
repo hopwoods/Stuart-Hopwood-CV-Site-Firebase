@@ -8,6 +8,6 @@ export type AccordionContentProps = {
 
 export function AccordionContent({ children, variants }: AccordionContentProps) {
 	return <LazyMotion features={domAnimation}>
-		<m.div variants={variants}>{children}</m.div>
+		<m.div layout variants={variants}>{children}</m.div>
 	</LazyMotion>
 }
