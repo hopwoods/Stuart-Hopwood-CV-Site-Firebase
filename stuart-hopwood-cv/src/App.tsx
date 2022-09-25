@@ -8,6 +8,7 @@ import { Button } from './components/controls/buttons/button'
 import ScrollToTopButton from './components/controls/buttons/scrollToTopButton'
 import { About, Page } from './components/layout'
 import { Waves } from './components/layout/banner/waves'
+import { Titles } from './components/typeography/titles'
 
 //TODO: Switch to dynamic imports
 
@@ -42,9 +43,11 @@ function Banner() {
 					damping: 10
 				}} layout
 			>
-				Hello I'm <motion.span animate={{ color: colors }} transition={{ repeat: Infinity, repeatType: 'mirror', duration: 3 }} className="name">Stuart Hopwood</motion.span>
+				<span>
+					Hello I&apos;m <motion.span animate={{ color: colors }} transition={{ repeat: Infinity, repeatType: 'mirror', duration: 3 }} className="name">Stuart Hopwood</motion.span>
+				</span>
 				<br />
-				<span className={classes.subTitle}>I&apos;m a full stack Developer.</span>
+				<Titles />
 			</motion.p>
 			<Button className="about" variant="outlined" color="secondary" endIcon={<ArrowDownwardIcon />} component={HashLink} to="/#about" smooth>
 				Find Out More
