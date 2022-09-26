@@ -12,9 +12,11 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
+  <!--
   <a href="https://stuart-hopwood-cv.web.app/">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
+  -->
 
   <h3 align="center">Stuart Hopwood CV Site</h3>
 
