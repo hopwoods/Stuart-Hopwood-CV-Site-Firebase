@@ -1,4 +1,4 @@
-import { Auth, getAuth, getRedirectResult, GoogleAuthProvider, signInWithRedirect, signOut, User } from 'firebase/auth'
+import { getAuth, getRedirectResult, GoogleAuthProvider, signInWithRedirect, signOut, User } from 'firebase/auth'
 import { useCallback, useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router'
 import { useFirebase } from '../firebase/useFirebase'
@@ -13,7 +13,7 @@ export function useLogin() {
 	const navigate = useNavigate()
 
 	useEffect(() => {
-		checkForAuthenticatedUser(user, isAuthenticated, auth)
+		checkForAuthenticatedUser(user, isAuthenticated)
 		if (!isAuthenticated) {
 			getRedirectResult(auth) //Check if a user has just logged in
 				.then((result) => {
@@ -64,7 +64,7 @@ export function useLogin() {
 		sessionStorage.setItem('uid', user.uid)
 		setAuthenticating(false)
 	}
-	function checkForAuthenticatedUser(user: User | undefined, isAuthenticated: boolean, auth: Auth) {
+	function checkForAuthenticatedUser(user: User | undefined, isAuthenticated: boolean) {
 		if (sessionStorage.getItem('uid') && user && !isAuthenticated) {
 			registerUser(user)
 		}

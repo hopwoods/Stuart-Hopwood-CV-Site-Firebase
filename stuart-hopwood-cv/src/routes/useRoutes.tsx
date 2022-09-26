@@ -4,7 +4,6 @@ import { AdminAboutText } from '../pages/admin/admin-about-text'
 import AdminSkills from '../pages/admin/admin-skills'
 import Admin from '../pages/admin/administration'
 import Login from '../pages/login'
-import NotFoundPage from '../pages/NotFoundPage'
 import { ProtectedRoute } from './protectedRoute'
 
 export function Router() {
@@ -13,7 +12,7 @@ export function Router() {
 		{
 			path: '/',
 			element: <App />,
-			errorElement: <NotFoundPage />
+			//errorElement: <NotFoundPage />
 		},
 		{
 			path: '#home',

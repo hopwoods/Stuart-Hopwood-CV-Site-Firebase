@@ -42,7 +42,7 @@ function Login() {
 	}
 	return (
 		<React.Fragment>
-			<Page id="Login" fullscreen={false} bannerContent={Banner}>
+			<Page id="Login" fullscreen={false} bannerContent={<Banner />}>
 				<div className={classes.login}>
 					{!isAuthPending ? <LoginScreen /> : <Loading loading />}
 				</div>
