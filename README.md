@@ -1,8 +1,6 @@
 <a name="readme-top"></a>
                           
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/hopwoods/stuart-hopwood-cv-site-firebase/Deploy%20to%20Firebase%20Hosting?style=for-the-badge)
-
-
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
