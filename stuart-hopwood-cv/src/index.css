@@ -26,6 +26,7 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background-color: #fb8500;
   outline: 0;
+  border: 0;
 }
 
 *,
