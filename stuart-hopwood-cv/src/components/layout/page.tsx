@@ -1,24 +1,21 @@
-import React, { ReactNode } from 'react'
-import { Banner, Content, Footer, Navbar } from '../../components/layout'
-import { RouterListener } from '../../security/routerListener'
+import { ReactNode } from 'react'
+import { Banner, Content, Footer } from '../../components/layout'
 
 export type PageProps = {
 	fullscreen: boolean
 	id: string
-	BannerContent: React.FC
+	bannerContent: ReactNode
 	children: ReactNode
+
 }
-export function Page({ id, fullscreen, BannerContent, children }: PageProps) {
-	return (
-		<RouterListener>
-			<Banner id={id} fullscreen={fullscreen}>
-				<BannerContent />
-			</Banner>
-			<Navbar />
-			<Content>
-				{children}
-			</Content>
-			<Footer />
-		</RouterListener>
-	)
+export function Page({ id, fullscreen, bannerContent, children }: PageProps) {
+	return <>
+		<Banner id={id} fullscreen={fullscreen}>
+			{bannerContent}
+		</Banner>
+		<Content>
+			{children}
+		</Content>
+		<Footer />
+	</>
 }

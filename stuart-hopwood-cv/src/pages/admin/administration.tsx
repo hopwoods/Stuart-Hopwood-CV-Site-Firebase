@@ -3,11 +3,7 @@ import { AdminMenu, Page } from '../../components/layout'
 import { gridClasses } from './administration.css'
 
 function Banner() {
-	return (
-		<React.Fragment>
-			<h1 className="inverse">Admin Area</h1>
-		</React.Fragment>
-	)
+	return <h1 className="inverse">Admin Area</h1>
 };
 
 function Admin() {
@@ -21,7 +17,7 @@ function Admin() {
 
 	return (
 		<React.Fragment>
-			<Page id="Administration" fullscreen={false} BannerContent={Banner}>
+			<Page id="Administration" fullscreen={false} bannerContent={<Banner />}>
 				<div className={gridClasses.grid}>
 					<AdminMenu />
 					<p>This is the Admin Area. To update the CV Sections click on the links to the left.</p>

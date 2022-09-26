@@ -15,7 +15,7 @@ export const classes = mergeStyleSets({
 		alignSelf: 'end',
 		justifySelf: 'stretch',
 		position: 'relative',
-		top: '-6px'
+		top: '-6px',
 	},
 	waves: {
 		position: 'relative',
@@ -24,7 +24,21 @@ export const classes = mergeStyleSets({
 		marginBottom: '-7px',/*Fix for safari gap*/
 		minHeight: '100px',
 		maxHeight: '150px',
-		alignSelf: 'end'
+		alignSelf: 'end',
+
+		'@media(max-width: 768px)': {
+			height: '40px',
+			minHeight: '40px'
+		},
+		'@media(max-width: 480px)': {
+			height: '40px',
+			minHeight: '40px'
+		},
+		'@media(max-width: 425px)': {
+			height: '40px',
+			minHeight: '40px'
+		},
+
 	},
 	parallax: {
 		'> use': {
@@ -47,26 +61,11 @@ export const classes = mergeStyleSets({
 		},
 		'> use:nth-child(4)': {
 			animationDelay: '-5s',
-			animationDuration: '20s'
+			animationDuration: '16s'
 		},
-
+		'> use:nth-child(5)': {
+			animationDelay: '-6s',
+			animationDuration: '19s'
+		}
 	}
-
 })
-
-
-
-
-//Shrinking for mobile
-// @media(max-width: 768px) {
-//   .waves {
-//         height: 40px
-//         min-height: 40px
-//     }
-//   .content {
-//         height: 30vh
-//     }
-//   h1 {
-//         font-size: 24px
-//     }
-// 

@@ -8,10 +8,11 @@ export function Waves() {
 				<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
 			</defs>
 			<g className={classes.parallax}>
-				<use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(2,48,71,0.3" />
-				<use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(2,48,71,0.4)" />
-				<use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(2,48,71,0.2)" />
-				<use xlinkHref="#gentle-wave" x="48" y="4" fill="rgba(2,48,71,1)" />
+				<use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(0, 16, 32,0.1" />
+				<use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(0, 16, 32,0.3)" />
+				<use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(0, 16, 32,0.5)" />
+				<use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(0, 16, 32,0.7)" />
+				<use xlinkHref="#gentle-wave" x="48" y="7" fill="rgba(0, 16, 32,1)" />
 			</g>
 		</svg>
 	</div>
