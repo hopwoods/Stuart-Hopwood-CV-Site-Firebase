@@ -22,7 +22,7 @@ export function Titles() {
 		setIndex(newIndex)
 	}, [text, nextIndex])
 
-	const animationDuration = 3500
+	const animationDuration = 2500
 
 	useEffect(() => {
 		const myInterval = setInterval(switchText, animationDuration)

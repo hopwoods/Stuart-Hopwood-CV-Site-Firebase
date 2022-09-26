@@ -10,9 +10,7 @@ import { classes } from './admin-skills.css'
 import { gridClasses } from './administration.css'
 
 function Banner() {
-	return (
-		<h1 className="inverse">Manage Skills</h1>
-	)
+	return <h1 className="inverse">Manage Skills</h1>
 };
 
 export function AdminSkills() {
@@ -24,7 +22,7 @@ export function AdminSkills() {
 	}, [])
 
 	return (
-		<Page id="Manage Skills" fullscreen={false} BannerContent={Banner}>
+		<Page id="Manage Skills" fullscreen={false} bannerContent={<Banner />}>
 			<div className={gridClasses.grid}>
 				<AdminMenu />
 				{

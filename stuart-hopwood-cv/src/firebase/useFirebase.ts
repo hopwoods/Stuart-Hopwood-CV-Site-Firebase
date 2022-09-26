@@ -1,5 +1,4 @@
 import { initializeApp } from 'firebase/app'
-import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check'
 import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore'
 export function useFirebase() {
 
@@ -16,10 +15,11 @@ export function useFirebase() {
 
 	// Initialize Firebase
 	const firebaseApp = initializeApp(firebaseConfig)
+
 	//const analytics = getAnalytics(firebaseApp);
 	//initializeAppCheck(firebaseApp, {
-		//provider: new ReCaptchaV3Provider('6LfcdQIiAAAAAGFXyfauaf1CxTmjX014fJzJnQWI'),  // reCAPTCHA v3 site key (public key)
-		//isTokenAutoRefreshEnabled: true
+	//provider: new ReCaptchaV3Provider('6LfcdQIiAAAAAGFXyfauaf1CxTmjX014fJzJnQWI'),  // reCAPTCHA v3 site key (public key)
+	//isTokenAutoRefreshEnabled: true
 	//})
 
 	// Initialize Cloud Firestore and get a reference to the service

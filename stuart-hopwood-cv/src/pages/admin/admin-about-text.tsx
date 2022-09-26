@@ -9,10 +9,8 @@ import AdminForm from '../../components/layout/admin/administration-form'
 import { useAboutTextStore } from '../../state'
 import { classes } from './admin-about-text.css'
 
-const Banner: React.FC = () => {
-	return (
-		<h1 className="inverse">Edit About Text</h1>
-	)
+function Banner() {
+	return <h1 className="inverse">Edit About Text</h1>
 }
 
 export function AdminAboutText() {
@@ -26,7 +24,7 @@ export function AdminAboutText() {
 
 	return (
 		<React.Fragment>
-			<Page id="Edit About Text" fullscreen={false} BannerContent={Banner}>
+			<Page id="Edit About Text" fullscreen={false} bannerContent={<Banner />}>
 				<AdminMenu>
 					<NavLink to="/admin/abouttext">About Text</NavLink>
 				</AdminMenu>
