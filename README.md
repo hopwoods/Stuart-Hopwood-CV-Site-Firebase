@@ -21,16 +21,15 @@
   <h3 align="center">Stuart Hopwood CV Site</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    A personal website and CV for Stuart Hopwood.
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://stuart-hopwood-cv.web.app/"><strong>Explore the live site »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/hopwoods/Stuart-Hopwood-CV-Site-Firebase/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/hopwoods/Stuart-Hopwood-CV-Site-Firebase/issues">Request Feature</a>
   </p>
 </div>
 
