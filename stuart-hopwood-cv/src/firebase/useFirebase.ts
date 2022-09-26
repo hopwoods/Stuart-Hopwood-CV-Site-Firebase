@@ -1,10 +1,12 @@
 import { initializeApp } from 'firebase/app'
-import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore'
+//import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check'
+import { getFirestore } from 'firebase/firestore'
 export function useFirebase() {
 
 	const firebaseConfig = {
 		apiKey: 'AIzaSyApd0HU0GxRW_fQEBKyN1YnYfLLljXELDw',
 		authDomain: 'stuart-hopwood-cv.firebaseapp.com',
+		databaseURL: 'https://stuart-hopwood-cv-default-rtdb.europe-west1.firebasedatabase.app',
 		projectId: 'stuart-hopwood-cv',
 		storageBucket: 'stuart-hopwood-cv.appspot.com',
 		messagingSenderId: '502264664855',
@@ -17,17 +19,14 @@ export function useFirebase() {
 	const firebaseApp = initializeApp(firebaseConfig)
 
 	//const analytics = getAnalytics(firebaseApp);
-	//initializeAppCheck(firebaseApp, {
-	//provider: new ReCaptchaV3Provider('6LfcdQIiAAAAAGFXyfauaf1CxTmjX014fJzJnQWI'),  // reCAPTCHA v3 site key (public key)
-	//isTokenAutoRefreshEnabled: true
-	//})
+
+	// initializeAppCheck(firebaseApp, {
+	// 	provider: new ReCaptchaV3Provider('6LfcdQIiAAAAAGFXyfauaf1CxTmjX014fJzJnQWI'),  // reCAPTCHA v3 site key (public key)
+	// 	isTokenAutoRefreshEnabled: true
+	// })
 
 	// Initialize Cloud Firestore and get a reference to the service
 	const db = getFirestore(firebaseApp)
-
-	if (process.env.NODE_ENV === 'development') {
-		connectFirestoreEmulator(db, 'localhost', 8080)
-	}
 
 	return { firebaseApp, db }
 }

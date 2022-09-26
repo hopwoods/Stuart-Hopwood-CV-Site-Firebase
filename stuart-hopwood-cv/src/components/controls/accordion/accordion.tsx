@@ -1,9 +1,10 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
 import { domAnimation, LazyMotion, m, Variants } from 'framer-motion'
-import { useState } from 'react'
+import React, { Suspense, useState } from 'react'
 import { FaChevronDown } from 'react-icons/fa'
 import { useTheme } from '../../../Hooks'
-import { AccordionContent } from './accordionContent'
+
+const AccordionContent = React.lazy(() => import('./accordionContent'))
 
 export type AccordionProps = {
 	header?: React.ReactNode
@@ -11,10 +12,7 @@ export type AccordionProps = {
 }
 
 
-
-
-
-export function Accordion({ header, content }: AccordionProps): JSX.Element {
+export default function Accordion({ header, content }: AccordionProps): JSX.Element {
 	const [isOpen, setIsOpen] = useState(false)
 	const theme = useTheme()
 
@@ -76,19 +74,21 @@ export function Accordion({ header, content }: AccordionProps): JSX.Element {
 		}
 	}
 
-	return <LazyMotion features={domAnimation}>
-		<m.nav initial={false} animate={isOpen ? 'open' : 'closed'} className={classes.AccordionRoot}>
-			<m.div whileTap={{ scale: 0.97 }} onClick={() => setIsOpen(!isOpen)} className={classes.AccordionHeaderRoot}>
-				<div className={classes.AccordionHeaderContent}>
-					{header}
-				</div>
-				<m.div variants={{ open: { rotate: 180, y: -10 }, closed: { rotate: 0, y: -5 } }} transition={{ duration: animationDuration }} className={classes.AccordionHeaderTrigger}>
-					<FaChevronDown />
+	return <Suspense>
+		<LazyMotion features={domAnimation}>
+			<m.nav initial={false} animate={isOpen ? 'open' : 'closed'} className={classes.AccordionRoot}>
+				<m.div whileTap={{ scale: 0.97 }} onClick={() => setIsOpen(!isOpen)} className={classes.AccordionHeaderRoot}>
+					<div className={classes.AccordionHeaderContent}>
+						{header}
+					</div>
+					<m.div variants={{ open: { rotate: 180, y: -10 }, closed: { rotate: 0, y: -5 } }} transition={{ duration: animationDuration }} className={classes.AccordionHeaderTrigger}>
+						<FaChevronDown />
+					</m.div>
 				</m.div>
-			</m.div>
-			<m.div variants={contentContainerVariants} layout style={{ pointerEvents: isOpen ? 'auto' : 'none' }}>
-				{isOpen ? <AccordionContent variants={itemVariants}>{content}</AccordionContent> : <></>}
-			</m.div>
-		</m.nav>
-	</LazyMotion>
+				<m.div variants={contentContainerVariants} layout style={{ pointerEvents: isOpen ? 'auto' : 'none' }}>
+					{isOpen ? <AccordionContent variants={itemVariants}>{content}</AccordionContent> : <></>}
+				</m.div>
+			</m.nav>
+		</LazyMotion>
+	</Suspense>
 }

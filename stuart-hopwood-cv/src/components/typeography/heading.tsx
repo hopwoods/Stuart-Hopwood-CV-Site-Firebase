@@ -7,7 +7,7 @@ type HeaderProps = {
 	text: string,
 	className?: string
 }
-export function Heading({ type, color, text, className }: HeaderProps) {
+export default function Heading({ type, color, text, className }: HeaderProps) {
 	const classes = mergeStyleSets({
 		container: {
 			textAlign: 'center',

@@ -29,7 +29,7 @@ const showErrorMessage = (errorText: string) => toast.error(`⛔️ ${errorText}
 
 const { getDoc } = useFirestore()
 
-export const useAboutTextStore = create<AboutTextState>((set, get) => ({
+export const useAboutTextStore = create<AboutTextState>((set) => ({
 	isRecords: false,
 	id: 'about',
 	text: '',

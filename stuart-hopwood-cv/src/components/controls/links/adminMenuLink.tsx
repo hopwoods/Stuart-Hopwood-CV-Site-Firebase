@@ -7,7 +7,7 @@ type LinkProps = {
 	children: ReactNode
 }
 
-export function AdminMenuLink({ to, value, children }: LinkProps) {
+export default function AdminMenuLink({ to, value, children }: LinkProps) {
 	return (
 		<span className={classes.menuLink}>
 			{children}

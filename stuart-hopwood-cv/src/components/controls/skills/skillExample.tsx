@@ -6,10 +6,8 @@ type SkillExample = {
 	text: string
 }
 
-export function SkillExample({ id, text }: SkillExample) {
-	return (
-		<>
-			<p className={`${classes.skillExample} ${typography.copy2}`} key={id}>{text}</p>
-		</>
-	)
+export default function SkillExample({ id, text }: SkillExample) {
+	return <>
+		<p className={`${classes.skillExample} ${typography.copy2}`} key={id}>{text}</p>
+	</>
 };

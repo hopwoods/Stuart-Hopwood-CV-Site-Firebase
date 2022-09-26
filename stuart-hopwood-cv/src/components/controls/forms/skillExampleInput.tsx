@@ -1,17 +1,18 @@
-import { TextField } from '@mui/material'
+import React, { Suspense } from 'react'
 import { useFirestore } from '../../../firebase/usefirestore'
 import { useSkillsStore } from '../../../state'
 import { SkillExampleProps } from '../../../types'
-import { DeleteButton } from '../buttons/deleteButton'
 import { classes } from './skillExampleInput.css'
 
-export function SkillExampleInput({ skillExample: example }: { skillExample: SkillExampleProps }) {
+const TextField = React.lazy(() => import('@mui/material/TextField'))
+const DeleteButton = React.lazy(() => import('../buttons/deleteButton'))
+
+export default function SkillExampleInput({ skillExample: example }: { skillExample: SkillExampleProps }) {
 
 	const { makeId } = useFirestore()
 	const { removeSkillExample } = useSkillsStore()
 	const id = example.id ? example.id : makeId(20)
 	const { selectedSkill } = useSkillsStore()
-
 
 	const onDeleteExampleClickHandler = (id: string) => {
 		if (selectedSkill.id && selectedSkill.skillExamples) {
@@ -19,7 +20,7 @@ export function SkillExampleInput({ skillExample: example }: { skillExample: Ski
 		}
 	}
 
-	return (
+	return <Suspense>
 		<div>
 			<TextField
 				className={`${classes.textInput} skillExample`}
@@ -33,7 +34,7 @@ export function SkillExampleInput({ skillExample: example }: { skillExample: Ski
 			/>
 			<DeleteButton cssStyle={classes.deleteButton} color="primary" size="small" onClickHandler={() => onDeleteExampleClickHandler(id)} />
 		</div>
-	)
+	</Suspense>
 }
 
 

@@ -1,15 +1,16 @@
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import { motion } from 'framer-motion'
+import React, { Suspense } from 'react'
 import { HashLink } from 'react-router-hash-link'
 import './App.css'
 import { classes } from './App.css'
-import { Button } from './components/controls/buttons/button'
-import ScrollToTopButton from './components/controls/buttons/scrollToTopButton'
-import { About, Page } from './components/layout'
-import { Waves } from './components/layout/banner/waves'
-import { Titles } from './components/typeography/titles'
 
-//TODO: Switch to dynamic imports
+const Button = React.lazy(() => import('./components/controls/buttons/button'))
+const ScrollToTopButton = React.lazy(() => import('./components/controls/buttons/scrollToTopButton'))
+const About = React.lazy(() => import('./pages/About'))
+const Page = React.lazy(() => import('./components/layout/page/page'))
+const Waves = React.lazy(() => import('./components/layout/banner/waves'))
+const Titles = React.lazy(() => import('./components/typeography/titles'))
 
 const colors: string[] = [
 	'#ffb703',
@@ -50,17 +51,13 @@ function Banner() {
 	</>
 	)
 }
-
-
-function App() {
-	return (
+export default function App() {
+	return <Suspense>
 		<Page id="Home" fullscreen={true} bannerContent={<Banner />}>
 			<About />
 			<div className={classes.toTopButton}>
 				<ScrollToTopButton color="secondary" />
 			</div>
 		</Page>
-	)
+	</Suspense>
 }
-export default App
-

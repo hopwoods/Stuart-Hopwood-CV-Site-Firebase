@@ -1,19 +1,23 @@
-import { useEffect } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
-import { SkillsTable } from '../../components/controls'
-import { AddSkillButton } from '../../components/controls/buttons/addSkillButton'
-import { AdminMenu, EditSkillDialog, Loading, Page } from '../../components/layout'
-import { AddSkillDialog } from '../../components/layout/admin/skills/addSkillDialog'
 import { useSkillsStore } from '../../state'
 import { classes } from './admin-skills.css'
 import { gridClasses } from './administration.css'
+
+const SkillsTable = React.lazy(() => import('../../components/controls/skills/skillsTable'))
+const AddSkillButton = React.lazy(() => import('../../components/controls/buttons/addSkillButton'))
+const AdminMenu = React.lazy(() => import('../../components/layout/admin/administration-menu'))
+const EditSkillDialog = React.lazy(() => import('../../components/layout/admin/skills/editSkillDialog'))
+const AddSkillDialog = React.lazy(() => import('../../components/layout/admin/skills/addSkillDialog'))
+const Loading = React.lazy(() => import('../../components/layout/loading/loading'))
+const Page = React.lazy(() => import('../../components/layout/page/page'))
 
 function Banner() {
 	return <h1 className="inverse">Manage Skills</h1>
 };
 
-export function AdminSkills() {
+export default function AdminSkills() {
 
 	const { skills, loading, getSkillsFromDb } = useSkillsStore()
 
@@ -21,7 +25,7 @@ export function AdminSkills() {
 		getSkillsFromDb()
 	}, [])
 
-	return (
+	return <Suspense>
 		<Page id="Manage Skills" fullscreen={false} bannerContent={<Banner />}>
 			<div className={gridClasses.grid}>
 				<AdminMenu />
@@ -39,6 +43,5 @@ export function AdminSkills() {
 				}
 			</div>
 		</Page>
-	)
+	</Suspense>
 }
-export default AdminSkills

@@ -2,7 +2,7 @@ import { domAnimation, LazyMotion, m, Variants } from 'framer-motion'
 import { useCallback, useEffect, useState } from 'react'
 import { classes } from './titles.css'
 
-export function Titles() {
+export default function Titles() {
 
 	const [text, setText] = useState<string>('full stack developer')
 	const [nextIndex, setIndex] = useState<number>(0)

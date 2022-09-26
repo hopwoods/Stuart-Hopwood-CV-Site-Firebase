@@ -21,7 +21,7 @@ const variants: Variants = {
 	}
 }
 
-export function Banner({ id, fullscreen, children }: BannerProps) {
+export default function Banner({ id, fullscreen, children }: BannerProps) {
 	return <LazyMotion features={domMax}>
 		<m.header
 			layout

@@ -1,11 +1,13 @@
 import parse from 'html-react-parser'
-import { useEffect } from 'react'
-import { Loading } from '..'
+import React from 'react'
+import { Suspense, useEffect } from 'react'
 import { useAboutTextStore } from '../../../state'
 import { typography } from '../../typeography/typography.css'
 import { classes } from './aboutText.css'
 
-export function AboutText() {
+const Loading = React.lazy(() => import('../loading/loading'))
+
+export default function AboutText() {
 
 	const { text, loading, getAboutText } = useAboutTextStore()
 
@@ -13,5 +15,11 @@ export function AboutText() {
 		getAboutText()
 	}, [getAboutText])
 
-	return loading ? <Loading /> : <div className={`${classes.aboutText} ${typography.copy1}`}>{parse(text)}</div>
+	return <Suspense>
+		{
+			loading
+				? <Loading />
+				: <div className={`${classes.aboutText} ${typography.copy1}`}>{parse(text)}</div>
+		}
+	</Suspense>
 }

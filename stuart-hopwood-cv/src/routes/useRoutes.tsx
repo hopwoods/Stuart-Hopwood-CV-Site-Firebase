@@ -1,12 +1,14 @@
+import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import App from '../App'
-import { AdminAboutText } from '../pages/admin/admin-about-text'
-import AdminSkills from '../pages/admin/admin-skills'
-import Admin from '../pages/admin/administration'
-import Login from '../pages/login'
 import { ProtectedRoute } from './protectedRoute'
 
-export function Router() {
+const App = React.lazy(() => import('../App'))
+const AdminAboutText = React.lazy(() => import('../pages/admin/admin-about-text'))
+const AdminSkills = React.lazy(() => import('../pages/admin/admin-skills'))
+const Admin = React.lazy(() => import('../pages/admin/administration'))
+const Login = React.lazy(() => import('../pages/login'))
+
+export default function Router() {
 
 	const router = createBrowserRouter([
 		{
