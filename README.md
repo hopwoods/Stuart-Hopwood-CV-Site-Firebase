@@ -67,13 +67,13 @@ This is the personal website & CV of Stuart Hopwood.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/hopwoods/stuart-hopwood-cv-site-firebase.svg?style=for-the-badge
-[contributors-url]: https://github.com/hopwoods/stuart-hopwood-cv-site-firebase/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/hopwoods/stuart-hopwood-cv-site-firebase.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/hopwoods/Stuart-Hopwood-CV-Site-Firebase.svg?style=for-the-badge
+[contributors-url]: https://github.com/hopwoods/Stuart-Hopwood-CV-Site-Firebase/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/hopwoods/Stuart-Hopwood-CV-Site-Firebase.svg?style=for-the-badge
 [forks-url]: https://github.com/hopwoods/stuart-hopwood-cv-site-firebase/network/members
-[stars-shield]: https://img.shields.io/github/stars/hopwoods/stuart-hopwood-cv-site-firebase.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/hopwoods/Stuart-Hopwood-CV-Site-Firebase.svg?style=for-the-badge
 [stars-url]: https://github.com/hopwoods/stuart-hopwood-cv-site-firebase/stargazers
-[issues-shield]: https://img.shields.io/github/license/hopwoods/Stuart-Hopwood-CV-Site-Firebase?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/hopwoods/Stuart-Hopwood-CV-Site-Firebase?style=for-the-badge
 [issues-url]: https://github.com/hopwoods/stuart-hopwood-cv-site-firebase/issues
 [license-shield]: https://img.shields.io/github/license/hopwoods/stuart-hopwood-cv-site-firebase.svg?style=for-the-badge
 [license-url]: https://github.com/hopwoods/stuart-hopwood-cv-site-firebase/blob/main/LICENSE.txt
