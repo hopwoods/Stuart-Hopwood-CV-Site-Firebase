@@ -14,6 +14,7 @@ export function useFirestore() {
 			console.error('Error adding document: ', e)
 		}
 	}
+
 	async function addOrUpdateDoc(collectionName: string, documentId: string | number, document: object) {
 		try {
 			const collectionRef = collection(db, collectionName)
@@ -51,7 +52,6 @@ export function useFirestore() {
 		}
 	}
 
-
 	type OrderByConstraint = {
 		field: FieldPath | string
 		direction?: OrderByDirection
@@ -86,8 +86,6 @@ export function useFirestore() {
 		}
 		return result
 	}
-
-
 
 	return { addDoc, getDoc, getAll, getAllAndSort, addOrUpdateDoc, deleteDoc, makeId }
 }
