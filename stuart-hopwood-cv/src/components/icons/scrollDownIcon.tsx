@@ -4,7 +4,7 @@ type ScrollDownIconProps = {
 	color: string
 }
 
-export function ScrollDownIcon({ color }: ScrollDownIconProps) {
+export default function ScrollDownIcon({ color }: ScrollDownIconProps) {
 
 	const scroll = keyframes({
 		'0%': {

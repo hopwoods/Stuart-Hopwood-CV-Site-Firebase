@@ -2,7 +2,7 @@ import { IconButton } from '@mui/material'
 import { FaFacebook } from 'react-icons/fa'
 import { SocialButtonLinkProps } from '../../../../types'
 
-export function FacebookLink({ color, size, }: SocialButtonLinkProps) {
+export default function FacebookLink({ color, size, }: SocialButtonLinkProps) {
 	return (
 		<IconButton
 			aria-label="Facebook Profile (Stuart Hopwood)"

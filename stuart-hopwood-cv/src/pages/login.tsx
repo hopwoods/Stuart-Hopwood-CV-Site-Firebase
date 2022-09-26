@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { LoginButton } from '../components/controls'
-import { Loading, Page } from '../components/layout'
-import { Heading } from '../components/typeography/heading'
+//import { Loading, Page } from '../components/layout'
 import { theme } from '../Hooks/useTheme'
 import { useGlobalStore } from '../state'
 import { classes } from './login.css'
+
+const Heading = React.lazy(() => import('../components/typeography/heading'))
+const LoginButton = React.lazy(() => import('../components/controls/buttons/loginButton'))
+const Loading = React.lazy(() => import('../components/layout/loading/loading'))
+const Page = React.lazy(() => import('../components/layout/page/page'))
 
 function Banner() {
 	return (
@@ -13,7 +16,7 @@ function Banner() {
 	)
 }
 
-function Login() {
+export default function Login() {
 	const { isAuthenticating } = useGlobalStore()
 	const [isAuthPending, setAuthPending] = useState<boolean>(false)
 	const sessionValue = sessionStorage.getItem('authPending')
@@ -41,14 +44,12 @@ function Login() {
 		</>
 	}
 	return (
-		<React.Fragment>
+		<Suspense>
 			<Page id="Login" fullscreen={false} bannerContent={<Banner />}>
 				<div className={classes.login}>
 					{!isAuthPending ? <LoginScreen /> : <Loading loading />}
 				</div>
 			</Page>
-		</React.Fragment>
+		</Suspense>
 	)
 }
-
-export default Login

@@ -1,16 +1,17 @@
-import MeetingRoomIcon from '@mui/icons-material/MeetingRoom'
-import { Button } from '@mui/material'
-import { useCallback } from 'react'
+import React, { Suspense, useCallback } from 'react'
 import { useLogin } from '../../../security/useLogin'
 
-export function LogoutButton() {
+const MeetingRoomIcon = React.lazy(() => import('@mui/icons-material/MeetingRoom'))
+const Button = React.lazy(() => import('@mui/material/Button'))
+
+export default function LogoutButton() {
 	const { signOut, auth } = useLogin()
 
 	const handleClick = useCallback(async () => {
 		await signOut(auth)
 	}, [signOut, auth])
 
-	return (
+	return <Suspense>
 		<Button
 			className="login"
 			variant="outlined"
@@ -21,5 +22,5 @@ export function LogoutButton() {
 		>
 			Logout
 		</Button>
-	)
+	</Suspense>
 }

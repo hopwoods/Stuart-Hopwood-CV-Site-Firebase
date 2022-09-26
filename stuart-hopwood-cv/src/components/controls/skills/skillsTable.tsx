@@ -1,16 +1,18 @@
 
 import { DataGrid, GridCellParams, GridColDef, GridValueFormatterParams } from '@mui/x-data-grid'
-import React from 'react'
-import { EditSkillButton } from '..'
+import React, { Suspense } from 'react'
 import { useSkillsStore } from '../../../state'
 import { SkillExampleProps, SkillProps } from '../../../types'
-import { DeleteButton } from '../buttons/deleteButton'
 import { classes } from './skillsTable.css'
+
+const EditSkillButton = React.lazy(() => import('../buttons/editSkillButton'))
+const DeleteButton = React.lazy(() => import('../buttons/deleteButton'))
+
 type SkillsTableProps = {
 	rows: SkillProps[]
 }
 
-export function SkillsTable({ rows }: SkillsTableProps) {
+export default function SkillsTable({ rows }: SkillsTableProps) {
 	const { deleteSkill } = useSkillsStore()
 
 	const onClickHandler = (id: string) => {
@@ -67,27 +69,24 @@ export function SkillsTable({ rows }: SkillsTableProps) {
 			flex: 0.15,
 			editable: false,
 			renderCell: (params: GridCellParams) => {
-				return (
-					<React.Fragment>
-						<EditSkillButton
-							id={params.row?.id}
-							skillName={params.row?.skillName}
-							percentage={params.row?.percentage}
-							skillExamples={params.row?.skillExamples}
-							color="primary"
-							size="small" />
-						<DeleteButton onClickHandler={() => onClickHandler(params.row?.id)} color="primary" size="small" />
-					</React.Fragment>
-				)
+				return <Suspense>
+					<EditSkillButton
+						id={params.row?.id}
+						skillName={params.row?.skillName}
+						percentage={params.row?.percentage}
+						skillExamples={params.row?.skillExamples}
+						color="primary"
+						size="small" />
+					<DeleteButton onClickHandler={() => onClickHandler(params.row?.id)} color="primary" size="small" />
+				</Suspense>
 			},
 			sortable: false,
 			align: 'center'
 		}
 	]
 
-	return (
-		<div id="skills" className={classes.skillsTable}>
-			<DataGrid rows={rows} rowHeight={100} columns={columns} autoHeight pageSize={10} disableColumnMenu />
-		</div>
-	)
+	return <div id="skills" className={classes.skillsTable}>
+		<DataGrid rows={rows} rowHeight={100} columns={columns} autoHeight pageSize={10} disableColumnMenu />
+	</div>
+
 }

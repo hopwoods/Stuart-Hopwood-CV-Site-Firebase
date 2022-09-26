@@ -1,11 +1,11 @@
 import { domAnimation, LazyMotion, m, Variants } from 'framer-motion'
-import {
-	FacebookLink,
-	GithubLink,
-	InstagramLink,
-	LinkedInLink
-} from '../../controls'
+import React from 'react'
 import { classes } from './socialIcons.css'
+
+const FacebookLink = React.lazy(() => import('../../controls/links/social/facebookLink'))
+const GithubLink = React.lazy(() => import('../../controls/links/social/githubLink'))
+const LinkedInLink = React.lazy(() => import('../../controls/links/social/linkedInLink'))
+const InstagramLink = React.lazy(() => import('../../controls/links/social/instagramLink'))
 
 export const iconVariants: Variants = {
 	offscreen: {
@@ -23,7 +23,7 @@ export const iconVariants: Variants = {
 	}
 }
 
-export function SocialIcons() {
+export default function SocialIcons() {
 	return <LazyMotion features={domAnimation}>
 		<m.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }} className={`socialIcons ${classes.socialIcons}`}>
 			<FacebookLink color="primary" size="medium" />

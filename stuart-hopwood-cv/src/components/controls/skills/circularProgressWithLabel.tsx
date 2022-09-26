@@ -1,9 +1,12 @@
-import Box from '@mui/material/Box'
-import CircularProgress, { CircularProgressProps } from '@mui/material/CircularProgress'
+import { CircularProgressProps } from '@mui/material/CircularProgress'
 import Typography from '@mui/material/Typography'
+import React, { Suspense } from 'react'
 
-export function CircularProgressWithLabel(props: CircularProgressProps & { value: number }) {
-	return (
+const Box = React.lazy(() => import('@mui/material/Box'))
+const CircularProgress = React.lazy(() => import('@mui/material/CircularProgress'))
+
+export default function CircularProgressWithLabel(props: CircularProgressProps & { value: number }) {
+	return <Suspense>
 		<Box position="relative" display="inline-flex">
 			<CircularProgress variant="determinate" {...props} />
 			<Box
@@ -24,5 +27,5 @@ export function CircularProgressWithLabel(props: CircularProgressProps & { value
 				</Typography>
 			</Box>
 		</Box>
-	)
+	</Suspense>
 }

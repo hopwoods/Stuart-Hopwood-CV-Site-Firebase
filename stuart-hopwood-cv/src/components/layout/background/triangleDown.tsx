@@ -4,7 +4,7 @@ type Triangle = {
 	color: string
 	backgroundColor: string
 }
-export function TriangleDown({ color, backgroundColor }: Triangle) {
+export default function TriangleDown({ color, backgroundColor }: Triangle) {
 	const classes = mergeStyleSets({
 		triangle: {
 			gridColumn: '1 / span 2',

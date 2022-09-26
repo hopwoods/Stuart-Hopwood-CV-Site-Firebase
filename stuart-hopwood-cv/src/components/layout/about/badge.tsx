@@ -22,7 +22,7 @@ const badgeVariants: Variants = {
 	}
 }
 
-export function Badge({ children }: BadgeProps) {
+export default function Badge({ children }: BadgeProps) {
 	return <LazyMotion features={domMax}>
 		<m.div variants={badgeVariants} layout transition={{ duration: 0.8 }} className={classes.badge}>
 			{children}
