@@ -20,7 +20,7 @@
     "@types/react-router-hash-link": "^2.4.5",
     "axios": "^0.27.2",
     "eslint-config-prettier": "^8.5.0",
-    "firebase": "^9.9.4",
+    "firebase": "^9.10.0",
     "firebaseui": "^6.0.1",
     "framer-motion": "^7.3.6",
     "html-react-parser": "^3.0.4",
