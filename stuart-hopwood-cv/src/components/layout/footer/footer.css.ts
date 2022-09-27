@@ -8,7 +8,7 @@ export const classes = mergeStyleSets({
 		gridArea: 'footer',
 		justifySelf: 'stretch',
 		backgroundColor: theme.bodyBackgroundDark,
-		color: theme.Grey6,
+		color: theme.Grey8,
 		padding: '0.4em',
 		fontSize: '0.9em',
 		fontFamily: FontFamilies.primary,

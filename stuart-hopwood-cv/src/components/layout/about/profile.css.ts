@@ -39,7 +39,7 @@ export const classes = mergeStyleSets({
 			fontSize: '0.9em',
 		},
 		'@media(max-width: 768px)': {
-			gridTemplateColumns: '75vw',
+			gridTemplateColumns: '90vw',
 			gridTemplateRows: 'auto',
 			gridColumn: '1 / span 2',
 			gridRow: '3 / span 1',

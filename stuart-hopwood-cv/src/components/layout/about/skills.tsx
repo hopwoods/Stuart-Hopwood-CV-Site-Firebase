@@ -1,4 +1,4 @@
-import { domMax, LazyMotion, m, Variants } from 'framer-motion'
+import { domAnimation, LazyMotion, m, Variants } from 'framer-motion'
 import React, { Suspense, useEffect } from 'react'
 import { useTheme } from '../../../Hooks'
 import { useSkillsStore } from '../../../state'
@@ -12,11 +12,11 @@ const SkillWithProgress = React.lazy(() => import('../../controls/skills/skillsW
 export const variants: Variants = {
 	offscreen: {
 		opacity: 0,
-		x: 400
+		filter: 'blur(20px)'
 	},
 	onscreen: {
 		opacity: 1,
-		x: 0,
+		filter: 'blur(00px)'
 	}
 }
 
@@ -33,8 +33,8 @@ export default function Skills() {
 	}, [])
 
 	return <Suspense>
-		<LazyMotion features={domMax}>
-			<m.section id="skills" layout initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: '0px 0px 0px 0px' }} transition={{ duration: 0.8 }} variants={variants} className={classes.skills}>
+		<LazyMotion features={domAnimation}>
+			<m.section id="skills" layout initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: '0px 0px 0px 0px' }} transition={{ duration: 2 }} variants={variants} className={classes.skills}>
 				{loading
 					? <Loading />
 					: <>

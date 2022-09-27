@@ -1,9 +1,8 @@
-import { domMax, LazyMotion, m, Variants } from 'framer-motion'
+import { domAnimation, LazyMotion, m, Variants } from 'framer-motion'
 import React, { Suspense } from 'react'
-import { Picture } from 'react-responsive-picture'
-import ProfilePicture200 from '../../../assets/ProfilePicture-200.png'
-import ProfilePicture300 from '../../../assets/ProfilePicture-300.png'
-import ProfilePicture400 from '../../../assets/ProfilePicture-400.png'
+import ProfilePicture200 from '../../../assets/ProfilePicture-200.webp'
+import ProfilePicture300 from '../../../assets/ProfilePicture-300.webp'
+import ProfilePicture400 from '../../../assets/ProfilePicture-400.webp'
 import { theme } from '../../../Hooks/useTheme'
 import { mediaQueries } from '../../../style'
 import { classes } from './profile.css'
@@ -19,53 +18,27 @@ const GithubRepo = React.lazy(() => import('../../controls/links/social/githubRe
 export const variants: Variants = {
 	offscreen: {
 		opacity: 0,
-		x: -400
+		filter: 'blur(20px)'
 	},
 	onscreen: {
 		opacity: 1,
-		x: 0,
+		filter: 'blur(0px)'
 	}
 }
 
 export default function Profile() {
 	return <Suspense>
-		<LazyMotion features={domMax}>
-			<m.section id="profile" layout initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: '100px 0px 0px 0px' }} transition={{ duration: 1 }} variants={variants} className={classes.profile}>
+		<LazyMotion features={domAnimation}>
+			<m.section id="profile" layout initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: '0px 0px 0px 0px' }} transition={{ duration: 2 }} variants={variants} className={classes.profile}>
 				<div className="profilePicture">
-					<Picture
-						sources={[
-							{
-								srcSet: ProfilePicture200,
-								media: mediaQueries.small,
-								innerWidth: 200,
-								innerHeight: 200
-							},
-							{
-								srcSet: ProfilePicture300,
-								media: mediaQueries.medium,
-								innerWidth: 300,
-								innerHeight: 300
-							},
-							{
-								srcSet: ProfilePicture300,
-								media: mediaQueries.large,
-								innerWidth: 300,
-								innerHeight: 300
-							},
-							{
-								srcSet: ProfilePicture400,
-								media: mediaQueries.xlarge,
-								nnerWidth: 400,
-								innerHeight: 400
-							},
-							{
-								srcSet: ProfilePicture400,
-								media: mediaQueries.xxlarge,
-								nnerWidth: 400,
-								innerHeight: 400
-							},
-						]}
-					/>
+					<picture>
+						<source srcSet={ProfilePicture200} media={mediaQueries.small} type="image/webp" height="200" width="200" />
+						<source srcSet={ProfilePicture300} media={mediaQueries.medium} type="image/webp" height="300" width="300" />
+						<source srcSet={ProfilePicture300} media={mediaQueries.large} type="image/webp" height="300" width="300" />
+						<source srcSet={ProfilePicture400} media={mediaQueries.xlarge} type="image/webp" height="400" width="400" />
+						<source srcSet={ProfilePicture400} media={mediaQueries.xxlarge} type="image/webp" height="400" width="400" />
+						<img alt="Stuart Hopwood" srcSet={ProfilePicture400} loading="lazy" />
+					</picture>
 				</div>
 				<Heading type="h2" color={theme.brandMedium} text="Hi, I'm Stuart Hopwood" />
 				<AboutText />

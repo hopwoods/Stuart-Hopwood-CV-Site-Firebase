@@ -41,14 +41,14 @@ export const classes = mergeStyleSets({
 			gridTemplateRows: 'auto',
 			gridColumn: '2 / span 1',
 			gridRow: '3 / span 1',
-			fontSize: '0.9em',
+			fontSize: '1em',
 		},
 		'@media(max-width: 768px)': {
-			gridTemplateColumns: '75vw',
+			gridTemplateColumns: '90vw',
 			gridTemplateRows: 'auto',
 			gridColumn: '1 / span 2',
 			gridRow: '4 / span 1',
-			fontSize: '0.8em',
+			fontSize: '0.9em',
 			marginTop: '2em'
 		},
 		'@media(max-width: 480px)': {
@@ -56,7 +56,7 @@ export const classes = mergeStyleSets({
 			gridTemplateRows: 'auto',
 			gridColumn: '1 / span 2',
 			gridRow: '4 / span 1',
-			fontSize: '0.8em',
+			fontSize: '0.9em',
 			marginTop: '2em'
 		},
 		'@media(max-width: 425px)': {
@@ -64,7 +64,7 @@ export const classes = mergeStyleSets({
 			gridTemplateRows: 'auto',
 			gridColumn: '1 / span 2',
 			gridRow: '4 / span 1',
-			fontSize: '0.7em',
+			fontSize: '0.8em',
 			marginTop: '2em'
 		},
 	}
