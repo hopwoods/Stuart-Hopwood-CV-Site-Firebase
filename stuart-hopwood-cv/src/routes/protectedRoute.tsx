@@ -7,7 +7,7 @@ type ProtectedRouteProps = {
 	children: ReactNode
 }
 
-export function ProtectedRoute({ redirectPath, children }: ProtectedRouteProps) {
+export default function ProtectedRoute({ redirectPath, children }: ProtectedRouteProps) {
 	const { isAuthenticated } = useGlobalStore()
 	if (!isAuthenticated) {
 		return <Navigate to={redirectPath} replace />

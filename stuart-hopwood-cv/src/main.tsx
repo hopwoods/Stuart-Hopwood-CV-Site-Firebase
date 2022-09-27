@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { materialTheme } from './style'
 
-const Router = React.lazy(() => import('./routes/useRoutes'))
+const Router = React.lazy(() => import('./routes/router'))
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<Suspense>

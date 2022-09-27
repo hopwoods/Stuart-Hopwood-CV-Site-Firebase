@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { ProtectedRoute } from './protectedRoute'
 
 const App = React.lazy(() => import('../App'))
 const AdminAboutText = React.lazy(() => import('../pages/admin/admin-about-text'))
 const AdminSkills = React.lazy(() => import('../pages/admin/admin-skills'))
 const Admin = React.lazy(() => import('../pages/admin/administration'))
 const Login = React.lazy(() => import('../pages/login'))
+const ProtectedRoute = React.lazy(() => import('./protectedRoute'))
 
 export default function Router() {
 
@@ -56,5 +56,7 @@ export default function Router() {
 		},
 	])
 
-	return <RouterProvider router={router} />
+	return <Suspense>
+		<RouterProvider router={router} />
+	</Suspense>
 }
