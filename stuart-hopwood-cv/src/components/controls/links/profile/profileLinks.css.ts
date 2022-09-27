@@ -9,7 +9,7 @@ export const classes = mergeStyleSets({
 		gridColum: '1 / span 1',
 		justifySelf: 'stretch',
 		display: 'grid',
-		gridTemplateColumns: '1.5em auto',
+		gridTemplateColumns: '1.75em auto',
 		gridTemplateRows: 'auto',
 		gridGap: '0rem',
 		height: 'fit-content',
