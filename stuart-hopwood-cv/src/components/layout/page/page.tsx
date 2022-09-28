@@ -1,15 +1,15 @@
-import { ReactNode } from 'react'
+import { lazy, ReactNode, Suspense } from 'react'
 import Banner from '../banner/banner'
 import Content from '../content/content'
-import Footer from '../footer/footer'
-import FooterNav from '../footer/footerNav'
+import Loading from '../loading/loading'
+
+const Footer = lazy(() => import('../footer/footer'))
 
 export type PageProps = {
 	fullscreen: boolean
 	id: string
 	bannerContent: ReactNode
 	children: ReactNode
-
 }
 export default function Page({ id, fullscreen, bannerContent, children }: PageProps) {
 	return <>
@@ -19,8 +19,8 @@ export default function Page({ id, fullscreen, bannerContent, children }: PagePr
 		<Content>
 			{children}
 		</Content>
-		<Footer>
-			<FooterNav />
-		</Footer>
+		<Suspense fallback={<Loading loading />}>
+			<Footer />
+		</Suspense>
 	</>
 }
