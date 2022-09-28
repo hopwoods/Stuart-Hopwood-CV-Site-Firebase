@@ -1,8 +1,9 @@
-import React, { Suspense } from 'react'
 import { SkillExampleProps } from '../../../types'
+import Accordion from '../accordion/accordion'
+import SkillExample from './skillExample'
 
-const Accordion = React.lazy(() => import('../accordion/accordion'))
-const SkillExample = React.lazy(() => import('./skillExample'))
+// const Accordion = React.lazy(() => import('../accordion/accordion'))
+// const SkillExample = React.lazy(() => import('./skillExample'))
 
 type SkillExamplesProps = {
 	examples?: SkillExampleProps[]
@@ -25,18 +26,16 @@ export default function SkillExamples({ examples }: SkillExamplesProps) {
 					}
 				</>
 			}
-			return <Suspense>
-				<Accordion header={<FirstExample />} content={<RestOfExamples />} />
-			</Suspense>
+			return <Accordion header={<FirstExample />} content={<RestOfExamples />} />
 		}
 		else {
-			return <Suspense>
+			return <>
 				{
 					examples.map(function (example, idx) {
 						return <SkillExample key={idx} id={idx} text={example.text} />
 					})
 				}
-			</Suspense>
+			</>
 		}
 	}
 	return <></>

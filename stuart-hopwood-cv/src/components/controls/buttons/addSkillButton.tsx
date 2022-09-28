@@ -1,10 +1,9 @@
 //import { Button } from '@mui/material'
-import React, { Suspense } from 'react'
 import { FaPlusCircle } from 'react-icons/fa'
-import { useSkillsStore } from '../../../state'
+import { useSkillsStore } from '../../../state/skillsStore'
 import { AddSkillButtonProps, SkillProps } from '../../../types'
+import Button from './button'
 
-const Button = React.lazy(() => import('@mui/material/Button'))
 
 export default function AddSkillButton({ color, size }: AddSkillButtonProps) {
 
@@ -20,9 +19,7 @@ export default function AddSkillButton({ color, size }: AddSkillButtonProps) {
 		setAddDialogState(true)
 	}
 
-	return <Suspense>
-		<Button color={color} size={size} aria-label="Edit Skill" variant="contained" onClick={async () => await onClickHandler()} startIcon={<FaPlusCircle />}>
-			Add Skill
-		</Button>
-	</Suspense>
+	return <Button color={color} size={size} aria-label="Edit Skill" variant="contained" onClick={async () => await onClickHandler()} startIcon={<FaPlusCircle />}>
+		Add Skill
+	</Button>
 }

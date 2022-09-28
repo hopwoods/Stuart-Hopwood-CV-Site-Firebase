@@ -1,6 +1,6 @@
 import { DocumentData, QueryDocumentSnapshot } from 'firebase/firestore'
 import { toast } from 'react-toastify'
-import { useFirestore } from '../firebase/usefirestore'
+import { useFirestore } from '../Hooks/firebase/usefirestore'
 import { SkillExampleProps, SkillProps } from '../types'
 
 export function useSkillDatabase() {
@@ -10,7 +10,7 @@ export function useSkillDatabase() {
 		try {
 			const results = await getAllAndSort('skills', { field: 'percentage', direction: 'desc' })
 
-			if (!results.empty) {
+			if (results && !results.empty) {
 				const skillsWithExamples: SkillProps[] = []
 				results.forEach((doc) => {
 					const skillData = doc.data()

@@ -1,12 +1,15 @@
 //import { SkillExampleInput } from '../components/controls'
-import React, { Suspense } from 'react'
-import { useSkillsStore } from '../state'
+import React from 'react'
+import SkillExampleInput from '../components/controls/forms/skillExampleInput'
+import { useSkillDatabase } from '../database/skillsDatabase'
+import { useSkillsStore } from '../state/skillsStore'
 import { SkillExampleProps, SkillProps } from '../types'
 
-const SkillExampleInput = React.lazy(() => import('../components/controls/forms/skillExampleInput'))
+// const SkillExampleInput = React.lazy(() => import('../components/controls/forms/skillExampleInput'))
 
 export function useSkillDialog() {
-	const { setCurrentSkillExamples, saveSkillToDb } = useSkillsStore()
+	const { setCurrentSkillExamples, setCurrentSkill } = useSkillsStore()
+	const { saveSkillToDb } = useSkillDatabase()
 	function saveSkill(skill: SkillProps, ref: React.RefObject<HTMLFormElement>) {
 
 		const newExamples: SkillExampleProps[] = []
@@ -24,7 +27,7 @@ export function useSkillDialog() {
 			}
 		}
 
-		if (skill.skillExamples && skill.skillExamples?.length == 1) {
+		if (skill.skillExamples && skill.skillExamples?.length === 1) {
 			const example = ref.current?.skillExamples
 			if (example) {
 				const newExample: SkillExampleProps = {
@@ -35,13 +38,17 @@ export function useSkillDialog() {
 			}
 		}
 
+		skill.skillExamples = newExamples
+
 		setCurrentSkillExamples(newExamples)
-		saveSkillToDb()
+		setCurrentSkill(skill)
+
+		saveSkillToDb(skill)
 	}
 
 	const skillExampleTextBoxes = (examples?: SkillExampleProps[]) => {
 		if (examples) {
-			return <Suspense>
+			return <>
 				{
 					examples.map(function (example, idx) {
 						return (
@@ -49,7 +56,7 @@ export function useSkillDialog() {
 						)
 					})
 				}
-			</Suspense>
+			</>
 		}
 	}
 

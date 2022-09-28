@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import { Navigate } from 'react-router-dom'
-import { useGlobalStore } from '../state'
+import { useGlobalStore } from '../state/globalStore'
 
 type ProtectedRouteProps = {
 	redirectPath: string

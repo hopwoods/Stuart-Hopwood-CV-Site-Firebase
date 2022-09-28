@@ -1,9 +1,10 @@
-import React, { Suspense } from 'react'
+import IconButton from '@mui/material/IconButton'
+import React from 'react'
 import { FaPencilAlt } from 'react-icons/fa'
-import { useSkillsStore } from '../../../state'
+import { useSkillsStore } from '../../../state/skillsStore'
 import { EditSkillButtonProps, SkillProps } from '../../../types'
 
-const IconButton = React.lazy(() => import('@mui/material/IconButton'))
+//const IconButton = React.lazy(() => import('@mui/material/IconButton'))
 export default function EditSkillButton({ id, skillName, skillExamples, percentage, color, size }: EditSkillButtonProps) {
 
 	const { setCurrentSkill, setEditDialogState } = useSkillsStore()
@@ -19,9 +20,7 @@ export default function EditSkillButton({ id, skillName, skillExamples, percenta
 		setEditDialogState(true)
 	}
 
-	return <Suspense>
-		<IconButton color={color} size={size} aria-label="Edit Skill" onClick={(e: React.MouseEvent<HTMLButtonElement>) => onClickHandler(e)}>
-			<FaPencilAlt />
-		</IconButton>
-	</Suspense>
+	return <IconButton color={color} size={size} aria-label="Edit Skill" onClick={(e: React.MouseEvent<HTMLButtonElement>) => onClickHandler(e)}>
+		<FaPencilAlt />
+	</IconButton>
 }

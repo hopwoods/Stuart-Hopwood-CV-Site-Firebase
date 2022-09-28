@@ -1,6 +1,5 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
 import { useTheme } from '../../../Hooks'
-import { FontFamilies } from '../../../style'
 
 const theme = useTheme()
 export const classes = mergeStyleSets({
@@ -11,13 +10,28 @@ export const classes = mergeStyleSets({
 		color: theme.Grey8,
 		padding: '0.4em',
 		fontSize: '0.9em',
-		fontFamily: FontFamilies.primary,
-		fontWeight: 300,
+		fontWeight: 200,
 		minHeight: '5rem',
 		textAlign: 'center',
-		display: 'flex',
 		justifyContent: 'center',
-		alignItems: 'center'
+		alignItems: 'center',
+		display: 'grid',
+		gridTemplateRows: 'auto auto',
+		gridTemplateColumns: 'auto',
+		gridGap: '1rem',
+
+		'a': {
+			color: theme.linkColor,
+			textDecoration: 'none',
+
+			':hover': {
+				color: theme.linkHoverColor
+			}
+		}
+	},
+	copyright: {
+		gridColumn: '1 / span 1',
+		gridRow: '2 / span 1'
 	}
 })
 

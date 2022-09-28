@@ -1,7 +1,5 @@
 import create from 'zustand'
-import { useSkillDatabase } from '../database/skillsDatabase'
 import { SkillExampleProps, SkillProps } from '../types'
-const { getAllSkillsFromDb, deleteSkillFromDb, deleteExampleFromDb, saveSkillToDb } = useSkillDatabase()
 
 type SkillsState = {
 
@@ -17,11 +15,8 @@ type SkillsState = {
 	//skills functions
 	setSkills: (skills: SkillProps[]) => void
 	setCurrentSkill: (skill: SkillProps) => void
-	getSkillsFromDb: () => void
-	deleteSkill: (id: string) => void
 	setSkillName: (value: string) => void
 	setSkillTarget: (value: number) => void
-	saveSkillToDb: () => void
 
 	//Form functions
 	setEditDialogState: (openState: boolean) => void
@@ -52,26 +47,6 @@ export const useSkillsStore = create<SkillsState>((set, get) => ({
 
 	setCurrentSkill: async (skill: SkillProps) => {
 		set({ selectedSkill: skill })
-	},
-
-	getSkillsFromDb: async () => {
-		get().setLoading(true)
-
-		const skills = await getAllSkillsFromDb()
-		if (skills)
-			get().setSkills(skills)
-
-		get().setLoading(false)
-	},
-
-	saveSkillToDb: async () => {
-		await saveSkillToDb(get().selectedSkill)
-		get().getSkillsFromDb()
-	},
-
-	deleteSkill: async (id: string) => {
-		await deleteSkillFromDb(id)
-		get().getSkillsFromDb()
 	},
 
 	setEditDialogState: (openState: boolean) => {
@@ -108,7 +83,6 @@ export const useSkillsStore = create<SkillsState>((set, get) => ({
 				const index = examplesCopy.findIndex(x => x.id === exampleId)
 				if (index !== -1) {
 					get().setCurrentSkillExamples(examplesCopy.filter(x => x.id !== exampleId))
-					await deleteExampleFromDb(selectedSkill.id, exampleId)
 				}
 			}
 		}

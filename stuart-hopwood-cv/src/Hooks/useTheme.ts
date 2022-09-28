@@ -17,6 +17,9 @@ export const theme: ThemeColors = {
 	navbarBackgroundScrolled: '#023047',
 	navbarBorder: '#fb8500',
 
+	linkColor: '#fb8500',
+	linkHoverColor: '#219ebc',
+
 	Grey1: '#222222',
 	Grey2: '#303030',
 	Grey3: '#404040',

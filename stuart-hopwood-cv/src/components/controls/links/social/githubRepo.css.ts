@@ -28,9 +28,5 @@ export const classes = mergeStyleSets({
 		textDecoration: 'none',
 		paddingBottom: '5px',
 		width: 'fit-content',
-
-		':hover': {
-			//color: themeColors.Grey12
-		}
 	}
 })

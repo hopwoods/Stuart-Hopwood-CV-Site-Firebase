@@ -1,22 +1,23 @@
 
 import { DataGrid, GridCellParams, GridColDef, GridValueFormatterParams } from '@mui/x-data-grid'
-import React, { Suspense } from 'react'
-import { useSkillsStore } from '../../../state'
+import { useSkillDatabase } from '../../../database/skillsDatabase'
 import { SkillExampleProps, SkillProps } from '../../../types'
+import DeleteButton from '../buttons/deleteButton'
+import EditSkillButton from '../buttons/editSkillButton'
 import { classes } from './skillsTable.css'
 
-const EditSkillButton = React.lazy(() => import('../buttons/editSkillButton'))
-const DeleteButton = React.lazy(() => import('../buttons/deleteButton'))
+// const EditSkillButton = React.lazy(() => import('../buttons/editSkillButton'))
+// const DeleteButton = React.lazy(() => import('../buttons/deleteButton'))
 
 type SkillsTableProps = {
 	rows: SkillProps[]
 }
 
 export default function SkillsTable({ rows }: SkillsTableProps) {
-	const { deleteSkill } = useSkillsStore()
+	const { deleteSkillFromDb } = useSkillDatabase()
 
-	const onClickHandler = (id: string) => {
-		deleteSkill(id)
+	const onClickHandler = async (id: string) => {
+		await deleteSkillFromDb(id)
 	}
 
 	const columns: GridColDef[] = [
@@ -69,7 +70,7 @@ export default function SkillsTable({ rows }: SkillsTableProps) {
 			flex: 0.15,
 			editable: false,
 			renderCell: (params: GridCellParams) => {
-				return <Suspense>
+				return <>
 					<EditSkillButton
 						id={params.row?.id}
 						skillName={params.row?.skillName}
@@ -77,8 +78,8 @@ export default function SkillsTable({ rows }: SkillsTableProps) {
 						skillExamples={params.row?.skillExamples}
 						color="primary"
 						size="small" />
-					<DeleteButton onClickHandler={() => onClickHandler(params.row?.id)} color="primary" size="small" />
-				</Suspense>
+					<DeleteButton onClickHandler={async () => await onClickHandler(params.row?.id)} color="primary" size="small" />
+				</>
 			},
 			sortable: false,
 			align: 'center'

@@ -1,18 +1,19 @@
 
 import 'moment-timezone'
-import React, { Suspense } from 'react'
 import darthImg from '../assets/darthVader.png'
+import ScrollDownIcon from '../components/icons/scrollDownIcon'
+import Banner from '../components/layout/banner/banner'
 import { useTheme } from '../Hooks'
 import { classes } from './NotFoundPage.css'
 
-const ScrollDownIcon = React.lazy(() => import('../components/icons/scrollDownIcon'))
-const Banner = React.lazy(() => import('../components/layout/banner/banner'))
+// const ScrollDownIcon = React.lazy(() => import('../components/icons/scrollDownIcon'))
+// const Banner = React.lazy(() => import('../components/layout/banner/banner'))
 export default function NotFoundPage() {
 	const themeColors = useTheme()
 
 	//TODO: Fix 404 Layout
 	//TODO: Create an Error Page
-	return <Suspense>
+	return <>
 		<Banner id="404" fullscreen={true}>
 			<div className={classes.grid}>
 				<img src={darthImg} alt="Darth Vader" className={classes.darth} />
@@ -25,5 +26,5 @@ export default function NotFoundPage() {
 				</div>
 			</div>
 		</Banner>
-	</Suspense>
+	</>
 }

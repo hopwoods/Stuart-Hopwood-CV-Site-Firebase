@@ -1,7 +1,7 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { useTheme } from '../Hooks'
+import { theme } from '../Hooks/useTheme'
 
-const themeColors = useTheme()
+
 export const classes = mergeStyleSets({
 	login: {
 		gridColumn: '1 / span 1',
@@ -16,11 +16,11 @@ export const classes = mergeStyleSets({
 		alignItems: 'start',
 
 		a: {
-			color: themeColors.brandAccentColor,
+			color: theme.linkColor,
 			textDecoration: 'none',
 
 			':hover': {
-				color: themeColors.Grey12
+				color: theme.linkHoverColor
 			}
 		}
 	}

@@ -38,10 +38,13 @@ export default defineConfig({
 						purpose: 'any maskable'
 					}
 				]
-			}
-		})
+			},
+		}),
 	],
 	build: {
 		sourcemap: true
+	},
+	server: {
+		https: false,
 	}
 })
