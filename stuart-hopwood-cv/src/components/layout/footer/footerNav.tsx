@@ -1,4 +1,3 @@
-import { FaGripLinesVertical } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { useGlobalStore } from '../../../state/globalStore'
 import LogoutLink from '../../controls/links/logoutLink'
@@ -10,11 +9,9 @@ export default function FooterNav() {
 
 	return <nav className={classes.nav}>
 		<Link to="/home">Home</Link>
-		<FaGripLinesVertical />
 		{isAuthenticated
 			? <>
 				<Link to="/admin">Admin</Link>
-				<FaGripLinesVertical />
 				<LogoutLink>Logout</LogoutLink>
 			</>
 			: <Link to="/login">Login</Link>

@@ -1,7 +1,6 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { useTheme } from '../../../Hooks'
+import { theme } from '../../../Hooks/useTheme'
 
-const theme = useTheme()
 export const classes = mergeStyleSets({
 	footer: {
 		gridArea: 'footer',
@@ -13,11 +12,10 @@ export const classes = mergeStyleSets({
 		fontWeight: 200,
 		minHeight: '5rem',
 		textAlign: 'center',
-		justifyContent: 'center',
 		alignItems: 'center',
 		display: 'grid',
-		gridTemplateRows: 'auto auto',
-		gridTemplateColumns: 'auto',
+		gridTemplateRows: '15rem auto',
+		gridTemplateColumns: 'auto auto auto',
 		gridGap: '1rem',
 
 		'a': {
@@ -30,9 +28,24 @@ export const classes = mergeStyleSets({
 		}
 	},
 	copyright: {
-		gridColumn: '1 / span 1',
+		gridColumn: '1 / span 3',
 		gridRow: '2 / span 1'
-	}
+	},
+	menu: {
+		gridColumn: '1 / span 1',
+		gridRow: '1 / span 1',
+		placeSelf: 'stretch'
+	},
+	contact: {
+		gridColumn: '2 / span 1',
+		gridRow: '1 / span 1',
+		placeSelf: 'stretch'
+	},
+	follow: {
+		gridColumn: '3 / span 1',
+		gridRow: '1 / span 1',
+		placeSelf: 'stretch'
+	},
 })
 
 

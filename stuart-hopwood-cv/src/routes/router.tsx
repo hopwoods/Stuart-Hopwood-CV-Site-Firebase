@@ -1,25 +1,29 @@
-import { useCallback, useEffect } from 'react'
+import { lazy, Suspense, useCallback, useEffect } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import App from '../App'
+import Loading from '../components/layout/loading/loading'
 import { useAboutTextDatabase } from '../database/aboutTextDatabase'
 import { useSkillDatabase } from '../database/skillsDatabase'
 import useFirebase from '../Hooks/firebase/useFirebase'
-import AdminAboutText from '../pages/admin/admin-about-text'
-import AdminSkills from '../pages/admin/admin-skills'
-import Admin from '../pages/admin/administration'
-import Login from '../pages/login'
 import { useAboutTextStore } from '../state/aboutTextStore'
 import { useSkillsStore } from '../state/skillsStore'
 import ProtectedRoute from './protectedRoute'
 
+const App = lazy(() => import('../App'))
+const Login = lazy(() => import('../pages/login'))
+const Admin = lazy(() => import('../pages/admin/administration'))
+const AdminSkills = lazy(() => import('../pages/admin/admin-skills'))
+const AdminAboutText = lazy(() => import('../pages/admin/admin-about-text'))
+
 export default function Router() {
+
+	//Initialise Firebase
 	try {
 		useFirebase()
 	} catch (error) {
 		console.error(error)
 	}
 
-
+	//Populate Stores
 	const { skills, setSkills } = useSkillsStore()
 	const { aboutText, setText } = useAboutTextStore()
 	const { getAllSkillsFromDb } = useSkillDatabase()
@@ -49,34 +53,46 @@ export default function Router() {
 	const router = createBrowserRouter([
 		{
 			path: '/',
-			element: <App />,
+			element: <Suspense fallback={<Loading loading />}>
+				<App />
+			</Suspense>,
 			//errorElement: <NotFoundPage />
 		},
 		{
 			path: '/home',
-			element: <App />,
+			element: <Suspense fallback={<Loading loading />}>
+				<App />
+			</Suspense>,
 		},
 		{
 			path: '/login',
-			element: <Login />,
+			element: <Suspense fallback={<Loading loading />}>
+				<Login />
+			</Suspense>,
 		},
 		{
 			path: '/admin',
 			element: <ProtectedRoute redirectPath='/'>
-				<Admin />
+				<Suspense fallback={<Loading loading />}>
+					<Admin />
+				</Suspense>
 			</ProtectedRoute>,
 		},
 		{
 			path: '/admin/about-text',
 			element: <ProtectedRoute redirectPath='/'>
-				<AdminAboutText />
+				<Suspense fallback={<Loading loading />}>
+					<AdminAboutText />
+				</Suspense>
 			</ProtectedRoute>,
 		},
 		{
 			path: '/admin/skills',
 			element: <ProtectedRoute redirectPath='/'>
-				<AdminSkills />
-			</ProtectedRoute>,
+				<Suspense fallback={<Loading loading />}>
+					<AdminSkills />
+				</Suspense>
+			</ProtectedRoute>
 		},
 	])
 
