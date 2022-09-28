@@ -1,16 +1,33 @@
 import { getAuth, getRedirectResult, GoogleAuthProvider, signInWithRedirect, signOut, User } from 'firebase/auth'
 import { useCallback, useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router'
-import { useFirebase } from '../firebase/useFirebase'
-import { useGlobalStore } from '../state'
+import { useGlobalStore } from '../state/globalStore'
 
 export function useLogin() {
-	const { firebaseApp } = useFirebase()
-	const { storeUser, deleteUser, isAuthenticated, setIsAuthenticated, user, setAuthenticating } = useGlobalStore()
-
+	const { firebaseApp, user, storeUser, deleteUser, isAuthenticated, setIsAuthenticated, setAuthenticating } = useGlobalStore()
 	const provider = useMemo(() => { return new GoogleAuthProvider() }, [])
-	const auth = useMemo(() => { return getAuth(firebaseApp) }, [])
+	const auth = useMemo(() => { return getAuth(firebaseApp) }, [firebaseApp])
 	const navigate = useNavigate()
+
+	const unRegisterUser = useCallback(() => {
+		deleteUser()
+		setIsAuthenticated(false)
+		sessionStorage.removeItem('uid')
+		setAuthenticating(false)
+	}, [deleteUser, setAuthenticating, setIsAuthenticated])
+
+	const registerUser = useCallback((user: User) => {
+		storeUser(user)
+		setIsAuthenticated(true)
+		sessionStorage.setItem('uid', user.uid)
+		setAuthenticating(false)
+	}, [setAuthenticating, setIsAuthenticated, storeUser])
+
+	const checkForAuthenticatedUser = useCallback((user: User | undefined, isAuthenticated: boolean) => {
+		if (sessionStorage.getItem('uid') && user && !isAuthenticated) {
+			registerUser(user)
+		}
+	}, [registerUser])
 
 	useEffect(() => {
 		checkForAuthenticatedUser(user, isAuthenticated)
@@ -42,33 +59,24 @@ export function useLogin() {
 		}
 		return
 
-	}, [provider, auth, user, isAuthenticated])
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [
+		auth,
+		registerUser,
+		//navigate,
+		unRegisterUser,
+		checkForAuthenticatedUser,
+		user,
+		isAuthenticated
+	])
 
 	const signIn = useCallback(async () => {
 		setAuthenticating(true)
 		sessionStorage.setItem('authPending', 'true')
 		await signInWithRedirect(auth, provider)
 
-	}, [])
-
-	function unRegisterUser() {
-		deleteUser()
-		setIsAuthenticated(false)
-		sessionStorage.removeItem('uid')
-		setAuthenticating(false)
-	}
-
-	function registerUser(user: User) {
-		storeUser(user)
-		setIsAuthenticated(true)
-		sessionStorage.setItem('uid', user.uid)
-		setAuthenticating(false)
-	}
-	function checkForAuthenticatedUser(user: User | undefined, isAuthenticated: boolean) {
-		if (sessionStorage.getItem('uid') && user && !isAuthenticated) {
-			registerUser(user)
-		}
-	}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [auth, provider, setAuthenticating, isAuthenticated])
 
 	return { signIn, signOut, auth, checkForAuthenticatedUser }
 }

@@ -1,9 +1,9 @@
 import { domMax, LazyMotion, m } from 'framer-motion'
-import React, { Suspense } from 'react'
+import Badge from './badge'
 import { classes } from './badges.css'
-const Badge = React.lazy(() => import('./badge'))
+// const Badge = React.lazy(() => import('./badge'))
 export default function Badges() {
-	return <Suspense>
+	return <>
 		<LazyMotion features={domMax}>
 			<m.section id="badges" initial="offscreen" whileInView="onscreen" viewport={{ once: true }} transition={{ staggerChildren: 0.35 }} layout className={classes.badges}>
 				<Badge>Badge 1</Badge>
@@ -12,5 +12,5 @@ export default function Badges() {
 				<Badge>Badge 4</Badge>
 			</m.section>
 		</LazyMotion>
-	</Suspense>
+	</>
 };

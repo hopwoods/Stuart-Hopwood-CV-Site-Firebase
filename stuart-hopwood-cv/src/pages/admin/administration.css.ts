@@ -16,11 +16,11 @@ export const gridClasses = mergeStyleSets({
 		alignItems: 'start',
 
 		a: {
-			color: themeColors.brandAccentColor,
+			color: themeColors.linkColor,
 			textDecoration: 'none',
 
 			':hover': {
-				color: themeColors.Grey12
+				color: themeColors.linkHoverColor
 			}
 		}
 	}

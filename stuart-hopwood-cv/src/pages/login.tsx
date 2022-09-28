@@ -1,14 +1,13 @@
-import React, { Suspense, useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-//import { Loading, Page } from '../components/layout'
+import LoginButton from '../components/controls/buttons/loginButton'
+import Loading from '../components/layout/loading/loading'
+import Page from '../components/layout/page/page'
+import Heading from '../components/typeography/heading'
 import { theme } from '../Hooks/useTheme'
-import { useGlobalStore } from '../state'
+import { useGlobalStore } from '../state/globalStore'
 import { classes } from './login.css'
 
-const Heading = React.lazy(() => import('../components/typeography/heading'))
-const LoginButton = React.lazy(() => import('../components/controls/buttons/loginButton'))
-const Loading = React.lazy(() => import('../components/layout/loading/loading'))
-const Page = React.lazy(() => import('../components/layout/page/page'))
 
 function Banner() {
 	return (
@@ -19,12 +18,15 @@ function Banner() {
 export default function Login() {
 	const { isAuthenticating } = useGlobalStore()
 	const [isAuthPending, setAuthPending] = useState<boolean>(false)
-	const sessionValue = sessionStorage.getItem('authPending')
+	const sessionValue = useMemo(() => sessionStorage.getItem('authPending'), [])
+
 	useEffect(() => {
 		if (sessionValue == 'true') {
 			setAuthPending(true)
+		} else {
+			setAuthPending(false)
 		}
-	}, [isAuthenticating])
+	}, [isAuthenticating, sessionValue, isAuthPending])
 
 	function LoginScreen() {
 		return <>
@@ -44,12 +46,10 @@ export default function Login() {
 		</>
 	}
 	return (
-		<Suspense>
-			<Page id="Login" fullscreen={false} bannerContent={<Banner />}>
-				<div className={classes.login}>
-					{!isAuthPending ? <LoginScreen /> : <Loading loading />}
-				</div>
-			</Page>
-		</Suspense>
+		<Page id="Login" fullscreen={false} bannerContent={<Banner />}>
+			<div className={classes.login}>
+				{!isAuthPending ? <LoginScreen /> : <Loading loading />}
+			</div>
+		</Page>
 	)
 }

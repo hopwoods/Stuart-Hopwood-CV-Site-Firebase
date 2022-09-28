@@ -1,11 +1,14 @@
 import { domAnimation, LazyMotion, m, Variants } from 'framer-motion'
-import React from 'react'
+import FacebookLink from '../../controls/links/social/facebookLink'
+import GithubLink from '../../controls/links/social/githubLink'
+import InstagramLink from '../../controls/links/social/instagramLink'
+import LinkedInLink from '../../controls/links/social/linkedInLink'
 import { classes } from './socialIcons.css'
 
-const FacebookLink = React.lazy(() => import('../../controls/links/social/facebookLink'))
-const GithubLink = React.lazy(() => import('../../controls/links/social/githubLink'))
-const LinkedInLink = React.lazy(() => import('../../controls/links/social/linkedInLink'))
-const InstagramLink = React.lazy(() => import('../../controls/links/social/instagramLink'))
+// const FacebookLink = React.lazy(() => import('../../controls/links/social/facebookLink'))
+// const GithubLink = React.lazy(() => import('../../controls/links/social/githubLink'))
+// const LinkedInLink = React.lazy(() => import('../../controls/links/social/linkedInLink'))
+// const InstagramLink = React.lazy(() => import('../../controls/links/social/instagramLink'))
 
 export const iconVariants: Variants = {
 	offscreen: {

@@ -1,5 +1,5 @@
 import { domAnimation, LazyMotion, m, Variants } from 'framer-motion'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { classes } from './titles.css'
 
 export default function Titles() {
@@ -7,20 +7,23 @@ export default function Titles() {
 	const [text, setText] = useState<string>('full stack developer')
 	const [nextIndex, setIndex] = useState<number>(0)
 	const animationDuration = 2500
-	const titles: string[] = [
-		'full stack Developer',
-		'.Net Developer',
-		'ReactJS Developer',
-		'Typescript Developer',
-		'amateur photographer',
-		'dark theme enthusiast'
-	]
+	const titles = useMemo(() => {
+		const titles: string[] = [
+			'full stack Developer',
+			'.Net Developer',
+			'ReactJS Developer',
+			'Typescript Developer',
+			'amateur photographer',
+			'dark theme enthusiast'
+		]
+		return titles
+	}, [])
 
 	const switchText = useCallback(() => {
 		const newIndex = nextIndex === titles.length ? 1 : nextIndex + 1
 		setText(titles[newIndex % titles.length])
 		setIndex(newIndex)
-	}, [text, nextIndex])
+	}, [nextIndex, titles])
 
 
 	useEffect(() => {

@@ -15,10 +15,10 @@ export const classes = mergeStyleSets({
 		justifySelf: 'end',
 		alignItems: 'center',
 		a: {
-			color: themeColors.brandAccentColor,
+			color: themeColors.linkColor,
 			textDecoration: 'none',
 			':hover': {
-				color: themeColors.brandMedium
+				color: themeColors.linkHoverColor
 			}
 		}
 	},

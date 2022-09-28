@@ -19,9 +19,9 @@ export const classes = mergeStyleSets({
 		paddingBottom: '3rem',
 
 		a: {
-			color: theme.brandAccentColor,
+			color: theme.linkColor,
 			':hover': {
-				color: theme.brandMedium
+				color: theme.linkHoverColor
 			}
 		},
 

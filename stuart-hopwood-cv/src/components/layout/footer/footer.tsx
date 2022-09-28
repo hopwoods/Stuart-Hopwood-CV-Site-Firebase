@@ -9,8 +9,12 @@ export default function Footer({ children }: { children?: ReactNode }) {
 
 	return (
 		<footer className={classes.footer}>
-			&copy; Stuart Hopwood {GetYear()}
 			{children}
+			<span className={classes.copyright}>
+				<a href='https://github.com/hopwoods/Stuart-Hopwood-CV-Site-Firebase/blob/main/LICENSE' target="_blank" rel='noreferrer'>
+					&copy; Created by Stuart Hopwood under MIT license -  {GetYear()}
+				</a>
+			</span>
 		</footer>
 	)
 };

@@ -1,18 +1,20 @@
-import React, { Suspense } from 'react'
+import LinearProgress from '@mui/material/LinearProgress'
 import { useProgressAnimation } from '../../../Hooks'
 import { SkillProps } from '../../../types'
 import { typography } from '../../typeography/typography.css'
+import CircularProgressWithLabel from './circularProgressWithLabel'
+import SkillExamples from './skillExamples'
 import { classes } from './skillsWithProgress.css'
 
-const LinearProgress = React.lazy(() => import('@mui/material/LinearProgress'))
-const CircularProgressWithLabel = React.lazy(() => import('./circularProgressWithLabel'))
-const SkillExamples = React.lazy(() => import('./skillExamples'))
+// const LinearProgress = React.lazy(() => import('@mui/material/LinearProgress'))
+// const CircularProgressWithLabel = React.lazy(() => import('./circularProgressWithLabel'))
+// const SkillExamples = React.lazy(() => import('./skillExamples'))
 
 export default function SkillWithProgress({ skillName, percentage: targetProgress, skillExamples }: SkillProps) {
 
 	const progress = useProgressAnimation(targetProgress)
 
-	return <Suspense>
+	return <>
 		<div id={`${skillName}`} className={`${classes.skillsWithProgress} skill`}>
 			<div className={classes.progressBarWrapper}>
 				<span className={`${classes.nameStyle} ${typography.copy1}`}>{skillName}</span>
@@ -25,5 +27,5 @@ export default function SkillWithProgress({ skillName, percentage: targetProgres
 			</div>
 			<SkillExamples examples={skillExamples} />
 		</div>
-	</Suspense>
+	</>
 }

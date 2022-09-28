@@ -1,19 +1,25 @@
 import { domAnimation, LazyMotion, m, Variants } from 'framer-motion'
-import React, { Suspense } from 'react'
 import ProfilePicture200 from '../../../assets/ProfilePicture-200.webp'
 import ProfilePicture300 from '../../../assets/ProfilePicture-300.webp'
 import ProfilePicture400 from '../../../assets/ProfilePicture-400.webp'
 import { theme } from '../../../Hooks/useTheme'
 import { mediaQueries } from '../../../style'
+import Email from '../../controls/links/profile/email'
+import Location from '../../controls/links/profile/location'
+import PhoneNumber from '../../controls/links/profile/phoneNumber'
+import GithubRepo from '../../controls/links/social/githubRepo'
+import Heading from '../../typeography/heading'
+import AboutText from './aboutText'
 import { classes } from './profile.css'
+import SocialIcons from './socialIcons'
 
-const AboutText = React.lazy(() => import('./aboutText'))
-const SocialIcons = React.lazy(() => import('./socialIcons'))
-const Heading = React.lazy(() => import('../../typeography/heading'))
-const PhoneNumber = React.lazy(() => import('../../controls/links/profile/phoneNumber'))
-const Email = React.lazy(() => import('../../controls/links/profile/email'))
-const Location = React.lazy(() => import('../../controls/links/profile/location'))
-const GithubRepo = React.lazy(() => import('../../controls/links/social/githubRepo'))
+// const AboutText = React.lazy(() => import('./aboutText'))
+// const SocialIcons = React.lazy(() => import('./socialIcons'))
+// const Heading = React.lazy(() => import('../../typeography/heading'))
+// const PhoneNumber = React.lazy(() => import('../../controls/links/profile/phoneNumber'))
+// const Email = React.lazy(() => import('../../controls/links/profile/email'))
+// const Location = React.lazy(() => import('../../controls/links/profile/location'))
+// const GithubRepo = React.lazy(() => import('../../controls/links/social/githubRepo'))
 
 export const variants: Variants = {
 	offscreen: {
@@ -27,7 +33,7 @@ export const variants: Variants = {
 }
 
 export default function Profile() {
-	return <Suspense>
+	return <>
 		<LazyMotion features={domAnimation}>
 			<m.section id="profile" layout initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: '0px 0px 0px 0px' }} transition={{ duration: 2 }} variants={variants} className={classes.profile}>
 				<div className="profilePicture">
@@ -49,5 +55,5 @@ export default function Profile() {
 				<SocialIcons />
 			</m.section>
 		</LazyMotion>
-	</Suspense>
+	</>
 }

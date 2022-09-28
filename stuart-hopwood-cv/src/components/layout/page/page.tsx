@@ -1,7 +1,9 @@
-import React, { ReactNode, Suspense } from 'react'
-const Banner = React.lazy(() => import('../banner/banner'))
-const Content = React.lazy(() => import('../content/content'))
-const Footer = React.lazy(() => import('../footer/footer'))
+import { ReactNode } from 'react'
+import Banner from '../banner/banner'
+import Content from '../content/content'
+import Footer from '../footer/footer'
+import FooterNav from '../footer/footerNav'
+
 export type PageProps = {
 	fullscreen: boolean
 	id: string
@@ -10,13 +12,15 @@ export type PageProps = {
 
 }
 export default function Page({ id, fullscreen, bannerContent, children }: PageProps) {
-	return <Suspense>
+	return <>
 		<Banner id={id} fullscreen={fullscreen}>
 			{bannerContent}
 		</Banner>
 		<Content>
 			{children}
 		</Content>
-		<Footer />
-	</Suspense>
+		<Footer>
+			<FooterNav />
+		</Footer>
+	</>
 }

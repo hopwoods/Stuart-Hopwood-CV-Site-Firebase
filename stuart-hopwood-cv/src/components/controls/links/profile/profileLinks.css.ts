@@ -22,10 +22,10 @@ export const classes = mergeStyleSets({
 			display: 'inline-block',
 			marginLeft: '0.6rem',
 			a: {
-				color: themeColors.brandAccentColor,
+				color: themeColors.linkColor,
 				textDecoration: 'none',
 				':hover': {
-					color: themeColors.brandMedium
+					color: themeColors.linkHoverColor
 				}
 			}
 		}

@@ -35,6 +35,12 @@ export type ThemeColors = {
   /** #fb8500 */
   navbarBorder: string
 
+  /** #fb8500 */
+  linkColor: string
+
+  /** #219ebc */
+  linkHoverColor: string
+
   /** #222222 */
   Grey1: string
 

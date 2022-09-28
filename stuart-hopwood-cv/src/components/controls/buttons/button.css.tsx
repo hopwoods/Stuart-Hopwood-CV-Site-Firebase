@@ -7,6 +7,12 @@ export const classes = mergeStyleSets({
 		fontSize: '0.7rem !important',
 		borderWidth: '2px !important',
 
+		'& .MuiSvgIcon-root': {
+			fontSize: '1.5em !important',
+			position: 'relative',
+			top: '0.05em'
+		},
+
 		'@media(max-width: 2560px)': {
 			fontSize: '1.2rem !important'
 		},

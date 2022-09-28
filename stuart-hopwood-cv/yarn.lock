@@ -2877,7 +2877,7 @@ eslint-config-prettier@^8.5.0:
 
 eslint-plugin-react-hooks@^4.6.0:
   version "4.6.0"
-  resolved "https://registry.npmjs.org/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.6.0.tgz"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.6.0.tgz#4c3e697ad95b77e93f8646aaa1630c1ba607edd3"
   integrity sha512-oFc7Itz9Qxh2x4gNHStv3BqJq54ExXmfC+a1NjAta66IAN87Wu0R/QArgIS9qKzX3dXKPI9H5crl9QchNMY9+g==
 
 eslint-plugin-react@^7.31.8:
@@ -4804,6 +4804,11 @@ util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
+
+vite-plugin-https-certs@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/vite-plugin-https-certs/-/vite-plugin-https-certs-1.1.1.tgz#f4c5b57b7dbc62cc6774bea93bb9bb0b390badae"
+  integrity sha512-eM3yIrLxWCdxFdM1dsBs4fK25qXw3htZ2Mhf52utLmO0yOMIbL95BW9TXLH35WSm1jrhlJgWZiLtpnNu2ic2Jg==
 
 vite-plugin-pwa@^0.13.1:
   version "0.13.1"
