@@ -1,7 +1,5 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { useTheme } from '../../../../Hooks'
-
-const themeColors = useTheme()
+import { theme } from '../../../../Hooks/useTheme'
 
 export const classes = mergeStyleSets({
 	icon: {
@@ -14,18 +12,19 @@ export const classes = mergeStyleSets({
 		gridGap: '0rem',
 		height: 'fit-content',
 		alignItems: 'center',
+		justifyItems: 'start',
 		padding: 0,
 		marginBottom: '0.25rem',
-		color: themeColors.Grey12,
+		color: theme.Grey12,
 		span: {
 			fontSize: '0.8rem',
 			display: 'inline-block',
 			marginLeft: '0.6rem',
 			a: {
-				color: themeColors.linkColor,
+				color: theme.linkColor,
 				textDecoration: 'none',
 				':hover': {
-					color: themeColors.linkHoverColor
+					color: theme.linkHoverColor
 				}
 			}
 		}

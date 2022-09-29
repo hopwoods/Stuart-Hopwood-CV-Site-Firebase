@@ -5,7 +5,7 @@ export const classes = mergeStyleSets({
 	nav: {
 		gridColumn: '1 / span 1',
 		gridRow: '1 / span 1',
-		fontSize: '1.2em',
+		fontSize: '1.1em',
 
 		'a': {
 			display: 'block',

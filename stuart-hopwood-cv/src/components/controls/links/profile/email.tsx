@@ -6,9 +6,9 @@ import { classes } from './profileLinks.css'
 
 // const AlternateEmailOutlinedIcon = React.lazy(() => import('@mui/icons-material/AlternateEmailOutlined'))
 
-export default function Email() {
+export default function Email({ color }: { color: string }) {
 	return <LazyMotion features={domAnimation} >
-		<m.div initial={{ color: theme.Grey12 }} whileHover={{ color: theme.brandAccentColor }} transition={{ duration: 0.3 }} className={`${classes.icon} ${typography.copy3} email`}>
+		<m.div initial={{ color: color }} whileHover={{ color: theme.brandAccentColor }} transition={{ duration: 0.3 }} className={`${classes.icon} ${typography.copy3} email`}>
 			<AlternateEmailOutlinedIcon />
 			<span>
 				<a href="mailto:stoo.hopwood@gmail.com" target="_blank" rel="noopener noreferrer">stoo.hopwood@gmail.com</a>
