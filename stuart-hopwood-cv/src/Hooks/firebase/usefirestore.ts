@@ -1,8 +1,8 @@
 import { addDoc as add, collection, deleteDoc as del, doc, DocumentData, FieldPath, getDoc as get, getDocs, orderBy, OrderByDirection, query, QuerySnapshot, setDoc } from 'firebase/firestore'
 import { useCallback } from 'react'
-import { useGlobalStore } from '../../state/globalStore'
+import { useAppStore } from '../../state/appStore'
 export function useFirestore() {
-	const { db } = useGlobalStore()
+	const { db } = useAppStore()
 	const MISSING_DB_MESSAGE = 'DB is missing'
 
 	const addDoc = useCallback(async (collectionName: string, document: object) => {

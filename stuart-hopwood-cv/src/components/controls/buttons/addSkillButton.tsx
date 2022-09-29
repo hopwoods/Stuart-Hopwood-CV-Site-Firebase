@@ -1,13 +1,13 @@
 //import { Button } from '@mui/material'
 import { FaPlusCircle } from 'react-icons/fa'
-import { useSkillsStore } from '../../../state/skillsStore'
+import { useAppStore } from '../../../state/appStore'
 import { AddSkillButtonProps, SkillProps } from '../../../types'
 import Button from './button'
 
 
 export default function AddSkillButton({ color, size }: AddSkillButtonProps) {
 
-	const { setAddDialogState, setCurrentSkill } = useSkillsStore()
+	const { setAddDialogState, setCurrentSkill } = useAppStore()
 
 	const onClickHandler = async () => {
 		const newSkill: SkillProps = {

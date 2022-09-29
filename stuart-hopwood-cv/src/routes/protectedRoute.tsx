@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import { Navigate } from 'react-router-dom'
-import { useGlobalStore } from '../state/globalStore'
+import { useAppStore } from '../state/appStore'
 
 type ProtectedRouteProps = {
 	redirectPath: string
@@ -8,7 +8,7 @@ type ProtectedRouteProps = {
 }
 
 export default function ProtectedRoute({ redirectPath, children }: ProtectedRouteProps) {
-	const { isAuthenticated } = useGlobalStore()
+	const { isAuthenticated } = useAppStore()
 	if (!isAuthenticated) {
 		return <Navigate to={redirectPath} replace />
 	}

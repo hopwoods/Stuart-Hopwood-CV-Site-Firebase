@@ -7,7 +7,7 @@ import AddSkillDialog from '../../components/layout/admin/skills/addSkillDialog'
 import EditSkillDialog from '../../components/layout/admin/skills/editSkillDialog'
 import Loading from '../../components/layout/loading/loading'
 import Page from '../../components/layout/page/page'
-import { useSkillsStore } from '../../state/skillsStore'
+import { useAppStore } from '../../state/appStore'
 import { classes } from './admin-skills.css'
 import { gridClasses } from './administration.css'
 
@@ -25,7 +25,7 @@ function Banner() {
 
 export default function AdminSkills() {
 
-	const { skills, loading } = useSkillsStore()
+	const { skills, loading } = useAppStore()
 
 	return <>
 		<Page id="Manage Skills" fullscreen={false} bannerContent={<Banner />}>

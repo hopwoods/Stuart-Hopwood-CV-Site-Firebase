@@ -1,13 +1,13 @@
 import IconButton from '@mui/material/IconButton'
 import React from 'react'
 import { FaPencilAlt } from 'react-icons/fa'
-import { useSkillsStore } from '../../../state/skillsStore'
+import { useAppStore } from '../../../state/appStore'
 import { EditSkillButtonProps, SkillProps } from '../../../types'
 
 //const IconButton = React.lazy(() => import('@mui/material/IconButton'))
 export default function EditSkillButton({ id, skillName, skillExamples, percentage, color, size }: EditSkillButtonProps) {
 
-	const { setCurrentSkill, setEditDialogState } = useSkillsStore()
+	const { setCurrentSkill, setEditDialogState } = useAppStore()
 	const onClickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault()
 		const selectedSkill: SkillProps = {
