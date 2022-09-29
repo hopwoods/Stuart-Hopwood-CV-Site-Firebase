@@ -43,7 +43,7 @@ export default function Heading({ type, color, text, className }: HeaderProps) {
 		}
 	})
 
-	function HeaderElement({ children, className }: { children: React.ReactNode, className: string }) {
+	function HeaderElement({ children, className }: { children: React.ReactNode, className?: string }) {
 		if (type === 'h1') return <h1 className={className}>{children}</h1>
 		if (type === 'h2') return <h2 className={className}>{children}</h2>
 		if (type === 'h3') return <h3 className={className}>{children}</h3>

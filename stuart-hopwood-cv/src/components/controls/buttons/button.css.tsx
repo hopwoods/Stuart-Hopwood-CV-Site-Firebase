@@ -30,9 +30,6 @@ export const classes = mergeStyleSets({
 		},
 		'@media(max-width: 480px)': {
 			fontSize: '0.8rem !important'
-		},
-		'@media(max-width: 425px)': {
-			fontSize: '0.7rem !important'
-		},
+		}
 	}
 })

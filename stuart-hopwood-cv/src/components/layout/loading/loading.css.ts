@@ -7,30 +7,37 @@ export const classes = mergeStyleSets({
 		gridTemplateColumns: 'auto',
 		gridTemplateRows: 'auto',
 		gridGap: '0em',
-		minHeight: '45.5vh',
+		//minHeight: '45.5vh',
+		placeContent: 'center',
 		justifySelf: 'center',
+		fontSise: '3rem',
 
-		'@media(max-width: 2560px)': {
-			fontSize: '70vw'
-		},
-		'@media(max-width: 1920px)': {
-			fontSize: '70vw'
-		},
-		'@media(max-width: 1366px)': {
-			fontSize: '60vw'
-
-		},
-		'@media(max-width: 1024px)': {
-			fontSize: '97vw'
-		},
-		'@media(max-width: 768px)': {
-			fontSize: '97vw'
-		},
-		'@media(max-width: 480px)': {
-			fontSize: '97vw'
-		},
-		'@media(max-width: 425px)': {
-			fontSize: '97vw'
-		}
+		// '@media(max-width: 2560px)': {
+		// 	minHeight: '70vw'
+		// },
+		// '@media(max-width: 1920px)': {
+		// 	minHeight: '70vw'
+		// },
+		// '@media(max-width: 1366px)': {
+		// 	minHeight: '60vw'
+		// },
+		// '@media(max-width: 1024px)': {
+		// 	minHeight: '97vw'
+		// },
+		// '@media(max-width: 768px)': {
+		// 	minHeight: '97vw'
+		// },
+		// '@media(max-width: 480px)': {
+		// 	minHeight: '97vw'
+		// },
+		// '@media(max-width: 425px)': {
+		// 	minHeight: '97vw'
+		// }
+	},
+	loadingText: {
+		display: 'block',
+		height: 'fit-content',
+		width: 'fit-content',
+		textAlign: 'center'
 	}
 })
