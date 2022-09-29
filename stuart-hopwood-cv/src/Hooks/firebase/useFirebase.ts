@@ -2,10 +2,10 @@ import { initializeApp } from 'firebase/app'
 //import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check'
 import { enableMultiTabIndexedDbPersistence, getFirestore } from 'firebase/firestore'
 import { useMemo } from 'react'
-import { useGlobalStore } from '../../state/globalStore'
+import { useAppStore } from '../../state/appStore'
 
 export default function useFirebase() {
-	const { firebaseInitiated, setFirebaseInitiated, setDb, setFirebaseApp } = useGlobalStore()
+	const { firebaseInitiated, setFirebaseInitiated, storeDb, storeFirebaseApp } = useAppStore()
 
 	const firebaseConfig = useMemo(() => {
 		return {
@@ -37,7 +37,7 @@ export default function useFirebase() {
 	// Initialize Cloud Firestore and get a reference to the service
 	const db = useMemo(() => {
 		if (!firebaseInitiated && firebaseApp) {
-			console.log('Init db')
+			console.log('Init FIrestore Db')
 			return getFirestore(firebaseApp)
 		}
 	}, [firebaseApp, firebaseInitiated])
@@ -57,8 +57,8 @@ export default function useFirebase() {
 				}
 			})
 
-		setDb(db)
-		setFirebaseApp(firebaseApp)
+		storeDb(db)
+		storeFirebaseApp(firebaseApp)
 		setFirebaseInitiated(true)
 
 		// disableNetwork(db).then(() => {
@@ -66,5 +66,7 @@ export default function useFirebase() {
 		// })
 
 	}
+
+	return { db, firebaseApp }
 }
 

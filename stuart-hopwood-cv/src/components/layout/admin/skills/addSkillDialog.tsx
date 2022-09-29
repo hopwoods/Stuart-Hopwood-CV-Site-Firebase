@@ -2,7 +2,7 @@ import { Button, Dialog, DialogActions, DialogContent, DialogContentText, Dialog
 import React, { useRef } from 'react'
 import { BiCommentAdd } from 'react-icons/bi'
 import { useSkillDialog } from '../../../../Hooks'
-import { useSkillsStore } from '../../../../state/skillsStore'
+import { useAppStore } from '../../../../state/appStore'
 import { SkillExampleProps } from '../../../../types'
 
 // const Button = React.lazy(() => import('@mui/material/Button'))
@@ -15,7 +15,7 @@ import { SkillExampleProps } from '../../../../types'
 
 export default function AddSkillDialog() {
 
-	const { selectedSkill, setAddDialogState, addSkillDialogOpen, setCurrentSkillExamples, setSkillName, setSkillTarget } = useSkillsStore()
+	const { selectedSkill, setAddDialogState, addSkillDialogOpen, setCurrentSkillExamples, setSkillName, setSkillTarget } = useAppStore()
 	const { saveSkill, skillExampleTextBoxes } = useSkillDialog()
 	const formRef = useRef<HTMLFormElement>(null)
 
@@ -35,8 +35,8 @@ export default function AddSkillDialog() {
 		}
 	}
 
-	const handleSave = () => {
-		saveSkill(selectedSkill, formRef)
+	const handleSave = async () => {
+		await saveSkill(selectedSkill, formRef)
 		setAddDialogState(false)
 	}
 

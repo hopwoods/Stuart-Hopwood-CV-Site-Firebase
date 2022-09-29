@@ -5,7 +5,7 @@ import Loading from '../components/layout/loading/loading'
 import Page from '../components/layout/page/page'
 import Heading from '../components/typeography/heading'
 import { theme } from '../Hooks/useTheme'
-import { useGlobalStore } from '../state/globalStore'
+import { useAppStore } from '../state/appStore'
 import { classes } from './login.css'
 
 
@@ -16,7 +16,7 @@ function Banner() {
 }
 
 export default function Login() {
-	const { isAuthenticating } = useGlobalStore()
+	const { isAuthenticating } = useAppStore()
 	const [isAuthPending, setAuthPending] = useState<boolean>(false)
 	const sessionValue = useMemo(() => sessionStorage.getItem('authPending'), [])
 

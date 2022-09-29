@@ -8,7 +8,7 @@ import AdminForm from '../../components/layout/admin/administration-form'
 import AdminMenu from '../../components/layout/admin/administration-menu'
 import Loading from '../../components/layout/loading/loading'
 import Page from '../../components/layout/page/page'
-import { useAboutTextStore } from '../../state/aboutTextStore'
+import { useAppStore } from '../../state/appStore'
 import { classes } from './admin-about-text.css'
 
 // const Button = React.lazy(() => import('@mui/material/Button'))
@@ -23,12 +23,12 @@ function Banner() {
 }
 
 export default function AdminAboutText() {
-	const { aboutText, loading, setText } = useAboutTextStore()
+	const { aboutText, loading, setAboutText } = useAppStore()
 
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
-		setText({ text: e.target.value, id: aboutText?.id })
+		setAboutText({ text: e.target.value, id: aboutText?.id })
 	}
 
 	return <>

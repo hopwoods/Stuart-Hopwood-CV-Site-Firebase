@@ -1,6 +1,6 @@
 import { TextField } from '@mui/material'
 import { useFirestore } from '../../../Hooks/firebase/usefirestore'
-import { useSkillsStore } from '../../../state/skillsStore'
+import { useAppStore } from '../../../state/appStore'
 import { SkillExampleProps } from '../../../types'
 import DeleteButton from '../buttons/deleteButton'
 import { classes } from './skillExampleInput.css'
@@ -11,7 +11,7 @@ import { classes } from './skillExampleInput.css'
 export default function SkillExampleInput({ skillExample: example }: { skillExample: SkillExampleProps }) {
 
 	const { makeId } = useFirestore()
-	const { selectedSkill, removeSkillExample } = useSkillsStore()
+	const { selectedSkill, removeSkillExample } = useAppStore()
 	const id = example.id ? example.id : makeId()
 
 	const onDeleteExampleClickHandler = (id: string) => {

@@ -1,10 +1,10 @@
 import { getAuth, getRedirectResult, GoogleAuthProvider, signInWithRedirect, signOut, User } from 'firebase/auth'
 import { useCallback, useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router'
-import { useGlobalStore } from '../state/globalStore'
+import { useAppStore } from '../state/appStore'
 
 export function useLogin() {
-	const { firebaseApp, user, storeUser, deleteUser, isAuthenticated, setIsAuthenticated, setAuthenticating } = useGlobalStore()
+	const { firebaseApp, user, storeUser, deleteUser, isAuthenticated, setIsAuthenticated, setAuthenticating } = useAppStore()
 	const provider = useMemo(() => { return new GoogleAuthProvider() }, [])
 	const auth = useMemo(() => { return getAuth(firebaseApp) }, [firebaseApp])
 	const navigate = useNavigate()

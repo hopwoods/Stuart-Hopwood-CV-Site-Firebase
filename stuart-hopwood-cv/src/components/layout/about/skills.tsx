@@ -1,6 +1,6 @@
 import { domAnimation, LazyMotion, m, Variants } from 'framer-motion'
 import { useTheme } from '../../../Hooks'
-import { useSkillsStore } from '../../../state/skillsStore'
+import { useAppStore } from '../../../state/appStore'
 import { SkillProps } from '../../../types'
 import SkillWithProgress from '../../controls/skills/skillsWithProgress'
 import Heading from '../../typeography/heading'
@@ -20,7 +20,7 @@ export const variants: Variants = {
 }
 
 export default function Skills() {
-	const { skills, loading } = useSkillsStore()
+	const { skills, loading } = useAppStore()
 	const theme = useTheme()
 
 	return <LazyMotion features={domAnimation}>

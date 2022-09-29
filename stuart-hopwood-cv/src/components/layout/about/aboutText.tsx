@@ -1,5 +1,5 @@
 import parse from 'html-react-parser'
-import { useAboutTextStore } from '../../../state/aboutTextStore'
+import { useAppStore } from '../../../state/appStore'
 import { typography } from '../../typeography/typography.css'
 import Loading from '../loading/loading'
 import { classes } from './aboutText.css'
@@ -7,7 +7,7 @@ import { classes } from './aboutText.css'
 // const Loading = React.lazy(() => import('../loading/loading'))
 
 export default function AboutText() {
-	const { aboutText, loading } = useAboutTextStore()
+	const { aboutText, loading } = useAppStore()
 
 	function AboutTextElement() {
 		if (aboutText)

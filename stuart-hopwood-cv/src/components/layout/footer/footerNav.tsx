@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import { useGlobalStore } from '../../../state/globalStore'
+import { useAppStore } from '../../../state/appStore'
 import LogoutLink from '../../controls/links/logoutLink'
 import { classes } from './footerNav.css'
 
 export default function FooterNav() {
 
-	const { isAuthenticated } = useGlobalStore()
+	const { isAuthenticated } = useAppStore()
 
 	return <nav className={classes.nav}>
 		<Link to="/home">Home</Link>

@@ -1,23 +1,27 @@
 
 import { DataGrid, GridCellParams, GridColDef, GridValueFormatterParams } from '@mui/x-data-grid'
-import { useSkillDatabase } from '../../../database/skillsDatabase'
+import { useAppStore } from '../../../state/appStore'
 import { SkillExampleProps, SkillProps } from '../../../types'
 import DeleteButton from '../buttons/deleteButton'
 import EditSkillButton from '../buttons/editSkillButton'
 import { classes } from './skillsTable.css'
-
-// const EditSkillButton = React.lazy(() => import('../buttons/editSkillButton'))
-// const DeleteButton = React.lazy(() => import('../buttons/deleteButton'))
 
 type SkillsTableProps = {
 	rows: SkillProps[]
 }
 
 export default function SkillsTable({ rows }: SkillsTableProps) {
-	const { deleteSkillFromDb } = useSkillDatabase()
+	const { skillsDb } = useAppStore()
 
 	const onClickHandler = async (id: string) => {
-		await deleteSkillFromDb(id)
+		try {
+			if (skillsDb)
+				await skillsDb.deleteSkillFromDb(id)
+			else
+				console.error('SkillsDb is undefined or missing')
+		} catch (error) {
+			console.error(`Skills Table: ${error}`)
+		}
 	}
 
 	const columns: GridColDef[] = [
@@ -89,5 +93,4 @@ export default function SkillsTable({ rows }: SkillsTableProps) {
 	return <div id="skills" className={classes.skillsTable}>
 		<DataGrid rows={rows} rowHeight={100} columns={columns} autoHeight pageSize={10} disableColumnMenu />
 	</div>
-
 }
