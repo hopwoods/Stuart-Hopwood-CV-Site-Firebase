@@ -25,9 +25,9 @@ export default function Footer() {
 			</section>
 			<section className={classes.contact}>
 				<Heading type="h4" color={theme.brandMedium} text="Get In Touch" />
-				<PhoneNumber color={theme.Grey4} />
-				<Email color={theme.Grey4} />
-				<Location color={theme.Grey8} />
+				<PhoneNumber color={theme.Grey6} />
+				<Email color={theme.Grey6} />
+				<Location color={theme.Grey6} />
 			</section>
 			<section className={classes.follow}>
 

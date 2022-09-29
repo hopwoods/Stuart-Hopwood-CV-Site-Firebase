@@ -15,9 +15,10 @@ export const classes = mergeStyleSets({
 		justifyItems: 'start',
 		padding: 0,
 		marginBottom: '0.25rem',
+		textAlign: 'left',
 		color: theme.Grey12,
 		span: {
-			fontSize: '0.8rem',
+			fontSize: '1.1em',
 			display: 'inline-block',
 			marginLeft: '0.6rem',
 			a: {

@@ -19,6 +19,10 @@ export const classes = mergeStyleSets({
 		gridGap: '1rem',
 		placeContent: 'center',
 
+		'section': {
+			justifySelf: 'center'
+		},
+
 		'a': {
 			color: theme.linkColor,
 			textDecoration: 'none',
@@ -30,19 +34,19 @@ export const classes = mergeStyleSets({
 
 		'@media(min-width: 2560px)': {
 			gridTemplateRows: '15rem auto',
-			gridTemplateColumns: 'repeat(3, 15em)',
+			gridTemplateColumns: 'repeat(3, 20em)',
 		},
 		'@media(min-width: 1920px)': {
 			gridTemplateRows: '15rem auto',
-			gridTemplateColumns: 'repeat(3, 15em)',
+			gridTemplateColumns: 'repeat(3, 20em)',
 		},
 		'@media(min-width: 1366px)': {
 			gridTemplateRows: '15rem auto',
-			gridTemplateColumns: 'repeat(3, 15em)',
+			gridTemplateColumns: 'repeat(3, 20em)',
 		},
 		'@media(min-width: 1024px)': {
 			gridTemplateRows: '15rem auto',
-			gridTemplateColumns: 'repeat(3, 15em)',
+			gridTemplateColumns: 'repeat(3, 20em)',
 		},
 		'@media(min-width: 768px)': {
 			gridTemplateRows: '15rem auto',

@@ -22,8 +22,8 @@ export const classes = mergeStyleSets({
 	},
 	link: {
 		display: 'inline-block',
-		marginLeft: '0.3rem',
-		fontSize: '0.8rem',
+		marginLeft: '0.1em',
+		fontSize: '1.1em',
 		color: themeColors.brandAccentColor,
 		textDecoration: 'none',
 		paddingBottom: '5px',

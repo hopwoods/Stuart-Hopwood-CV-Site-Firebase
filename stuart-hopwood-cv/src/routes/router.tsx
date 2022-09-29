@@ -14,27 +14,27 @@ export default function Router() {
 	const router = createBrowserRouter([
 		{
 			path: '/',
-			element: <Suspense fallback={<Loading loading />}>
+			element: <Suspense fallback={<Loading loading text='SHCV' />}>
 				<App />
 			</Suspense>,
 			//errorElement: <NotFoundPage />
 		},
 		{
 			path: '/home',
-			element: <Suspense fallback={<Loading loading />}>
+			element: <Suspense fallback={<Loading loading text='SHCV' />}>
 				<App />
 			</Suspense>,
 		},
 		{
 			path: '/login',
-			element: <Suspense fallback={<Loading loading />}>
+			element: <Suspense fallback={<Loading loading text='SHCV' />}>
 				<Login />
 			</Suspense>,
 		},
 		{
 			path: '/admin',
 			element: <ProtectedRoute redirectPath='/'>
-				<Suspense fallback={<Loading loading />}>
+				<Suspense fallback={<Loading loading text='SHCV' />}>
 					<Admin />
 				</Suspense>
 			</ProtectedRoute>,
@@ -42,7 +42,7 @@ export default function Router() {
 		{
 			path: '/admin/about-text',
 			element: <ProtectedRoute redirectPath='/'>
-				<Suspense fallback={<Loading loading />}>
+				<Suspense fallback={<Loading loading text='SHCV' />}>
 					<AdminAboutText />
 				</Suspense>
 			</ProtectedRoute>,
@@ -50,7 +50,7 @@ export default function Router() {
 		{
 			path: '/admin/skills',
 			element: <ProtectedRoute redirectPath='/'>
-				<Suspense fallback={<Loading loading />}>
+				<Suspense fallback={<Loading loading text='SHCV' />}>
 					<AdminSkills />
 				</Suspense>
 			</ProtectedRoute>
