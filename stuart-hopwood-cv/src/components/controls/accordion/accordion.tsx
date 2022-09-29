@@ -17,25 +17,32 @@ export default function Accordion({ header, content }: AccordionProps): JSX.Elem
 
 	const classes = mergeStyleSets({
 		AccordionRoot: {
-			marginTop: '1rem'
+			marginTop: '1em'
 		},
 		AccordionHeaderRoot: {
 			display: 'grid',
-			gridTemplateColumns: 'auto 3rem',
+			gridTemplateColumns: 'auto 2.7em',
 			gridTemplateRows: 'auto',
 			cursor: 'pointer'
 		},
 		AccordionHeaderContent: {
 			gridColumn: '1 / Span 1',
-			placeSelf: 'start center',
-			userSelect: 'none'
+			placeSelf: 'start stretch',
+			userSelect: 'none',
+			'-webkit-tap-highlight-color': 'transparent',
 		},
 		AccordionHeaderTrigger: {
 			gridColumn: '2 / Span 1',
-			placeSelf: 'center center',
+			placeSelf: 'center ',
+			placeItems: 'center',
 			cursor: 'pointer',
 			fontSize: '1.2em',
-			color: theme.Grey12
+			color: theme.Grey12,
+
+			'svg': {
+				position: 'relative',
+				top: '0.5em'
+			}
 		}
 	})
 
@@ -64,22 +71,24 @@ export default function Accordion({ header, content }: AccordionProps): JSX.Elem
 		},
 		closed: {
 			height: 0,
-			scaleY: 0,
+			scaleY: 1,
 			transition: {
 				type: 'spring',
 				bounce: 0,
-				duration: 0.3
+				duration: 0.3,
+				delayChildren: -0.3,
+				staggerChildren: -0.05
 			}
 		}
 	}
 
 	return <LazyMotion features={domAnimation}>
 		<m.nav initial={false} animate={isOpen ? 'open' : 'closed'} className={classes.AccordionRoot}>
-			<m.div whileTap={{ scale: 0.97 }} onClick={() => setIsOpen(!isOpen)} className={classes.AccordionHeaderRoot}>
+			<m.div whileTap={{ scale: 1 }} onClick={() => setIsOpen(!isOpen)} className={classes.AccordionHeaderRoot}>
 				<div className={classes.AccordionHeaderContent}>
 					{header}
 				</div>
-				<m.div variants={{ open: { rotate: 180, y: -10 }, closed: { rotate: 0, y: -5 } }} transition={{ duration: animationDuration }} className={classes.AccordionHeaderTrigger}>
+				<m.div variants={{ open: { rotateX: 180, y: 10 }, closed: { rotateX: 0, y: -5 } }} transition={{ duration: animationDuration }} className={classes.AccordionHeaderTrigger}>
 					<FaChevronDown />
 				</m.div>
 			</m.div>

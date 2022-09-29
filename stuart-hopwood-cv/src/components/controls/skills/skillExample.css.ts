@@ -7,8 +7,8 @@ export const classes = mergeStyleSets({
 		paddingLeft: '0.6rem',
 		borderLeft: `3px solid ${theme.brandMedium}`,
 
-		':hover': {
-			color: theme.Grey12
-		}
+		// ':hover': {
+		// 	color: theme.Grey12
+		// }
 	}
 })

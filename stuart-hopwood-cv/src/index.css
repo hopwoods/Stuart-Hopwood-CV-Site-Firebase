@@ -6,6 +6,7 @@ html {
   font-style: normal;
   font-stretch: normal;
   background-color: #222222;
+  -webkit-tap-highlight-color: transparent;
 }
 body {
   margin: 0;
