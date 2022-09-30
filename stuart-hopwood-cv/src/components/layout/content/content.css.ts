@@ -1,7 +1,5 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { useTheme } from '../../../Hooks'
-
-const theme = useTheme()
+import { theme } from '../../../Hooks/useTheme'
 
 export const classes = mergeStyleSets({
 	content: {
@@ -12,7 +10,7 @@ export const classes = mergeStyleSets({
 		gridGap: '0em',
 		minHeight: '64.6vh',
 		justifySelf: 'stretch',
-		backgroundColor: theme.bodyBackgroundDark,
+		backgroundColor: theme.bodyBackground,
 		fontSize: '1rem',
 		color: theme.text,
 		overflow: 'hidden',

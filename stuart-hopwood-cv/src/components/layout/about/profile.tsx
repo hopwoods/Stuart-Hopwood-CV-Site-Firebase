@@ -13,14 +13,6 @@ import AboutText from './aboutText'
 import { classes } from './profile.css'
 import SocialIcons from './socialIcons'
 
-// const AboutText = React.lazy(() => import('./aboutText'))
-// const SocialIcons = React.lazy(() => import('./socialIcons'))
-// const Heading = React.lazy(() => import('../../typeography/heading'))
-// const PhoneNumber = React.lazy(() => import('../../controls/links/profile/phoneNumber'))
-// const Email = React.lazy(() => import('../../controls/links/profile/email'))
-// const Location = React.lazy(() => import('../../controls/links/profile/location'))
-// const GithubRepo = React.lazy(() => import('../../controls/links/social/githubRepo'))
-
 export const variants: Variants = {
 	offscreen: {
 		opacity: 0,

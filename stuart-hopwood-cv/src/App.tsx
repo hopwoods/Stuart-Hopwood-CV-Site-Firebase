@@ -2,9 +2,7 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import { motion } from 'framer-motion'
 import { HashLink } from 'react-router-hash-link'
 import './App.css'
-import { classes } from './App.css'
 import Button from './components/controls/buttons/button'
-import ScrollToTopButton from './components/controls/buttons/scrollToTopButton'
 import Waves from './components/layout/banner/waves'
 import Page from './components/layout/page/page'
 import Titles from './components/typeography/titles'
@@ -53,8 +51,5 @@ function Banner() {
 export default function App() {
 	return <Page id="Home" fullscreen={true} bannerContent={<Banner />}>
 		<About />
-		<div className={classes.toTopButton}>
-			<ScrollToTopButton color="secondary" />
-		</div>
 	</Page>
 }

@@ -1,4 +1,7 @@
 import { lazy, ReactNode, Suspense } from 'react'
+import { useTheme } from '../../../Hooks'
+import ScrollToTopButton from '../../controls/buttons/scrollToTopButton'
+import TriangleDown from '../background/triangleDown'
 import Banner from '../banner/banner'
 import Loading from '../loading/loading'
 
@@ -12,6 +15,7 @@ export type PageProps = {
 	children: ReactNode
 }
 export default function Page({ id, fullscreen, bannerContent, children }: PageProps) {
+	const theme = useTheme()
 	return <>
 		<Banner id={id} fullscreen={fullscreen}>
 			{bannerContent}
@@ -22,6 +26,8 @@ export default function Page({ id, fullscreen, bannerContent, children }: PagePr
 			</Content>
 		</Suspense>
 		<Suspense fallback={<Loading loading text='SHCV' />}>
+			<TriangleDown color={theme.bodyBackground} backgroundColor={theme.bodyBackgroundDark} />
+			<ScrollToTopButton color="secondary" />
 			<Footer />
 		</Suspense>
 	</>
