@@ -30,7 +30,6 @@ export default function Footer() {
 				<Location color={theme.Grey6} />
 			</section>
 			<section className={classes.follow}>
-
 				<Heading type="h4" color={theme.brandMedium} text="Follow" />
 				<div className={classes.socialLinks}>
 					<FacebookLink color="primary" size="medium" />

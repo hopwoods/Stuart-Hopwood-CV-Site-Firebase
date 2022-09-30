@@ -1,17 +1,23 @@
+:root {
+  --palette-body-background-dark: #000d1a;
+  --palette-brand-accent: #fb8500;
+}
 html {
   box-sizing: border-box;
-  font-family: 'Source Sans Pro';
+  font-family: 'Source Sans Pro', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
   font-size: 18px;
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
-  background-color: #222222;
+  background-color: var(--palette-body-background-dark);
   -webkit-tap-highlight-color: transparent;
 }
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #222222;
+  background-color: var(--palette-body-background-dark);
 }
 
 body::-webkit-scrollbar {
@@ -21,11 +27,11 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #023047;
+  background-color: var(--palette-body-background-dark);
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #fb8500;
+  background-color: var(--palette-brand-accent);
   outline: 0;
   border: 0;
 }

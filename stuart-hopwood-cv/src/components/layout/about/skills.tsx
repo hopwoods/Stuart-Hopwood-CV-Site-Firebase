@@ -7,7 +7,6 @@ import Heading from '../../typeography/heading'
 import Loading from '../loading/loading'
 import { classes } from './skills.css'
 
-
 export const variants: Variants = {
 	offscreen: {
 		opacity: 0,

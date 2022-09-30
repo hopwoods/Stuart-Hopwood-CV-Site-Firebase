@@ -15,7 +15,7 @@ export default function TriangleDown({ color, backgroundColor }: Triangle) {
 			borderTop: `30vh solid ${color}`,
 			padding: 0,
 			margin: 0,
-			marginTop: '3rem'
+			//marginTop: '3rem'
 		}
 	})
 
