@@ -1,7 +1,6 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { useTheme } from '../../../Hooks'
+import { theme } from '../../../style/themeProvider'
 
-const theme = useTheme()
 export const classes = mergeStyleSets({
 	socialIcons: {
 		gridColumn: '1 / span 1',
@@ -23,7 +22,7 @@ export const classes = mergeStyleSets({
 		},
 
 		'.MuiIconButton-colorPrimary:hover': {
-			backgroundColor: theme.Grey2
+			backgroundColor: theme.colors.Grey2
 		},
 	}
 })

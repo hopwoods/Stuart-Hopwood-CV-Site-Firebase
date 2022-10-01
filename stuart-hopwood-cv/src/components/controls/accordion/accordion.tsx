@@ -2,7 +2,7 @@ import { mergeStyleSets } from '@fluentui/merge-styles'
 import { domAnimation, LazyMotion, m, Variants } from 'framer-motion'
 import React, { useState } from 'react'
 import { FaChevronDown } from 'react-icons/fa'
-import { useTheme } from '../../../Hooks'
+import { theme } from '../../../style/themeProvider'
 import AccordionContent from './accordionContent'
 
 export type AccordionProps = {
@@ -13,7 +13,6 @@ export type AccordionProps = {
 
 export default function Accordion({ header, content }: AccordionProps): JSX.Element {
 	const [isOpen, setIsOpen] = useState(false)
-	const theme = useTheme()
 
 	const classes = mergeStyleSets({
 		AccordionRoot: {
@@ -37,7 +36,7 @@ export default function Accordion({ header, content }: AccordionProps): JSX.Elem
 			placeItems: 'center',
 			cursor: 'pointer',
 			fontSize: '1.2em',
-			color: theme.Grey12,
+			color: theme.colors.Grey12,
 
 			'svg': {
 				position: 'relative',

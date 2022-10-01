@@ -1,7 +1,6 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { useTheme } from '../../../Hooks/useTheme'
+import { theme } from '../../../style/themeProvider'
 
-const theme = useTheme()
 export const classes = mergeStyleSets({
 	skillsTable: {
 		gridColumn: '1 / span 1',
@@ -17,8 +16,8 @@ export const classes = mergeStyleSets({
 		margin: '0.25em',
 		marginRight: '0.5em',
 		lineHeight: '1.5em',
-		backgroundColor: theme.Grey6,
-		color: theme.text,
+		backgroundColor: theme.colors.Grey6,
+		color: theme.colors.text,
 		borderRadius: '5px',
 		padding: '0.25em 0.5em 0.25em 0.5em'
 	}

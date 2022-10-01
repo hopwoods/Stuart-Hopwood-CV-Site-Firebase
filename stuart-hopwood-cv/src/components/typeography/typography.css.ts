@@ -1,7 +1,6 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { useTheme } from '../../Hooks'
+import { theme } from '../../style/themeProvider'
 
-const theme = useTheme()
 export const typography = mergeStyleSets({
 
 	copy1: {
@@ -11,11 +10,11 @@ export const typography = mergeStyleSets({
 	copy3: {
 		lineHeight: '1.2',
 		fontSize: '1em',
-		color: theme.subText
+		color: theme.colors.subText
 	},
 	copy2: {
 		lineHeight: '1.4',
 		fontSize: '1em',
-		color: theme.subText
+		color: theme.colors.subText
 	},
 })

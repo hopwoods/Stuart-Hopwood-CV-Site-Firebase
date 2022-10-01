@@ -1,12 +1,12 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { theme } from '../../../Hooks/useTheme'
+import { theme } from '../../../style/themeProvider'
 
 export const classes = mergeStyleSets({
 	footer: {
 		gridArea: 'footer',
 		justifySelf: 'stretch',
-		backgroundColor: theme.bodyBackgroundDark,
-		color: theme.Grey10,
+		backgroundColor: theme.colors.bodyBackgroundDark,
+		color: theme.colors.Grey10,
 		padding: '0.4em',
 		fontSize: '0.9em',
 		fontWeight: 400,
@@ -24,11 +24,11 @@ export const classes = mergeStyleSets({
 		},
 
 		'a': {
-			color: theme.linkColor,
+			color: theme.colors.linkColor,
 			textDecoration: 'none',
 
 			':hover': {
-				color: theme.linkHoverColor
+				color: theme.colors.linkHoverColor
 			}
 		},
 

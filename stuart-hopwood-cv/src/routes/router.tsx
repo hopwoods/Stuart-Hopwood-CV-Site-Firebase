@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Loading from '../components/layout/loading/loading'
+import NotFoundPage from '../pages/NotFoundPage'
 import ProtectedRoute from './protectedRoute'
 
 const App = lazy(() => import('../App'))
@@ -17,7 +18,7 @@ export default function Router() {
 			element: <Suspense fallback={<Loading loading text='SHCV' />}>
 				<App />
 			</Suspense>,
-			//errorElement: <NotFoundPage />
+			errorElement: <NotFoundPage />
 		},
 		{
 			path: '/home',

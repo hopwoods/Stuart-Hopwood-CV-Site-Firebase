@@ -1,7 +1,6 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { useTheme } from '../../../Hooks'
+import { theme } from '../../../style/themeProvider'
 
-const themeColors = useTheme()
 export const classes = mergeStyleSets({
 	adminMenu: {
 		gridColumn: '1 / span 1',
@@ -15,10 +14,10 @@ export const classes = mergeStyleSets({
 		justifySelf: 'end',
 		alignItems: 'center',
 		a: {
-			color: themeColors.linkColor,
+			color: theme.colors.linkColor,
 			textDecoration: 'none',
 			':hover': {
-				color: themeColors.linkHoverColor
+				color: theme.colors.linkHoverColor
 			}
 		}
 	},

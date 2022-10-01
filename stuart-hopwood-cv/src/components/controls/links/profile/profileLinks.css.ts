@@ -1,5 +1,5 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { theme } from '../../../../Hooks/useTheme'
+import { theme } from '../../../../style/themeProvider'
 
 export const classes = mergeStyleSets({
 	icon: {
@@ -16,16 +16,16 @@ export const classes = mergeStyleSets({
 		padding: 0,
 		marginBottom: '0.25rem',
 		textAlign: 'left',
-		color: theme.Grey12,
+		color: theme.colors.Grey12,
 		span: {
 			fontSize: '1.1em',
 			display: 'inline-block',
 			marginLeft: '0.6rem',
 			a: {
-				color: theme.linkColor,
+				color: theme.colors.linkColor,
 				textDecoration: 'none',
 				':hover': {
-					color: theme.linkHoverColor
+					color: theme.colors.linkHoverColor
 				}
 			}
 		}

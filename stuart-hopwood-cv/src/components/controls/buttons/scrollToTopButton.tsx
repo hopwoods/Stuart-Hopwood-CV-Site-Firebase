@@ -3,8 +3,7 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward'
 import IconButton from '@mui/material/IconButton'
 import { domAnimation, LazyMotion, m } from 'framer-motion'
 import { HashLink } from 'react-router-hash-link'
-import { theme } from '../../../Hooks/useTheme'
-// const ArrowUpwardIcon = React.lazy(() => import('@mui/icons-material/ArrowUpward'))
+import { theme } from '../../../style/themeProvider'
 
 type ScrollToTopButtonProps = {
 	color: 'primary' | 'secondary' | 'default' | 'inherit' | undefined
@@ -15,7 +14,7 @@ const classes = mergeStyleSets({
 		gridColumn: '1/span 2',
 		display: 'flex',
 		placeContent: 'center',
-		backgroundColor: theme.bodyBackgroundDark,
+		backgroundColor: theme.colors.bodyBackgroundDark,
 		marginTop: '1rem',
 		marginBottom: '2rem'
 	},
@@ -26,7 +25,7 @@ const classes = mergeStyleSets({
 	},
 	button: {
 		':hover': {
-			color: `${theme.brandAccentColor} !important`
+			color: `${theme.colors.brandAccentColor} !important`
 		}
 	},
 })

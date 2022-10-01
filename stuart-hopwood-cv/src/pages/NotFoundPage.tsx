@@ -1,18 +1,16 @@
 
 import 'moment-timezone'
-import darthImg from '../assets/darthVader.png'
+import darthImg from '../assets/darthVader.webp'
 import ScrollDownIcon from '../components/icons/scrollDownIcon'
 import Banner from '../components/layout/banner/banner'
-import { useTheme } from '../Hooks'
+import { theme } from '../style/themeProvider'
 import { classes } from './NotFoundPage.css'
 
 // const ScrollDownIcon = React.lazy(() => import('../components/icons/scrollDownIcon'))
 // const Banner = React.lazy(() => import('../components/layout/banner/banner'))
 export default function NotFoundPage() {
-	const themeColors = useTheme()
 
 	//TODO: Fix 404 Layout
-	//TODO: Create an Error Page
 	return <>
 		<Banner id="404" fullscreen={true}>
 			<div className={classes.grid}>
@@ -22,7 +20,7 @@ export default function NotFoundPage() {
 					The page you are looking for does not exist.
 				</span>
 				<div className={classes.mouseIcon}>
-					<ScrollDownIcon color={themeColors.white} />
+					<ScrollDownIcon color={theme.colors.white} />
 				</div>
 			</div>
 		</Banner>

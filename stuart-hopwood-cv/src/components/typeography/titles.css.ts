@@ -1,5 +1,5 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { theme } from '../../Hooks/useTheme'
+import { theme } from '../../style/themeProvider'
 
 export const classes = mergeStyleSets({
 	subTitle: {
@@ -30,6 +30,6 @@ export const classes = mergeStyleSets({
 		},
 	},
 	titleText: {
-		color: theme.brandAccentColor
+		color: theme.colors.brandAccentColor
 	}
 })

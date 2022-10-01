@@ -1,15 +1,14 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { useTheme } from '../../../Hooks'
 import { FontFamilies } from '../../../style'
+import { theme } from '../../../style/themeProvider'
 
-const themeColors = useTheme()
 
 export const classes = mergeStyleSets({
 	badges: {
 		marginTop: '5rem',
 		marginBottom: '10rem',
 		padding: '1em',
-		color: themeColors.text,
+		color: theme.colors.text,
 		fontSize: '2rem',
 		height: 'fit-content',
 		width: '100%',

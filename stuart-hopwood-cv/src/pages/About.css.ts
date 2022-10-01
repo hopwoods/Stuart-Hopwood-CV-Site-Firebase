@@ -1,7 +1,5 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { useTheme } from '../Hooks'
-
-const theme = useTheme()
+import { theme } from '../style/themeProvider'
 
 export const classes = mergeStyleSets({
 	about: {
@@ -16,7 +14,7 @@ export const classes = mergeStyleSets({
 		justifySelf: 'stretch',
 		placeSelf: 'start center',
 		justifyItems: 'center',
-		backgroundColor: theme.bodyBackground,
+		backgroundColor: theme.colors.bodyBackground,
 
 		'.header': {
 			gridColumn: '1 / span 2',

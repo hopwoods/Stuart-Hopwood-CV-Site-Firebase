@@ -1,5 +1,5 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { theme } from '../../../Hooks/useTheme'
+import { theme } from '../../../style/themeProvider'
 
 export const classes = mergeStyleSets({
 	nav: {
@@ -13,7 +13,7 @@ export const classes = mergeStyleSets({
 		},
 
 		'svg': {
-			color: theme.brandDark,
+			color: theme.colors.brandDark,
 			position: 'relative',
 			top: '0.15em'
 		}

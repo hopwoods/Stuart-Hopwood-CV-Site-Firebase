@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import Loading from '../components/layout/loading/loading'
 import Heading from '../components/typeography/heading'
-import { useTheme } from '../Hooks'
+import { theme } from '../style/themeProvider'
 import { classes } from './About.css'
 
 //const Heading = React.lazy(() => import('../components/typeography/heading'))
@@ -11,9 +11,8 @@ const Skills = React.lazy(() => import('../components/layout/about/skills'))
 // const TriangleDown = React.lazy(() => import('../components/layout/background/triangleDown'))
 
 export default function About() {
-	const theme = useTheme()
 	return <><div id="about" className={classes.about}>
-		<Heading color={theme.brandAccentColor} type="h1" text="About" className="header" />
+		<Heading color={theme.colors.brandAccentColor} type="h1" text="About" className="header" />
 		<Suspense fallback={<Loading loading />}>
 			<Badges />
 		</Suspense>
