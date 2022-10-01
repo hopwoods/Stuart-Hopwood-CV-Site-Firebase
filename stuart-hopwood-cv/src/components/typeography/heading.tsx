@@ -9,7 +9,7 @@ type HeaderProps = {
 	className?: string
 }
 export default function Heading({ type, color, text, className, ...props }: HeaderProps) {
-	const headingColor = color ? color : theme.colors.colors?.brandAccentColor
+	const headingColor = color ? color : theme.colors?.brandAccentColor
 
 	const classes = mergeStyleSets({
 		container: {

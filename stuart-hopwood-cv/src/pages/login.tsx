@@ -30,7 +30,7 @@ export default function Login() {
 
 	function LoginScreen() {
 		return <>
-			<Heading text="So...You want to login huh?" type="h1" color={theme.colors.colors?.brandAccentColor} className={classes.heading} />
+			<Heading text="So...You want to login huh?" type="h1" color={theme.colors?.brandAccentColor} className={classes.heading} />
 			<p>
 				Well that is nice of you, if you are Stuart Hopwood, go ahead and
 				click login and start updating that CV.
