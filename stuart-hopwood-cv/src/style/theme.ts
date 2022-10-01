@@ -24,7 +24,7 @@ export const defaultTheme: ThemeValues = {
 		boxShadow: 'rgba(0,0,0,0.5)',
 
                 toggleColor: '#999999',
-                toggleColorActive: '#2ec4b6'
+                toggleColorActive: '#2ec4b6',
 
 		Grey1: '#222222',
 		Grey2: '#303030',
@@ -75,7 +75,7 @@ export const darkTheme: ThemeValues = {
 		boxShadow: 'rgba(0,0,0,0.5)',
 
                 toggleColor: '#999999',
-                toggleColorActive: '#fb8500'
+                toggleColorActive: '#fb8500',
 
 		Grey1: '#222222',
 		Grey2: '#303030',
