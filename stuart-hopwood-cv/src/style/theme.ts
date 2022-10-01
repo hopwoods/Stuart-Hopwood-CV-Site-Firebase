@@ -4,7 +4,7 @@ export const defaultTheme: ThemeValues = {
 	colors: {
 		text: '#333333',
 		subText: '#999999',
-		textInverse: '#1e1e1e',
+		textInverse: '#999999',
 
 		brandLight: '#cbf3f0',
 		brandMedium: '#ffbf69',
@@ -22,6 +22,9 @@ export const defaultTheme: ThemeValues = {
 		linkHoverColor: '#219ebc',
 
 		boxShadow: 'rgba(0,0,0,0.5)',
+
+                toggleColor: '#999999',
+                toggleColorActive: '#2ec4b6'
 
 		Grey1: '#222222',
 		Grey2: '#303030',
@@ -70,6 +73,9 @@ export const darkTheme: ThemeValues = {
 		linkHoverColor: '#219ebc',
 
 		boxShadow: 'rgba(0,0,0,0.5)',
+
+                toggleColor: '#999999',
+                toggleColorActive: '#fb8500'
 
 		Grey1: '#222222',
 		Grey2: '#303030',
