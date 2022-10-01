@@ -2,7 +2,7 @@ import { ThemeValues } from './themeProvider'
 
 export const defaultTheme: ThemeValues = {
 	colors: {
-		text: '#c7c7c7',
+		text: '#333333',
 		subText: '#999999',
 		textInverse: '#1e1e1e',
 
