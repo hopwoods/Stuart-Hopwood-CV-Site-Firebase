@@ -13,6 +13,7 @@ export type ThemeColors = {
   navbarBorder: string
   linkColor: string
   linkHoverColor: string
+  boxShadow: string
   Grey1: string
   Grey2: string
   Grey3: string

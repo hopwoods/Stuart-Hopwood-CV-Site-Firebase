@@ -6,6 +6,7 @@ import FacebookLink from '../../controls/links/social/facebookLink'
 import GithubLink from '../../controls/links/social/githubLink'
 import InstagramLink from '../../controls/links/social/instagramLink'
 import LinkedInLink from '../../controls/links/social/linkedInLink'
+import { ThemeToggle } from '../../theme/themeToggle'
 import Heading from '../../typeography/heading'
 import { classes } from './footer.css'
 import FooterNav from './footerNav'
@@ -19,7 +20,8 @@ export default function Footer() {
 	return (
 		<footer className={classes.footer}>
 			<section className={classes.menu}>
-				<Heading type="h4" color={theme.colors.brandMedium} text="Menu" />
+				<Heading type="h4" color={theme.colors.brandMedium} text="Menu" className={classes.navHeader} />
+				<ThemeToggle className={classes.themeToggle} />
 				<FooterNav />
 			</section>
 			<section className={classes.contact}>
