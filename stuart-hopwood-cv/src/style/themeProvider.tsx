@@ -1,83 +1,68 @@
-import { mergeStyles } from '@fluentui/merge-styles'
-import { ReactNode, useEffect, useMemo, useState } from 'react'
+import { ReactNode, useEffect, useMemo } from 'react'
+import { useAppStore } from '../state/appStore'
 import { ThemeColors } from '../types/ThemeColors'
 
-export type ThemeValues = {
-	colors: ThemeColors
-}
-
-type ThemeProviderProps = {
-	children: ReactNode
-
-	/** A theme object which will provide the theme values*/
-	theme: ThemeValues
-
-	/** A theme object which will be used if the user perfers a dark theme over a light theme  */
-	darkTheme?: ThemeValues
-}
-
 export function ThemeProvider({ children, theme, darkTheme }: ThemeProviderProps) {
-	const [prefersDark, setPrefersDarkTheme] = useState<boolean>(false)
-	const preferredTheme = useMemo(() => {
-		return prefersDark ? darkTheme ? darkTheme : theme : theme
-	}, [darkTheme, prefersDark, theme])
+	const { prefersDark, setPrefersDarkTheme } = useAppStore()
+	const elementId = useMemo(() => { return `theme-root-${makeId()}` }, [])
 
-	useEffect(() => {
-		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-			const themePreference = event.matches ? 'dark' : 'light'
-			setPrefersDarkTheme(themePreference === 'dark')
-		},)
-
-	}, [children, darkTheme, preferredTheme, prefersDark, setPrefersDarkTheme, theme])
-
-	const themeCss = mergeStyles({
-		':global(:root)': {
-			'--theme-color-text': preferredTheme.colors?.text,
-			'--theme-color-sub-text': preferredTheme.colors?.subText,
-			'--theme-color-text-inverse': preferredTheme.colors?.textInverse,
-
-			'--theme-color-brand-light': preferredTheme.colors?.brandLight,
-			'--theme-color-brand-medium': preferredTheme.colors?.brandMedium,
-			'--theme-color-brand-dark': preferredTheme.colors?.brandDark,
-			'--theme-color-brand-accent': preferredTheme.colors?.brandAccentColor,
-
-			'--theme-color-body-background': preferredTheme.colors?.bodyBackground,
-			'--theme-color-body-background-dark': preferredTheme.colors?.bodyBackgroundDark,
-
-			'--theme-color-navbar-backgound': preferredTheme.colors?.navbarBackground,
-			'--theme-color-navbar-backgound-scrolled': preferredTheme.colors?.navbarBackgroundScrolled,
-			'--theme-color-navbar-border': preferredTheme.colors?.navbarBorder,
-
-			'--theme-color-link': preferredTheme.colors?.linkColor,
-			'--theme-color-link-hover': preferredTheme.colors?.linkHoverColor,
-
-			'--theme-color-grey1': preferredTheme.colors?.Grey1,
-			'--theme-color-grey2': preferredTheme.colors?.Grey2,
-			'--theme-color-grey3': preferredTheme.colors?.Grey3,
-			'--theme-color-grey4': preferredTheme.colors?.Grey4,
-			'--theme-color-grey5': preferredTheme.colors?.Grey5,
-			'--theme-color-grey6': preferredTheme.colors?.Grey6,
-			'--theme-color-grey7': preferredTheme.colors?.Grey7,
-			'--theme-color-grey8': preferredTheme.colors?.Grey8,
-			'--theme-color-grey9': preferredTheme.colors?.Grey9,
-			'--theme-color-grey10': preferredTheme.colors?.Grey10,
-			'--theme-color-grey11': preferredTheme.colors?.Grey11,
-			'--theme-color-grey12': preferredTheme.colors?.Grey12,
-			'--theme-color-grey13': preferredTheme.colors?.Grey13,
-			'--theme-color-grey14': preferredTheme.colors?.Grey14,
-
-			'--theme-color-disabled': preferredTheme.colors?.disabledColour,
-
-			'--theme-color-danger': preferredTheme.colors?.danger,
-			'--theme-color-warning': preferredTheme.colors?.warning,
-			'--theme-color-info': preferredTheme.colors?.info,
-
-			'--theme-color-white': preferredTheme.colors?.white,
-			'--theme-color-black': preferredTheme.colors?.black,
-		}
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+		const themePreference = event.matches ? 'dark' : 'light'
+		setPrefersDarkTheme(themePreference === 'dark')
 	})
 
-	return <div id='themeRoot' className={themeCss}>
+	useEffect(() => {
+
+		console.log(`Preferred Theme is ${prefersDark ? 'dark' : 'light'}`)
+		const preferredTheme = prefersDark && darkTheme ? darkTheme : theme
+
+		const themeVariableMappings: ThemeVariableMapping[] = [
+			{ property: '--theme-color-text', value: preferredTheme.colors?.text },
+			{ property: '--theme-color-sub-text', value: preferredTheme.colors?.subText },
+			{ property: '--theme-color-text-inverse', value: preferredTheme.colors?.textInverse },
+			{ property: '--theme-color-brand-light', value: preferredTheme.colors?.brandLight },
+			{ property: '--theme-color-brand-medium', value: preferredTheme.colors?.brandMedium },
+			{ property: '--theme-color-brand-dark', value: preferredTheme.colors?.brandDark },
+			{ property: '--theme-color-brand-accent', value: preferredTheme.colors?.brandAccentColor },
+			{ property: '--theme-color-body-background', value: preferredTheme.colors?.bodyBackground },
+			{ property: '--theme-color-body-background-dark', value: preferredTheme.colors?.bodyBackgroundDark },
+			{ property: '--theme-color-navbar-backgound', value: preferredTheme.colors?.navbarBackground },
+			{ property: '--theme-color-navbar-backgound-scrolled', value: preferredTheme.colors?.navbarBackgroundScrolled },
+			{ property: '--theme-color-navbar-border', value: preferredTheme.colors?.navbarBorder },
+			{ property: '--theme-color-link', value: preferredTheme.colors?.linkColor },
+			{ property: '--theme-color-link-hover', value: preferredTheme.colors?.linkHoverColor },
+			{ property: '--theme-box-shadow', value: preferredTheme.colors?.boxShadow },
+			{ property: '--theme-color-grey1', value: preferredTheme.colors?.Grey1 },
+			{ property: '--theme-color-grey2', value: preferredTheme.colors?.Grey2 },
+			{ property: '--theme-color-grey3', value: preferredTheme.colors?.Grey3 },
+			{ property: '--theme-color-grey4', value: preferredTheme.colors?.Grey4 },
+			{ property: '--theme-color-grey5', value: preferredTheme.colors?.Grey5 },
+			{ property: '--theme-color-grey6', value: preferredTheme.colors?.Grey6 },
+			{ property: '--theme-color-grey7', value: preferredTheme.colors?.Grey7 },
+			{ property: '--theme-color-grey8', value: preferredTheme.colors?.Grey8 },
+			{ property: '--theme-color-grey9', value: preferredTheme.colors?.Grey9 },
+			{ property: '--theme-color-grey10', value: preferredTheme.colors?.Grey10 },
+			{ property: '--theme-color-grey11', value: preferredTheme.colors?.Grey11 },
+			{ property: '--theme-color-grey12', value: preferredTheme.colors?.Grey12 },
+			{ property: '--theme-color-grey13', value: preferredTheme.colors?.Grey13 },
+			{ property: '--theme-color-grey14', value: preferredTheme.colors?.Grey14 },
+			{ property: '--theme-color-disabled', value: preferredTheme.colors?.disabledColour },
+			{ property: '--theme-color-danger', value: preferredTheme.colors?.danger },
+			{ property: '--theme-color-warning', value: preferredTheme.colors?.warning },
+			{ property: '--theme-color-info', value: preferredTheme.colors?.info },
+			{ property: '--theme-color-white', value: preferredTheme.colors?.white },
+			{ property: '--theme-color-black', value: preferredTheme.colors?.black },
+		]
+
+		for (const property of themeVariableMappings) {
+			setCssVariableById(elementId, property.property, property.value)
+		}
+
+		setCssVariableOnRoot('--theme-color-body-background-dark', preferredTheme.colors?.bodyBackgroundDark)
+
+	}, [darkTheme, elementId, prefersDark, theme])
+
+	return <div id={elementId}>
 		{children}
 	</div>
 }
@@ -98,6 +83,7 @@ export const theme: ThemeValues = {
 		navbarBorder: 'var(--theme-color-body-navbar-border)',
 		linkColor: 'var(--theme-color-link)',
 		linkHoverColor: 'var(--theme-color-link-hover)',
+		boxShadow: 'var(--theme-box-shadow)',
 		Grey1: 'var(--theme-color-grey1)',
 		Grey2: 'var(--theme-color-grey2)',
 		Grey3: 'var(--theme-color-grey3)',
@@ -119,4 +105,49 @@ export const theme: ThemeValues = {
 		white: 'var(--theme-color-white)',
 		black: 'var(--theme-color-black)',
 	}
+}
+
+function setCssVariableById(elementId: string, property: string, value: string) {
+	document.getElementById(elementId)?.style.setProperty(
+		property,
+		value
+	)
+}
+function setCssVariableOnRoot(property: string, value: string) {
+	document.documentElement?.style.setProperty(
+		property,
+		value
+	)
+}
+
+type ThemeVariableMapping = {
+	property: string,
+	value: string
+}
+
+/** JS to CSS Custom Property Mapping to support easy development */
+export type ThemeValues = {
+	colors: ThemeColors
+}
+
+type ThemeProviderProps = {
+	children: ReactNode
+
+	/** A theme object which will provide the theme values*/
+	theme: ThemeValues
+
+	/** A theme object which will be used if the user perfers a dark theme over a light theme  */
+	darkTheme?: ThemeValues
+}
+
+const makeId = () => {
+	const idLength = 6
+	let result = ''
+	const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+	const charactersLength = characters.length
+	for (let i = 0;i < idLength;i++) {
+		result += characters.charAt(Math.floor(Math.random() *
+			charactersLength))
+	}
+	return result
 }

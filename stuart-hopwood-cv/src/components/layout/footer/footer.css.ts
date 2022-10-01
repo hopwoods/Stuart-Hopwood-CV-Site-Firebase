@@ -2,6 +2,19 @@ import { mergeStyleSets } from '@fluentui/merge-styles'
 import { theme } from '../../../style/themeProvider'
 
 export const classes = mergeStyleSets({
+	themeToggle: {
+		placeSelf: 'center',
+		gridColumn: '1 / span 1',
+		gridRow: '2 / span 1',
+	},
+	navHeader: {
+		gridColumn: '1 / span 1',
+		gridRow: '1 / span 1',
+	},
+	navLinks: {
+		gridColumn: '1 / span 1',
+		gridRow: '3 / span 1',
+	},
 	footer: {
 		gridArea: 'footer',
 		justifySelf: 'stretch',
@@ -85,6 +98,10 @@ export const classes = mergeStyleSets({
 		gridRow: '1 / span 1',
 		justifySelf: 'center',
 		alignSelf: 'start',
+		display: 'grid',
+		gridTemplateRows: 'auto',
+		gridTemplateColumns: 'auto',
+		placeContent: 'center',
 
 		'@media(min-width: 2560px)': {
 			gridColumn: '1 / span 1',

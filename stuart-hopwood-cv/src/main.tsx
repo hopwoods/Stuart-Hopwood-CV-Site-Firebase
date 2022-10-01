@@ -4,12 +4,12 @@ import DataProvider from './components/database/dataProvider'
 import './index.css'
 import Router from './routes/router'
 import { materialTheme } from './style'
-import { defaultTheme } from './style/theme'
+import { darkTheme, defaultTheme } from './style/theme'
 import { ThemeProvider } from './style/themeProvider'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<MaterialThemeProvider theme={materialTheme}>
-		<ThemeProvider theme={defaultTheme}>
+		<ThemeProvider theme={defaultTheme} darkTheme={darkTheme}>
 			<DataProvider>
 				<Router />
 			</DataProvider>
