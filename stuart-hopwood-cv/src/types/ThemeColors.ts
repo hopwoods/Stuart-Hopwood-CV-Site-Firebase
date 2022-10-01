@@ -14,6 +14,8 @@ export type ThemeColors = {
   linkColor: string
   linkHoverColor: string
   boxShadow: string
+  toggleColor: string,
+  toggleColorActive: string,
   Grey1: string
   Grey2: string
   Grey3: string
