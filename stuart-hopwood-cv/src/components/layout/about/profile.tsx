@@ -2,8 +2,8 @@ import { domAnimation, LazyMotion, m, Variants } from 'framer-motion'
 import ProfilePicture200 from '../../../assets/ProfilePicture-200.webp'
 import ProfilePicture300 from '../../../assets/ProfilePicture-300.webp'
 import ProfilePicture400 from '../../../assets/ProfilePicture-400.webp'
-import { theme } from '../../../Hooks/useTheme'
 import { mediaQueries } from '../../../style'
+import { theme } from '../../../style/themeProvider'
 import Email from '../../controls/links/profile/email'
 import Location from '../../controls/links/profile/location'
 import PhoneNumber from '../../controls/links/profile/phoneNumber'
@@ -27,7 +27,7 @@ export const variants: Variants = {
 export default function Profile() {
 	return <>
 		<LazyMotion features={domAnimation}>
-			<m.section id="profile" layout initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: '0px 0px 0px 0px' }} transition={{ duration: 2 }} variants={variants} className={classes.profile}>
+			<m.section id="profile" layout initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: '0px 0px 0px 0px' }} transition={{ duration: 1 }} variants={variants} className={classes.profile}>
 				<div className="profilePicture">
 					<picture>
 						<source srcSet={ProfilePicture200} media={mediaQueries.small} type="image/webp" height="200" width="200" />
@@ -38,11 +38,11 @@ export default function Profile() {
 						<img alt="Stuart Hopwood" srcSet={ProfilePicture400} loading="lazy" />
 					</picture>
 				</div>
-				<Heading type="h2" color={theme.brandMedium} text="Hi, I'm Stuart Hopwood" />
+				<Heading type="h2" color={theme.colors.brandMedium} text="Hi, I'm Stuart Hopwood" />
 				<AboutText />
-				<PhoneNumber color={theme.Grey12} />
-				<Email color={theme.Grey12} />
-				<Location color={theme.Grey12} />
+				<PhoneNumber color={theme.colors.Grey12} />
+				<Email color={theme.colors.Grey12} />
+				<Location color={theme.colors.Grey12} />
 				<GithubRepo />
 				<SocialIcons />
 			</m.section>

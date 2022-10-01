@@ -1,14 +1,12 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { useTheme } from '../../../Hooks/useTheme'
-
-const themeColors = useTheme()
+import { theme } from '../../../style/themeProvider'
 
 export const classes = mergeStyleSets({
 	logoutLink: {
 		textDecoration: 'none',
-		color: themeColors.linkColor,
+		color: theme.colors.linkColor,
 		':hover': {
-			color: themeColors.linkHoverColor
+			color: theme.colors.linkHoverColor
 		}
 	}
 })

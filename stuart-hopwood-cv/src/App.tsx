@@ -2,6 +2,7 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import { motion } from 'framer-motion'
 import { HashLink } from 'react-router-hash-link'
 import './App.css'
+import { classes } from './App.css'
 import Button from './components/controls/buttons/button'
 import Waves from './components/layout/banner/waves'
 import Page from './components/layout/page/page'
@@ -35,7 +36,7 @@ function Banner() {
 				damping: 10
 			}} layout
 		>
-			<span>
+			<span className={classes.bannerText}>
 				Hello I&apos;m <motion.span animate={{ color: colors }} transition={{ repeat: Infinity, repeatType: 'reverse', duration: 3 }} className="name">Stuart Hopwood</motion.span>
 			</span>
 			<br />

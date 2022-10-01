@@ -1,18 +1,16 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { useTheme } from '../../../Hooks'
 import { FontFamilies } from '../../../style'
-
-const themeColors = useTheme()
+import { theme } from '../../../style/themeProvider'
 
 export const classes = mergeStyleSets({
 	menuLink: {
-		color: themeColors.text,
+		color: theme.colors.text,
 		fontFamily: FontFamilies.primary,
 		a: {
 			position: 'relative',
 			top: '-0.2rem',
 			'.active': {
-				color: themeColors.brandAccentColor,
+				color: theme.colors.brandAccentColor,
 			},
 			svg: {
 				marginRight: '1rem'

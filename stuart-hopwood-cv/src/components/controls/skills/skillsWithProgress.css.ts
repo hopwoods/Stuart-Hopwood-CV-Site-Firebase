@@ -1,7 +1,5 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { useTheme } from '../../../Hooks'
-
-const themeColors = useTheme()
+import { theme } from '../../../style/themeProvider'
 
 export const classes = mergeStyleSets({
 	skillsWithProgress: {
@@ -17,17 +15,17 @@ export const classes = mergeStyleSets({
 		top: '2px',
 
 		'.MuiCircularProgress-colorPrimary': {
-			color: themeColors.brandAccentColor
+			color: theme.colors.brandAccentColor
 		},
 		'.MuiCircularProgress-circle': {
 			strokeLinecap: 'round'
 		},
 		'.MuiTypography-colorTextSecondary': {
-			color: themeColors.text,
+			color: theme.colors.text,
 			fontWeight: 200
 		},
 		'.MuiTypography-root': {
-			color: themeColors.text,
+			color: theme.colors.text,
 			paddingTop: '2px',
 			paddingLeft: '2px',
 			fontSize: '0.7em'
@@ -41,9 +39,7 @@ export const classes = mergeStyleSets({
 		'.MuiLinearProgress-root': {
 			height: '9px',
 			borderRadius: '5px',
-			marginRight: '0.5em'
-
-			,
+			marginRight: '0.5em',
 			'@media(max-width: 768px)': {
 				marginRight: '0.7em'
 			},
@@ -53,16 +49,13 @@ export const classes = mergeStyleSets({
 			'@media(max-width: 425px)': {
 				marginRight: '1.25em'
 			},
-
-
 		},
 		'.MuiLinearProgress-colorPrimary': {
-			backgroundColor: themeColors.brandDark
+			backgroundColor: theme.colors.brandDark
 		},
 		'.MuiLinearProgress-bar': {
 			borderRadius: 5,
-			backgroundColor: themeColors.brandAccentColor,
-
+			backgroundColor: theme.colors.brandAccentColor,
 		}
 	},
 	nameStyle: {

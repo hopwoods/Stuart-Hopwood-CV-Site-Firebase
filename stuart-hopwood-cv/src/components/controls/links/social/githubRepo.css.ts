@@ -1,7 +1,5 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { theme } from '../../../../Hooks/useTheme'
-
-
+import { theme } from '../../../../style/themeProvider'
 
 export const classes = mergeStyleSets({
 	githubRepoLink: {
@@ -24,7 +22,7 @@ export const classes = mergeStyleSets({
 		display: 'inline-block',
 		marginLeft: '0.1em',
 		fontSize: '1.1em',
-		color: theme.brandAccentColor,
+		color: theme.colors.brandAccentColor,
 		textDecoration: 'none',
 		paddingBottom: '5px',
 		width: 'fit-content',

@@ -1,13 +1,16 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
 import React from 'react'
+import { theme } from '../../style/themeProvider'
 
 type HeaderProps = {
 	type: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
-	color: string,
+	color?: string,
 	text: string,
 	className?: string
 }
-export default function Heading({ type, color, text, className }: HeaderProps) {
+export default function Heading({ type, color, text, className, ...props }: HeaderProps) {
+	const headingColor = color ? color : theme.colors.colors?.brandAccentColor
+
 	const classes = mergeStyleSets({
 		container: {
 			textAlign: 'center',
@@ -18,7 +21,7 @@ export default function Heading({ type, color, text, className }: HeaderProps) {
 			placeItems: 'center'
 		},
 		header: {
-			color: `${color} !important`,
+			color: `${headingColor} !important`,
 			gridColumn: '1 /span 1',
 			gridRow: '1 / span 1',
 			display: 'grid',
@@ -28,7 +31,7 @@ export default function Heading({ type, color, text, className }: HeaderProps) {
 			placeItems: 'center'
 		},
 		line: {
-			borderTop: `0.3em solid ${color}`,
+			borderTop: `0.3em solid ${headingColor}`,
 			borderBottom: 0,
 			borderLeft: 0,
 			borderRight: 0,
@@ -53,7 +56,7 @@ export default function Heading({ type, color, text, className }: HeaderProps) {
 		return <h3 className={className}>{children}</h3>
 	}
 
-	return <div className={`${className} ${classes.container}`}>
+	return <div className={`${className} ${classes.container}`} {...props}>
 		<HeaderElement className={classes.header}>
 			<span>{text}</span>
 			<div className={classes.line} />

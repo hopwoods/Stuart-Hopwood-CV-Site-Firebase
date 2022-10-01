@@ -1,4 +1,4 @@
-import { useTheme } from '../../../Hooks/useTheme'
+import { theme } from '../../../style/themeProvider'
 import Email from '../../controls/links/profile/email'
 import Location from '../../controls/links/profile/location'
 import PhoneNumber from '../../controls/links/profile/phoneNumber'
@@ -11,7 +11,6 @@ import { classes } from './footer.css'
 import FooterNav from './footerNav'
 
 export default function Footer() {
-	const theme = useTheme()
 	const GetYear = () => {
 		const date = new Date()
 		return date.getFullYear()
@@ -20,17 +19,17 @@ export default function Footer() {
 	return (
 		<footer className={classes.footer}>
 			<section className={classes.menu}>
-				<Heading type="h4" color={theme.brandMedium} text="Menu" />
+				<Heading type="h4" color={theme.colors.brandMedium} text="Menu" />
 				<FooterNav />
 			</section>
 			<section className={classes.contact}>
-				<Heading type="h4" color={theme.brandMedium} text="Get In Touch" />
-				<PhoneNumber color={theme.Grey6} />
-				<Email color={theme.Grey6} />
-				<Location color={theme.Grey6} />
+				<Heading type="h4" color={theme.colors.brandMedium} text="Get In Touch" />
+				<PhoneNumber color={theme.colors.Grey6} />
+				<Email color={theme.colors.Grey6} />
+				<Location color={theme.colors.Grey6} />
 			</section>
 			<section className={classes.follow}>
-				<Heading type="h4" color={theme.brandMedium} text="Follow" />
+				<Heading type="h4" color={theme.colors.brandMedium} text="Follow" />
 				<div className={classes.socialLinks}>
 					<FacebookLink color="primary" size="medium" />
 					<GithubLink color="primary" size="medium" />

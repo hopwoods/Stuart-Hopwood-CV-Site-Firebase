@@ -1,5 +1,5 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { theme } from '../Hooks/useTheme'
+import { theme } from '../style/themeProvider'
 
 
 export const classes = mergeStyleSets({
@@ -16,12 +16,15 @@ export const classes = mergeStyleSets({
 		alignItems: 'start',
 
 		a: {
-			color: theme.linkColor,
+			color: theme.colors.linkColor,
 			textDecoration: 'none',
 
 			':hover': {
-				color: theme.linkHoverColor
+				color: theme.colors.linkHoverColor
 			}
 		}
+	},
+	heading: {
+		marginTop: '3rem'
 	}
 })
