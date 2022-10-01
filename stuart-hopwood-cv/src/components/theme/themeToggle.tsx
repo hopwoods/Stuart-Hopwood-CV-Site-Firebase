@@ -16,7 +16,7 @@ const classes = mergeStyleSets({
 	root: {
 		all: 'unset',
 		backgroundColor: 'transparent',
-		color: theme.colors.text,
+		color: theme.colors.toggleColor,
 		height: 35,
 		width: 35,
 		borderRadius: 4,
@@ -26,10 +26,10 @@ const classes = mergeStyleSets({
 		alignItems: 'center',
 		justifyContent: 'center',
 		'&:hover': {
-			backgroundColor: theme.colors.brandAccentColor
+			backgroundColor: theme.colors.toggleColorActive
 		},
 		'&[data-state=on]': {
-			color: theme.colors.brandAccentColor
+			color: theme.colors.toggleColorActive
 		},
 		'&:focus': { boxShadow: `0 0 0 2px ${theme.colors.boxShadow}` },
 	}
