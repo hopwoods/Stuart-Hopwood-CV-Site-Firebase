@@ -12,6 +12,7 @@ export function ThemeProvider({ children, theme, darkTheme }: ThemeProviderProps
 	})
 
 	useEffect(() => {
+
 		console.log(`Preferred Theme is ${prefersDark ? 'dark' : 'light'}`)
 		const preferredTheme = prefersDark && darkTheme ? darkTheme : theme
 

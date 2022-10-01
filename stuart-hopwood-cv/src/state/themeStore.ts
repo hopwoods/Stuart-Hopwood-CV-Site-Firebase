@@ -9,8 +9,7 @@ export type ThemeSlice = {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function createThemeStore(set: StoreApi<AppStore>['setState'], get: StoreApi<AppStore>['getState']): ThemeSlice {
 	return {
-		prefersDark: true,
-
+		prefersDark: window.matchMedia('(prefers-color-scheme: dark)').matches,
 		setPrefersDarkTheme: (value: boolean) => set({ prefersDark: value }),
 	}
 }
