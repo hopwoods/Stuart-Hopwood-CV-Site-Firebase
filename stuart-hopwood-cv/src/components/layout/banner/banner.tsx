@@ -1,5 +1,6 @@
 import { domMax, LazyMotion, m, Variants } from 'framer-motion'
 import { ReactNode } from 'react'
+import { ThemeToggle } from '../../theme/themeToggle'
 import { classes } from './banner.css'
 
 type BannerProps = {
@@ -33,6 +34,7 @@ export default function Banner({ id, fullscreen, children }: BannerProps) {
 			variants={variants}
 			id={id}
 			className={`${fullscreen ? classes.fullscreen : undefined} ${classes.banner}`}>
+			<ThemeToggle className={classes.themeToggle} />
 			{children}
 		</m.header>
 	</LazyMotion>

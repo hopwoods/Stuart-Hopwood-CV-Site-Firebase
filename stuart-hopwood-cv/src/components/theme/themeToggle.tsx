@@ -24,13 +24,21 @@ const classes = mergeStyleSets({
 		fontSize: 15,
 		lineHeight: 1,
 		alignItems: 'center',
-		justifyContent: 'center',
+		cursor: 'pointer',
 		'&:hover': {
-			backgroundColor: theme.colors.toggleColorActive
+			color: theme.colors.brandAccentColor,
+			transition: '0.5s'
 		},
 		'&[data-state=on]': {
 			color: theme.colors.toggleColorActive
+			, transition: '0.5s',
+
+			':hover': {
+				color: theme.colors.brandAccentColor,
+				transition: '0.5s'
+			}
+
 		},
-		'&:focus': { boxShadow: `0 0 0 2px ${theme.colors.boxShadow}` },
+		'&:focus-visible': { boxShadow: `0 0 0 2px ${theme.colors.boxShadow}` },
 	}
 })

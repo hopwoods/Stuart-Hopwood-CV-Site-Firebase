@@ -16,6 +16,7 @@ export default function TriangleDown({ color, backgroundColor }: Triangle) {
 			padding: 0,
 			margin: 0,
 			//marginTop: '3rem'
+			boxSizing: 'content-box'
 		}
 	})
 

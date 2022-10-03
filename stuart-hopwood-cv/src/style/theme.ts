@@ -3,28 +3,31 @@ import { ThemeValues } from './themeProvider'
 export const defaultTheme: ThemeValues = {
 	colors: {
 		text: '#333333',
-		subText: '#999999',
+		subText: '#666666',
 		textInverse: '#999999',
 
-		brandLight: '#cbf3f0',
-		brandMedium: '#ffbf69',
-		brandDark: '#023047',
-		brandAccentColor: '#2ec4b6',
+		brandLight: '#ffffff',
+		brandMedium: '#005f73',
+		brandDark: '#2ec4b6',
+		brandAccentColor: '#e85d04',
 
 		bodyBackground: '#ffffff',
-		bodyBackgroundDark: '#adc178',
+		bodyBackgroundDark: '#003844',
 
 		navbarBackground: '#023047',
 		navbarBackgroundScrolled: '#023047',
-		navbarBorder: '#fb8500',
+		navbarBorder: '#e85d04',
 
-		linkColor: '#fb8500',
+		linkColor: '#e85d04',
 		linkHoverColor: '#219ebc',
 
 		boxShadow: 'rgba(0,0,0,0.5)',
 
-                toggleColor: '#999999',
-                toggleColorActive: '#2ec4b6',
+		toggleColor: '#ffffff',
+		toggleColorActive: '#ffffff',
+
+		footerText: '#d5d5d5',
+		footerHeading: '#cbf3f0',
 
 		Grey1: '#222222',
 		Grey2: '#303030',
@@ -74,8 +77,11 @@ export const darkTheme: ThemeValues = {
 
 		boxShadow: 'rgba(0,0,0,0.5)',
 
-                toggleColor: '#999999',
-                toggleColorActive: '#fb8500',
+		toggleColor: '#ffffff',
+		toggleColorActive: '#ffffff',
+
+		footerText: '#d5d5d5',
+		footerHeading: '#219ebc',
 
 		Grey1: '#222222',
 		Grey2: '#303030',

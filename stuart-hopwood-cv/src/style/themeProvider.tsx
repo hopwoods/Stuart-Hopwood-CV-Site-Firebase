@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useMemo } from 'react'
 import { useAppStore } from '../state/appStore'
-import { ThemeColors } from '../types/ThemeColors'
+import { ThemeColors } from './ThemeColors'
 
 export function ThemeProvider({ children, theme, darkTheme }: ThemeProviderProps) {
 	const { prefersDark, setPrefersDarkTheme } = useAppStore()
@@ -32,9 +32,11 @@ export function ThemeProvider({ children, theme, darkTheme }: ThemeProviderProps
 			{ property: '--theme-color-link', value: preferredTheme.colors?.linkColor },
 			{ property: '--theme-color-link-hover', value: preferredTheme.colors?.linkHoverColor },
 			{ property: '--theme-box-shadow', value: preferredTheme.colors?.boxShadow },
-                        { property: '--theme-toggle-color', value: preferredTheme.colors?.toggleColor},
-                        { property: '--theme-toggle-color-active', value: preferredTheme.colors?.toggleColorActive },
-                        { property: '--theme-color-grey1', value: preferredTheme.colors?.Grey1 },
+			{ property: '--theme-toggle-color', value: preferredTheme.colors?.toggleColor },
+			{ property: '--theme-toggle-color-active', value: preferredTheme.colors?.toggleColorActive },
+			{ property: '--theme-footer-text', value: preferredTheme.colors?.footerText },
+			{ property: '--theme-footer-heading', value: preferredTheme.colors?.footerHeading },
+			{ property: '--theme-color-grey1', value: preferredTheme.colors?.Grey1 },
 			{ property: '--theme-color-grey2', value: preferredTheme.colors?.Grey2 },
 			{ property: '--theme-color-grey3', value: preferredTheme.colors?.Grey3 },
 			{ property: '--theme-color-grey4', value: preferredTheme.colors?.Grey4 },
@@ -86,8 +88,10 @@ export const theme: ThemeValues = {
 		linkColor: 'var(--theme-color-link)',
 		linkHoverColor: 'var(--theme-color-link-hover)',
 		boxShadow: 'var(--theme-box-shadow)',
-                toggleColor: 'var(--theme-toggle-color)',
-                toggleColorActive: 'var(--theme-toggle-color-active)',
+		toggleColor: 'var(--theme-toggle-color)',
+		toggleColorActive: 'var(--theme-toggle-color-active)',
+		footerText: 'var(--theme-footer-text)',
+		footerHeading: 'var(--theme-footer-heading)',
 		Grey1: 'var(--theme-color-grey1)',
 		Grey2: 'var(--theme-color-grey2)',
 		Grey3: 'var(--theme-color-grey3)',

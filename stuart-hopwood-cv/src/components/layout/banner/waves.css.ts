@@ -52,15 +52,15 @@ export const classes = mergeStyleSets({
 			animationDuration: '7s'
 		},
 		'> use:nth-child(2)': {
-			animationDelay: '-3s',
+			animationDelay: '-4s',
 			animationDuration: '10s'
 		},
 		'> use:nth-child(3)': {
-			animationDelay: '-4s',
+			animationDelay: '-1s',
 			animationDuration: '13s'
 		},
 		'> use:nth-child(4)': {
-			animationDelay: '-5s',
+			animationDelay: '-3s',
 			animationDuration: '16s'
 		},
 		'> use:nth-child(5)': {

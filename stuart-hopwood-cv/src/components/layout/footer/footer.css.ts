@@ -2,11 +2,6 @@ import { mergeStyleSets } from '@fluentui/merge-styles'
 import { theme } from '../../../style/themeProvider'
 
 export const classes = mergeStyleSets({
-	themeToggle: {
-		placeSelf: 'center',
-		gridColumn: '1 / span 1',
-		gridRow: '2 / span 1',
-	},
 	navHeader: {
 		gridColumn: '1 / span 1',
 		gridRow: '1 / span 1',
@@ -19,7 +14,7 @@ export const classes = mergeStyleSets({
 		gridArea: 'footer',
 		justifySelf: 'stretch',
 		backgroundColor: theme.colors.bodyBackgroundDark,
-		color: theme.colors.Grey10,
+		color: theme.colors.footerText,
 		padding: '0.4em',
 		fontSize: '0.9em',
 		fontWeight: 400,
@@ -65,8 +60,6 @@ export const classes = mergeStyleSets({
 			gridTemplateRows: '15rem auto',
 			gridTemplateColumns: 'repeat(3, 15em)',
 		}
-
-
 	},
 	copyright: {
 		gridColumn: '1 / span 1',
@@ -186,6 +179,7 @@ export const classes = mergeStyleSets({
 		display: 'grid',
 		gridTemplateRows: 'auto',
 		gridTemplateColumns: 'repeat(4,auto)',
+		fontSize: '0.6em'
 	}
 })
 
