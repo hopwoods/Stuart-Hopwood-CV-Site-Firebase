@@ -23,7 +23,6 @@ export const classes = mergeStyleSets({
 	banner: {
 		gridArea: 'banner',
 		padding: 0,
-		paddingTop: '1rem',
 		color: theme.colors.white,
 		fontSize: '1rem',
 		lineHeight: 1.3,
@@ -32,7 +31,7 @@ export const classes = mergeStyleSets({
 		height: 'fit-content',
 		display: 'grid',
 		gridTemplateColumns: '1fr',
-		gridTemplateRows: '0.5fr',
+		gridTemplateRows: '0.25fr 0.5fr',
 		gridRowGap: '3em',
 		justifyItems: 'center',
 		alignItems: 'start',
@@ -78,5 +77,11 @@ export const classes = mergeStyleSets({
 			fontSize: '1.5em',
 			backgroundSize: '200% 200%',
 		}
+	},
+	themeToggle: {
+		gridColumm: '1/span 1',
+		gridRow: '1/span 1',
+		justifySelf: 'end',
+		fontSize: '0.65em'
 	}
 })

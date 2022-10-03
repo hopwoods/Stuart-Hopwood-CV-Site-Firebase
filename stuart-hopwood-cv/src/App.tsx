@@ -37,7 +37,7 @@ function Banner() {
 			}} layout
 		>
 			<span className={classes.bannerText}>
-				Hello I&apos;m <motion.span animate={{ color: colors }} transition={{ repeat: Infinity, repeatType: 'reverse', duration: 3 }} className="name">Stuart Hopwood</motion.span>
+				Hello I&apos;m <motion.span animate={{ color: colors }} transition={{ repeat: Infinity, repeatType: 'reverse', duration: 3 }} className="name">Stuart Hopwood-Keay</motion.span>
 			</span>
 			<br />
 			<Titles />

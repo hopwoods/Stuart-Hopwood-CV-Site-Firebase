@@ -15,6 +15,7 @@ export const classes = mergeStyleSets({
 		placeSelf: 'start center',
 		justifyItems: 'center',
 		backgroundColor: theme.colors.bodyBackground,
+		gridGap: '3rem',
 
 		'.header': {
 			gridColumn: '1 / span 2',

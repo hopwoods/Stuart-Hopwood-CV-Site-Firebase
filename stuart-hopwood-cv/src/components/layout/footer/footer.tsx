@@ -1,12 +1,9 @@
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
 import { theme } from '../../../style/themeProvider'
 import Email from '../../controls/links/profile/email'
 import Location from '../../controls/links/profile/location'
 import PhoneNumber from '../../controls/links/profile/phoneNumber'
-import FacebookLink from '../../controls/links/social/facebookLink'
-import GithubLink from '../../controls/links/social/githubLink'
-import InstagramLink from '../../controls/links/social/instagramLink'
-import LinkedInLink from '../../controls/links/social/linkedInLink'
-import { ThemeToggle } from '../../theme/themeToggle'
+import { SocialLink, SocialLinkColors } from '../../controls/links/social/socialLink'
 import Heading from '../../typeography/heading'
 import { classes } from './footer.css'
 import FooterNav from './footerNav'
@@ -17,26 +14,32 @@ export default function Footer() {
 		return date.getFullYear()
 	}
 
+	const socialLinkColors: SocialLinkColors = {
+		container: theme.colors.bodyBackgroundDark,
+		containerHover: theme.colors.bodyBackground,
+		logo: theme.colors.brandAccentColor,
+		logoHover: theme.colors.bodyBackgroundDark
+	}
+
 	return (
 		<footer className={classes.footer}>
 			<section className={classes.menu}>
-				<Heading type="h4" color={theme.colors.brandMedium} text="Menu" className={classes.navHeader} />
-				<ThemeToggle className={classes.themeToggle} />
+				<Heading type="h4" color={theme.colors.footerHeading} text="Menu" className={classes.navHeader} />
 				<FooterNav />
 			</section>
 			<section className={classes.contact}>
-				<Heading type="h4" color={theme.colors.brandMedium} text="Get In Touch" />
-				<PhoneNumber color={theme.colors.Grey6} />
-				<Email color={theme.colors.Grey6} />
-				<Location color={theme.colors.Grey6} />
+				<Heading type="h4" color={theme.colors.footerHeading} text="Get In Touch" />
+				<PhoneNumber color={theme.colors.footerText} />
+				<Email color={theme.colors.footerText} />
+				<Location color={theme.colors.footerText} />
 			</section>
 			<section className={classes.follow}>
-				<Heading type="h4" color={theme.colors.brandMedium} text="Follow" />
+				<Heading type="h4" color={theme.colors.footerHeading} text="Follow" />
 				<div className={classes.socialLinks}>
-					<FacebookLink color="primary" size="medium" />
-					<GithubLink color="primary" size="medium" />
-					<LinkedInLink color="primary" size="medium" />
-					<InstagramLink color="primary" size="medium" />
+					<SocialLink url='https://github.com/hopwoods' aria-label="Stuart Hopwood-Keay Github Profile" logo={< FaGithub />} colors={socialLinkColors} />
+					<SocialLink url='https://www.linkedin.com/in/stuart-hopwood' aria-label="Stuart Hopwood-Keay LinkedIn profile" logo={<FaLinkedinIn />} colors={socialLinkColors} />
+					<SocialLink url='https://www.facebook.com/stoo.hopwood' aria-label="Stuart Hopwood-Keay Facebook page" logo={<FaFacebook />} colors={socialLinkColors} />
+					<SocialLink url='https://www.instagram.com/stoo.hopwood/' aria-label="Stuart Hopwood-Keay Instagram profile" logo={<FaInstagram />} colors={socialLinkColors} />
 				</div>
 			</section>
 			<section className={classes.copyright}>

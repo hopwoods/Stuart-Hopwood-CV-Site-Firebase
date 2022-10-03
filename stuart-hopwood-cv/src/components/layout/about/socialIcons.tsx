@@ -1,14 +1,8 @@
 import { domAnimation, LazyMotion, m, Variants } from 'framer-motion'
-import FacebookLink from '../../controls/links/social/facebookLink'
-import GithubLink from '../../controls/links/social/githubLink'
-import InstagramLink from '../../controls/links/social/instagramLink'
-import LinkedInLink from '../../controls/links/social/linkedInLink'
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
+import { theme } from '../../../style/themeProvider'
+import { SocialLink, SocialLinkColors } from '../../controls/links/social/socialLink'
 import { classes } from './socialIcons.css'
-
-// const FacebookLink = React.lazy(() => import('../../controls/links/social/facebookLink'))
-// const GithubLink = React.lazy(() => import('../../controls/links/social/githubLink'))
-// const LinkedInLink = React.lazy(() => import('../../controls/links/social/linkedInLink'))
-// const InstagramLink = React.lazy(() => import('../../controls/links/social/instagramLink'))
 
 export const iconVariants: Variants = {
 	offscreen: {
@@ -27,12 +21,20 @@ export const iconVariants: Variants = {
 }
 
 export default function SocialIcons() {
+
+	const socialLinkColors: SocialLinkColors = {
+		container: theme.colors.bodyBackground,
+		containerHover: theme.colors.bodyBackgroundDark,
+		logo: theme.colors.brandAccentColor,
+		logoHover: theme.colors.bodyBackground
+	}
+
 	return <LazyMotion features={domAnimation}>
 		<m.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }} className={`socialIcons ${classes.socialIcons}`}>
-			<FacebookLink color="primary" size="medium" />
-			<GithubLink color="primary" size="medium" />
-			<LinkedInLink color="primary" size="medium" />
-			<InstagramLink color="primary" size="medium" />
+			<SocialLink url='https://github.com/hopwoods' aria-label="Stuart Hopwood-Keay Github Profile" logo={< FaGithub />} colors={socialLinkColors} />
+			<SocialLink url='https://www.linkedin.com/in/stuart-hopwood' aria-label="Stuart Hopwood-Keay LinkedIn profile" logo={<FaLinkedinIn />} colors={socialLinkColors} />
+			<SocialLink url='https://www.facebook.com/stoo.hopwood' aria-label="Stuart Hopwood-Keay Facebook page" logo={<FaFacebook />} colors={socialLinkColors} />
+			<SocialLink url='https://www.instagram.com/stoo.hopwood/' aria-label="Stuart Hopwood-Keay Instagram profile" logo={<FaInstagram />} colors={socialLinkColors} />
 		</m.div>
 	</LazyMotion>
 };

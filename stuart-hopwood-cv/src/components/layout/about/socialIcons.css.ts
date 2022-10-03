@@ -1,5 +1,4 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
-import { theme } from '../../../style/themeProvider'
 
 export const classes = mergeStyleSets({
 	socialIcons: {
@@ -15,14 +14,6 @@ export const classes = mergeStyleSets({
 		alignItems: 'center',
 		justifyItems: 'center',
 		gridAutoFlow: 'dense',
-		placeSelf: 'center',
-
-		'.MuiIconButton-root': {
-			fontSize: '4em'
-		},
-
-		'.MuiIconButton-colorPrimary:hover': {
-			backgroundColor: theme.colors.Grey2
-		},
+		placeSelf: 'center'
 	}
 })

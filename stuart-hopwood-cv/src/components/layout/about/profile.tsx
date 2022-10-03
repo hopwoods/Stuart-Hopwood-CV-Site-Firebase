@@ -40,9 +40,9 @@ export default function Profile() {
 				</div>
 				<Heading type="h2" color={theme.colors.brandMedium} text="Hi, I'm Stuart Hopwood" />
 				<AboutText />
-				<PhoneNumber color={theme.colors.Grey12} />
-				<Email color={theme.colors.Grey12} />
-				<Location color={theme.colors.Grey12} />
+				<PhoneNumber color={theme.colors.subText} />
+				<Email color={theme.colors.subText} />
+				<Location color={theme.colors.subText} />
 				<GithubRepo />
 				<SocialIcons />
 			</m.section>
