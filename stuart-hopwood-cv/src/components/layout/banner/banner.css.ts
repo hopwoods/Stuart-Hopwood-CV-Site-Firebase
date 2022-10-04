@@ -82,6 +82,6 @@ export const classes = mergeStyleSets({
 		gridColumm: '1/span 1',
 		gridRow: '1/span 1',
 		justifySelf: 'end',
-		fontSize: '0.65em'
+		fontSize: '0.4em'
 	}
 })

@@ -12,9 +12,17 @@ export function ThemeProvider({ children, theme, darkTheme }: ThemeProviderProps
 	})
 
 	useEffect(() => {
-
 		console.log(`Preferred Theme is ${prefersDark ? 'dark' : 'light'}`)
-		const preferredTheme = prefersDark && darkTheme ? darkTheme : theme
+		let preferredTheme: ThemeValues
+
+		const localStoragePreference = sessionStorage.getItem('theme')
+		if (localStoragePreference !== null) {
+			preferredTheme = localStoragePreference === 'dark' && darkTheme ? darkTheme : theme
+		} else {
+			preferredTheme = prefersDark && darkTheme ? darkTheme : theme
+		}
+
+
 
 		const themeVariableMappings: ThemeVariableMapping[] = [
 			{ property: '--theme-color-text', value: preferredTheme.colors?.text },
