@@ -21,9 +21,9 @@ const classes = mergeStyleSets({
 		width: 35,
 		borderRadius: 4,
 		display: 'flex',
-		fontSize: 15,
 		lineHeight: 1,
 		alignItems: 'center',
+		margin: '0.3em',
 		cursor: 'pointer',
 		'&:hover': {
 			color: theme.colors.brandAccentColor,
