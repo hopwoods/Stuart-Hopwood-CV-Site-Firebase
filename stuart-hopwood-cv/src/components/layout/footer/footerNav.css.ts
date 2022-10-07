@@ -8,9 +8,11 @@ export const classes = mergeStyleSets({
 		display: 'grid',
 		gridTemplateRows: 'auto',
 		gridTemplateColumns: '0.33fr 0.33fr',
+		gridAutoFlow: 'column',
 		fontSize: '1.1em',
 		placeItems: 'center',
 		gridGap: '0.75em',
+
 		'a': {
 			display: 'block',
 			marginBotton: '1em',
@@ -21,6 +23,7 @@ export const classes = mergeStyleSets({
 				color: theme.colors.linkHoverColor
 			}
 		},
+
 		'svg': {
 			color: theme.colors.brandDark,
 			position: 'relative',

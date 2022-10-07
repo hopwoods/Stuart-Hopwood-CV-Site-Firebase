@@ -9,6 +9,6 @@ export const classes = mergeStyleSets({
 	},
 	'span.name': {
 		fontWeight: 400,
-		textShadow: '0px 0px 5px rgba(0, 0, 0, 0.75)'
-	},
+		textShadow: '0px 0px 5px rgba(0, 0, 0, 0.75)',
+	}
 })
