@@ -24,7 +24,10 @@ export const defaultTheme: ThemeValues = {
 		boxShadow: 'rgba(0,0,0,0.5)',
 
 		toggleColor: '#ffffff',
-		toggleColorActive: '#ffffff',
+		toggleColorActive: '#e85d04',
+
+		buttonColor: 'rgba(232, 93, 4,0.75)',
+		buttonColorActive: '#005f73',
 
 		footerText: '#d5d5d5',
 		footerHeading: '#cbf3f0',
@@ -79,6 +82,9 @@ export const darkTheme: ThemeValues = {
 
 		toggleColor: '#ffffff',
 		toggleColorActive: '#ffffff',
+
+		buttonColor: 'rgba(255,255,255,0.75)',
+		buttonColorActive: '#fb8500',
 
 		footerText: '#d5d5d5',
 		footerHeading: '#219ebc',

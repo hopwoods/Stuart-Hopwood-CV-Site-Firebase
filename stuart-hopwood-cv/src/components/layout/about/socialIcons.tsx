@@ -30,7 +30,7 @@ export default function SocialIcons() {
 	}
 
 	return <LazyMotion features={domAnimation}>
-		<m.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }} className={`socialIcons ${classes.socialIcons}`}>
+		<m.div initial="offscreen" whileInView="onscreen" viewport={{ once: true, margin: '100px 0px 0px 0px' }} className={`socialIcons ${classes.socialIcons}`}>
 			<SocialLink variants={iconVariants} url='https://github.com/hopwoods' aria-label="Stuart Hopwood-Keay Github Profile" logo={< FaGithub />} colors={socialLinkColors} />
 			<SocialLink variants={iconVariants} url='https://www.linkedin.com/in/stuart-hopwood' aria-label="Stuart Hopwood-Keay LinkedIn profile" logo={<FaLinkedinIn />} colors={socialLinkColors} />
 			<SocialLink variants={iconVariants} url='https://www.facebook.com/stoo.hopwood' aria-label="Stuart Hopwood-Keay Facebook page" logo={<FaFacebook />} colors={socialLinkColors} />

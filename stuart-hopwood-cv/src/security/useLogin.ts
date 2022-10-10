@@ -74,6 +74,7 @@ export function useLogin() {
 	])
 
 	const signIn = useCallback(async () => {
+		console.log('Signing in...')
 		setAuthenticating(true)
 		sessionStorage.setItem('authPending', 'true')
 		await signInWithRedirect(auth, provider)

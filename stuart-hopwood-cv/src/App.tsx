@@ -1,9 +1,7 @@
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
 import { motion } from 'framer-motion'
-import { HashLink } from 'react-router-hash-link'
 import './App.css'
 import { classes } from './App.css'
-import Button from './components/controls/buttons/button'
+import LinkButton from './components/controls/buttons/linkButton'
 import Waves from './components/layout/banner/waves'
 import Page from './components/layout/page/page'
 import Titles from './components/typeography/titles'
@@ -42,9 +40,9 @@ function Banner() {
 			<br />
 			<Titles />
 		</motion.p>
-		<Button className="about" variant="outlined" color="secondary" endIcon={<ArrowDownwardIcon />} component={HashLink} to="/#about" smooth>
+		<LinkButton className="about" href='#about'>
 			Find Out More
-		</Button>
+		</LinkButton>
 		<Waves />
 	</>
 	)

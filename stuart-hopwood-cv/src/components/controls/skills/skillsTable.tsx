@@ -80,9 +80,8 @@ export default function SkillsTable({ rows }: SkillsTableProps) {
 						skillName={params.row?.skillName}
 						percentage={params.row?.percentage}
 						skillExamples={params.row?.skillExamples}
-						color="primary"
-						size="small" />
-					<DeleteButton onClickHandler={async () => await onClickHandler(params.row?.id)} color="primary" size="small" />
+					/>
+					<DeleteButton onClickHandler={async () => await onClickHandler(params.row?.id)} size="sm" />
 				</>
 			},
 			sortable: false,

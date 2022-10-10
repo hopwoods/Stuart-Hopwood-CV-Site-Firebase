@@ -16,6 +16,8 @@ export type ThemeColors = {
   boxShadow: string
   toggleColor: string
   toggleColorActive: string
+  buttonColor: string
+  buttonColorActive: string
   footerText: string
   footerHeading: string
   Grey1: string

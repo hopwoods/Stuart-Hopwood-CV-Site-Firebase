@@ -36,7 +36,7 @@ export default function AdminSkills() {
 						:
 						<div className={classes.manageSkills}>
 							<h3 className={classes.title}>Manage Skills</h3>
-							<AddSkillButton color="primary" size="medium" />
+							<AddSkillButton />
 							<AddSkillDialog />
 							<SkillsTable rows={skills} />
 							<EditSkillDialog />

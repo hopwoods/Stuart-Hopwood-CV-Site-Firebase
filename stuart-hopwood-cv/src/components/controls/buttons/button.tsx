@@ -1,11 +1,16 @@
-import { Button as MuiButton, ButtonProps } from '@mui/material'
 import { classes } from './button.css'
 
-export const Button = <C extends React.ElementType>(props: ButtonProps<C, { component?: C }>) => {
-	const classNames = `${classes.button} ${props.className}`
-	return <MuiButton  {...props} className={classNames}>
-		{props.children}
-	</MuiButton>
+export type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
+	children?: React.ReactNode
+	size?: 'sm' | 'md'
+}
+
+export function Button({ size = 'md', children, className, ...props }: ButtonProps) {
+	const sizeClass = size === 'sm' ? classes.buttonSmall : undefined
+	const classNames = `${classes.button} ${className} ${sizeClass}`
+	return <button className={classNames} {...props}>
+		{children}
+	</button>
 }
 
 export default Button
