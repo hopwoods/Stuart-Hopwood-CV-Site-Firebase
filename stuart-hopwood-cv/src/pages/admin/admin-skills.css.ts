@@ -2,6 +2,8 @@ import { mergeStyleSets } from '@fluentui/merge-styles'
 
 export const classes = mergeStyleSets({
 	manageSkills: {
+		padding: '2em',
+		paddingTop: '0.5rem',
 		gridColumn: '2 / span 1',
 		gridRow: '1 / span 1',
 		justifySelf: 'stretch',

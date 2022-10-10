@@ -1,10 +1,12 @@
 import { mergeStyleSets } from '@fluentui/merge-styles'
+import { motion, Variants } from 'framer-motion'
 
 type SocialLinkProps = {
 	url: string
 	logo: React.ReactNode
 	target?: string,
-	colors: SocialLinkColors
+	colors: SocialLinkColors,
+	variants?: Variants
 }
 
 export type SocialLinkColors = {
@@ -14,7 +16,7 @@ export type SocialLinkColors = {
 	logoHover: string
 }
 
-export function SocialLink({ url, logo, target, colors }: SocialLinkProps) {
+export function SocialLink({ url, logo, target, colors, variants }: SocialLinkProps) {
 
 	const classes = mergeStyleSets({
 		root: {
@@ -59,8 +61,8 @@ export function SocialLink({ url, logo, target, colors }: SocialLinkProps) {
 	})
 
 	return <div id="social-link-root" className={classes.root}>
-		<a className={classes.logoContainer} href={url} target={target ? target : '_blank'} rel="noreferrer">
+		<motion.a variants={variants} className={classes.logoContainer} href={url} target={target ? target : '_blank'} rel="noreferrer">
 			{logo}
-		</a>
+		</motion.a>
 	</div>
 }

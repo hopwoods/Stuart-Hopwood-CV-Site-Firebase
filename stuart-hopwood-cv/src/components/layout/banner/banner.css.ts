@@ -18,7 +18,8 @@ export const up = keyframes({
 
 export const classes = mergeStyleSets({
 	fullscreen: {
-		height: '100vh !important'
+		height: '100vh !important',
+		gridRowGap: '3em',
 	},
 	banner: {
 		gridArea: 'banner',
@@ -32,7 +33,7 @@ export const classes = mergeStyleSets({
 		display: 'grid',
 		gridTemplateColumns: '1fr',
 		gridTemplateRows: '0.25fr 0.5fr',
-		gridRowGap: '3em',
+		gridRowGap: '1em',
 		justifyItems: 'center',
 		alignItems: 'start',
 		textAlign: 'center',
@@ -40,7 +41,7 @@ export const classes = mergeStyleSets({
 		fontWeight: 300,
 		backgroundSize: '150% 150%',
 		p: {
-			alignSelf: 'end',
+			alignSelf: 'center',
 			lineHeight: '1.3'
 		},
 		'button.about': {

@@ -16,7 +16,7 @@ export default function Footer() {
 
 	const socialLinkColors: SocialLinkColors = {
 		container: theme.colors.bodyBackgroundDark,
-		containerHover: theme.colors.bodyBackground,
+		containerHover: theme.colors.brandMedium,
 		logo: theme.colors.brandAccentColor,
 		logoHover: theme.colors.bodyBackgroundDark
 	}

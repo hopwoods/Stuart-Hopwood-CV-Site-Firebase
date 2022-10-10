@@ -5,9 +5,6 @@ import { SkillExampleProps } from '../../../types'
 import DeleteButton from '../buttons/deleteButton'
 import { classes } from './skillExampleInput.css'
 
-// const TextField = React.lazy(() => import('@mui/material/TextField'))
-// const DeleteButton = React.lazy(() => import('../buttons/deleteButton'))
-
 export default function SkillExampleInput({ skillExample: example }: { skillExample: SkillExampleProps }) {
 
 	const { makeId } = useFirestore()
@@ -31,7 +28,7 @@ export default function SkillExampleInput({ skillExample: example }: { skillExam
 			defaultValue={example.text}
 			placeholder="Enter an example..."
 		/>
-		<DeleteButton cssStyle={classes.deleteButton} color="primary" size="small" onClickHandler={() => onDeleteExampleClickHandler(id)} />
+		<DeleteButton className={classes.deleteButton} size='sm' onClickHandler={() => onDeleteExampleClickHandler(id)} />
 	</div>
 }
 

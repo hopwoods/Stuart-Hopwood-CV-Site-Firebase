@@ -1,11 +1,10 @@
 //import { Button } from '@mui/material'
-import { FaPlusCircle } from 'react-icons/fa'
 import { useAppStore } from '../../../state/appStore'
-import { AddSkillButtonProps, SkillProps } from '../../../types'
+import { SkillButtonProps, SkillProps } from '../../../types'
 import Button from './button'
 
 
-export default function AddSkillButton({ color, size }: AddSkillButtonProps) {
+export default function AddSkillButton({ size }: SkillButtonProps) {
 
 	const { setAddDialogState, setCurrentSkill } = useAppStore()
 
@@ -19,7 +18,7 @@ export default function AddSkillButton({ color, size }: AddSkillButtonProps) {
 		setAddDialogState(true)
 	}
 
-	return <Button color={color} size={size} aria-label="Edit Skill" variant="contained" onClick={async () => await onClickHandler()} startIcon={<FaPlusCircle />}>
+	return <Button aria-label="Edit Skill" onClick={async () => await onClickHandler()} size={size}>
 		Add Skill
 	</Button>
 }

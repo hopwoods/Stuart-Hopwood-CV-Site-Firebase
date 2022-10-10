@@ -1,4 +1,4 @@
-import { domMax, LazyMotion, m, Variants } from 'framer-motion'
+import { domAnimation, LazyMotion, m, Variants } from 'framer-motion'
 import { ReactNode } from 'react'
 import { ThemeToggle } from '../../theme/themeToggle'
 import { classes } from './banner.css'
@@ -23,7 +23,7 @@ const variants: Variants = {
 }
 
 export default function Banner({ id, fullscreen, children }: BannerProps) {
-	return <LazyMotion features={domMax}>
+	return <LazyMotion features={domAnimation}>
 		<m.header
 			layout
 			initial="start"

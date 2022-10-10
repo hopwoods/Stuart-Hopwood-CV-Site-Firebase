@@ -1,11 +1,10 @@
-import IconButton from '@mui/material/IconButton'
 import { FaTrashAlt } from 'react-icons/fa'
 import { SkillButtonProps } from '../../../types'
+import Button from './button'
 
-//const IconButton = React.lazy(() => import('@mui/material/IconButton'))
 
-export default function DeleteButton({ color, size, onClickHandler, cssStyle }: SkillButtonProps) {
-	return <IconButton className={cssStyle} color={color} size={size} aria-label="Edit Skill" onClick={onClickHandler}>
+export default function DeleteButton({ size, onClickHandler }: SkillButtonProps) {
+	return <Button size={size} aria-label="Edit Skill" onClick={onClickHandler}>
 		<FaTrashAlt />
-	</IconButton>
+	</Button>
 }
