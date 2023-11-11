@@ -20,7 +20,7 @@
     "@radix-ui/react-toggle": "^1.0.0",
     "@types/react-html-parser": "^2.0.2",
     "@types/react-router-hash-link": "^2.4.5",
-    "axios": "^0.27.2",
+    "axios": "^1.6.0",
     "eslint-config-prettier": "^8.5.0",
     "firebase": "^9.10.0",
     "firebaseui": "^6.0.1",
